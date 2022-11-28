@@ -1,24 +1,17 @@
 import { babel } from '@rollup/plugin-babel';
 import nodeResolve from '@rollup/plugin-node-resolve';
-//import typescript from '@rollup/plugin-typescript/types/index.d.ts';
-import commonjs from '@rollup/plugin-commonjs';
-
-// import typescript from "rollup-plugin-typescript2";
-
-
 import postcss from 'rollup-plugin-postcss';
 import typescript from "@rollup/plugin-typescript";
 
 const extensions = [ 'js', 'jsx', 'ts', 'tsx', 'mjs' ];
 const config =  {
-    input: "./src/index.js",
+    input: "./src/index.ts",
     output: {
         file: "./dist/bundle.js",
         format: "es",
         sourcemap: true,
     },
     plugins: [
-        commonjs(),
         nodeResolve({extensions}),
         babel({
             babelHelpers: "bundled",
