@@ -1,17 +1,16 @@
 {
   "compilerOptions": {
     "target": "es5",
-//    "forceConsistentCasingInFileNames": true,
     "strict": true,
     "jsx": "react",
     "module": "ESNext",
-//    "declaration": true,
-//    "declarationDir": "./dist",
-//    "sourceMap": false,
-//    "outDir": "./dist",
+    "declaration": true,
+    "declarationDir": "./dist",
+    "sourceMap": true,
+    "outDir": "./dist",
     "moduleResolution": "node",
-//    "allowSyntheticDefaultImports": true,
-//    "emitDeclarationOnly": true,
+    "allowSyntheticDefaultImports": true,
+    "emitDeclarationOnly": true,
   },
   "include": [
     "./src/**/*"
