@@ -1,9 +1,7 @@
 import React from 'react';
 
-const Hello: React.FC = () => {
-    return <div>
+export const Hello: React.FC = () => {
+    return <div className="bg-green-800">
         Hello World!
     </div>
 }
-
-export default Hello;

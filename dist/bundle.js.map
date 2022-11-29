@@ -1,1 +1,1 @@
-{"version":3,"file":"bundle.js","sources":[],"sourcesContent":[],"names":[],"mappings":""}
+{"version":3,"file":"bundle.js","sources":["../src/Hello.tsx"],"sourcesContent":[null],"names":["Hello","React","createElement","className"],"mappings":";;AAEaA,IAAAA,KAAK,GAAa,SAAlBA,KAAK,GAAa;AAC3B,EAAA,oBAAOC,KAAK,CAAAC,aAAA,CAAA,KAAA,EAAA;AAAAC,IAAAA,SAAS,EAAC,cAAA;oBAEhB,CAAA;AACV;;;;"}
