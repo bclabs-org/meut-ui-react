@@ -3,14 +3,11 @@
     "target": "es5",
     "strict": true,
     "jsx": "react",
-    "module": "ESNext",
-    "declaration": true,
-    "declarationDir": "./type",
+    "module": "ES2015",
     "sourceMap": true,
-    "outDir": "dist",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
-    "emitDeclarationOnly": true,
+    "noImplicitAny": false
   },
   "include": [
     "./src/**/*"
