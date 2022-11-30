@@ -5,6 +5,8 @@
     "jsx": "react",
     "module": "ES2015",
     "sourceMap": true,
+    "declaration": true,
+    "outDir": "dist",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "noImplicitAny": false
