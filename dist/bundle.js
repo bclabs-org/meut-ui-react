@@ -1,10 +1,11 @@
 import React from 'react';
 
-var Hello = function Hello() {
+var Test = function Test(_a) {
+  var children = _a.children;
   return /*#__PURE__*/React.createElement("div", {
     className: "bg-green-800"
-  }, "Hello World!");
+  }, children);
 };
 
-export { Hello };
+export { Test };
 //# sourceMappingURL=bundle.js.map
