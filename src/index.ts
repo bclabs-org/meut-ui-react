@@ -1,3 +1,5 @@
 import './index.css'
 
-export * from './Hello';
+import Test from "./components/test";
+
+export {Test};

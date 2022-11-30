@@ -1,7 +1,9 @@
 import React from 'react';
-
-export const Hello: React.FC = () => {
+type TestProps = {
+    children: React.ReactNode
+}
+export const Test: React.FC<TestProps> = ({children}) => {
     return <div className="bg-green-800">
-        Hello World!
+        {children}
     </div>
 }
