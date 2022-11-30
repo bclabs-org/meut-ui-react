@@ -3,7 +3,7 @@ import { dirname, resolve } from 'path';
 import { fileURLToPath } from 'url';
 import nodeResolve from '@rollup/plugin-node-resolve';
 import postcss from 'rollup-plugin-postcss';
-import typescript from "@rollup/plugin-typescript";
+import typescript from "rollup-plugin-typescript2";
 
 const extensions = [ 'js', 'jsx', 'ts', 'tsx', 'mjs' ];
 
@@ -29,7 +29,7 @@ const config =  {
             exclude: "node_modules/**",
             extensions
         }),
-        typescript({tsconfig: './tsconfig.json'}),
+        typescript({tsconfig: 'tsconfig.json'}),
         postcss({
             extract: true,
             modules: true,
