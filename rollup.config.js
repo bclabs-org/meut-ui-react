@@ -33,8 +33,8 @@ const config =  {
         commonjs({include: /node_modules/}),
         typescript({ useTsconfigDeclarationDir: true }),
         postcss({
+            minimize: true,
             extract: true,
-            modules: true,
             sourceMap: false,
             use: ['sass'],
         }),
