@@ -33,7 +33,11 @@ const config =  {
         commonjs({include: /node_modules/}),
         typescript({ useTsconfigDeclarationDir: true }),
         postcss({
+            config:{
+                path: resolve(__dirname, "./postcss.config.js"),
+            },
             minimize: true,
+            inject: 'top',
             extract: true,
             sourceMap: false,
             use: ['sass'],
