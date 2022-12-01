@@ -4,6 +4,7 @@ import { fileURLToPath } from 'url';
 import nodeResolve from '@rollup/plugin-node-resolve';
 import postcss from 'rollup-plugin-postcss';
 import typescript from "rollup-plugin-typescript2";
+import commonjs from "@rollup/plugin-commonjs";
 
 const extensions = [ 'js', 'jsx', 'ts', 'tsx', 'mjs' ];
 
@@ -25,19 +26,20 @@ const config =  {
     plugins: [
         nodeResolve({extensions}),
         babel({
-            babelHelpers: "bundled",
+            babelHelpers: "runtime",
             exclude: "node_modules/**",
             extensions
         }),
-        typescript({tsconfig: 'tsconfig.json'}),
+        commonjs({include: /node_modules/}),
+        typescript({ useTsconfigDeclarationDir: true }),
         postcss({
             extract: true,
             modules: true,
             sourceMap: false,
             use: ['sass'],
-        })
+        }),
     ],
-    external: ["react", "react-dom", "typescript"]
+    external: ["react", "react-dom", "typescript", '@babel/runtime']
 };
 
 export default config;
