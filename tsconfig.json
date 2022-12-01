@@ -1,21 +1,23 @@
 {
   "compilerOptions": {
+    "declaration": true,
+    "declarationDir": "./lib",
     "target": "es5",
     "strict": true,
     "jsx": "react",
     "module": "ES2015",
     "sourceMap": true,
-    "declaration": true,
-    "outDir": "dist",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
-    "noImplicitAny": false
+    "noImplicitAny": false,
+    "typeRoots": ["@types"]
   },
   "include": [
-    "./src/**/*"
+    "**/*.tsx", "**/*.ts", "@types", "index.ts"
   ],
   "exclude": [
     "./dist",
+    "./lib",
     "./node_modules",
     "./src/**/*.test.tsx",
     "./src/**/*.stories.tsx",
