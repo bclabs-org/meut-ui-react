@@ -31,6 +31,7 @@ export default  {
             extract: true,
             sourceMap: false,
             use: ['sass'],
+            modules: false
         }),
         babel({
             babelHelpers: "runtime",
