@@ -1,2 +1,2 @@
-import { Test } from "./Test";
-export default Test;
+import { TestButton } from "./TestButton";
+export default TestButton;
