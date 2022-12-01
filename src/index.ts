@@ -1,4 +1,4 @@
-import "../dist/output.css"
+import './index.css';
 import TestButton from "./components/test";
 
 export { TestButton };
