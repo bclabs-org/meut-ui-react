@@ -34,7 +34,7 @@ export default  {
             modules: false
         }),
         babel({
-            babelHelpers: "runtime",
+            babelHelpers: "bundled",
             exclude: "node_modules/**",
             extensions,
         }),
@@ -42,5 +42,5 @@ export default  {
         typescript({ useTsconfigDeclarationDir: true }),
         nodeResolve({extensions}),
     ],
-    external: ["react", "react-dom", "typescript", '@babel/runtime']
+    external: ["react", "react-dom", "typescript"]
 };
