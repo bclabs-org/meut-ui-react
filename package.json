@@ -2,7 +2,7 @@
   "name": "meut-ui-react",
   "version": "0.0.1",
   "scripts": {
-    "build": "rm -rf dist && rm -rf lib && npx tailwindcss -i ./src/components/index.css -o ./dist/output.css && rollup -c",
+    "build": "rm -rf dist && rm -rf lib && rollup -c",
     "watch": "rollup -cw"
   },
   "main": "dist/bundle.js",
