@@ -12,7 +12,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const paths = {
-    input: resolve(__dirname, "./src/index.ts"),
+    input: resolve(__dirname, "./src/components/index.ts"),
     file: resolve(__dirname, "./dist/bundle.js"),
 };
 
