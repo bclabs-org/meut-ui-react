@@ -1,4 +1,6 @@
 import React from 'react';
+import '../../index.css'
+
 type TestProps = {
     children: React.ReactNode
 }
