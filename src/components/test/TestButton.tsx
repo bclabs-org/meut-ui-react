@@ -4,8 +4,8 @@ import '../../index.css'
 type TestProps = {
     children: React.ReactNode
 }
-export const Test: React.FC<TestProps> = ({children}) => {
-    return <div className="bg-green-800">
+export const TestButton: React.FC<TestProps> = ({children}) => {
+    return <button className="bg-green-800">
         {children}
-    </div>
+    </button>
 }
