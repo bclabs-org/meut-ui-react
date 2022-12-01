@@ -1,3 +1,3 @@
 import './index.css';
-import TestButton from "./components/test";
+import TestButton from "./test";
 export { TestButton };
