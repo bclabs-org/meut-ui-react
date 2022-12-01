@@ -1,2 +1,2 @@
-import e from"react";var r=function(r){var t=r.children;return e.createElement("button",{className:"bg-green-800 hover:bg-cyan-600"},t)};export{r as TestButton};
+import"output.css";import r from"react";var e=function(e){var t=e.children;return r.createElement("button",{className:"bg-green-800 hover:bg-cyan-600"},t)};export{e as TestButton};
 //# sourceMappingURL=bundle.js.map
