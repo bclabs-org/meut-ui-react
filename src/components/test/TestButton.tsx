@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../../dist/output.css'
+
 type TestProps = {
     children: React.ReactNode
 }
