@@ -1,3 +1,3 @@
-import {Test} from "./Test";
+import {TestButton} from "./TestButton";
 
-export default Test;
+export default TestButton;

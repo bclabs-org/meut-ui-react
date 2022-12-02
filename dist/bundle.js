@@ -1,11 +1,2 @@
-import React from 'react';
-
-var Test = function Test(_ref) {
-    var children = _ref.children;
-    return /*#__PURE__*/ React.createElement("div", {
-        className: "bg-green-800"
-    }, children);
-};
-
-export { Test };
+import e from"react";var r=function(r){var t=r.children;return e.createElement("button",{style:{border:"2px dotted red;"},className:"bg-green-800 hover:bg-cyan-600"},t)};export{r as TestButton};
 //# sourceMappingURL=bundle.js.map

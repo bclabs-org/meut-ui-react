@@ -1,5 +1,4 @@
 import './index.css'
+import TestButton from "./components/test";
 
-import Test from "./components/test";
-
-export {Test};
+export { TestButton };

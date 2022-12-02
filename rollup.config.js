@@ -4,6 +4,7 @@ import { fileURLToPath } from 'url';
 import nodeResolve from '@rollup/plugin-node-resolve';
 import postcss from 'rollup-plugin-postcss';
 import typescript from "rollup-plugin-typescript2";
+import terser from "@rollup/plugin-terser";
 
 const extensions = [ 'js', 'jsx', 'ts', 'tsx', 'mjs' ];
 
@@ -15,7 +16,7 @@ const paths = {
     file: resolve(__dirname, "./dist/bundle.js"),
 };
 
-const config =  {
+export default  {
     input: paths.input,
     output: {
         file: paths.file,
@@ -23,21 +24,22 @@ const config =  {
         sourcemap: true,
     },
     plugins: [
-        nodeResolve({extensions}),
-        babel({
-            babelHelpers: "bundled",
-            exclude: "node_modules/**",
-            extensions
-        }),
-        typescript({tsconfig: 'tsconfig.json'}),
         postcss({
+            extensions: ['.css'],
+            minimize: true,
+            inject: 'top',
             extract: true,
-            modules: true,
             sourceMap: false,
             use: ['sass'],
-        })
+        }),
+        babel({
+            babelHelpers: "runtime",
+            exclude: "node_modules/**",
+            extensions,
+        }),
+        terser(),
+        typescript({ useTsconfigDeclarationDir: true }),
+        nodeResolve({extensions}),
     ],
-    external: ["react", "react-dom", "typescript"]
+    external: ["react", "react-dom", "typescript", '@babel/runtime']
 };
-
-export default config;
