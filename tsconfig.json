@@ -3,6 +3,7 @@
     "declaration": true,
     "declarationDir": "./lib",
     "target": "es5",
+    "baseUrl": "dist",
     "strict": true,
     "jsx": "react",
     "module": "ES2015",
@@ -13,10 +14,9 @@
     "typeRoots": ["@types"]
   },
   "include": [
-    "**/*.tsx", "**/*.ts", "@types", "index.ts"
+    "**/*.tsx", "**/*.ts", "@types", "index.ts", "dist"
   ],
   "exclude": [
-    "./dist",
     "./lib",
     "./node_modules",
     "./src/**/*.test.tsx",

@@ -12,7 +12,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const paths = {
-    input: resolve(__dirname, "./src/index.ts"),
+    input: resolve(__dirname, "./src/components/index.ts"),
     file: resolve(__dirname, "./dist/bundle.js"),
 };
 
@@ -31,9 +31,10 @@ export default  {
             extract: true,
             sourceMap: false,
             use: ['sass'],
+            modules: false
         }),
         babel({
-            babelHelpers: "runtime",
+            babelHelpers: "bundled",
             exclude: "node_modules/**",
             extensions,
         }),
@@ -41,5 +42,5 @@ export default  {
         typescript({ useTsconfigDeclarationDir: true }),
         nodeResolve({extensions}),
     ],
-    external: ["react", "react-dom", "typescript", '@babel/runtime']
+    external: ["react", "react-dom", "typescript"]
 };
