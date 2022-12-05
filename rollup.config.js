@@ -25,9 +25,14 @@ export default  {
     },
     plugins: [
         postcss({
+            config: {
+                path: "./postcss.config.cjs",
+            },
             extensions: ['.css'],
             minimize: true,
-            inject: 'top',
+            inject: {
+                insertAt: "top",
+            },
             extract: true,
             sourceMap: false,
             use: ['sass'],
