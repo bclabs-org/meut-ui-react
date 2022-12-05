@@ -2,6 +2,7 @@ import { babel } from '@rollup/plugin-babel';
 import { dirname, resolve } from 'path';
 import { fileURLToPath } from 'url';
 import nodeResolve from '@rollup/plugin-node-resolve';
+import commonjs from "@rollup/plugin-commonjs";
 import postcss from 'rollup-plugin-postcss';
 import typescript from "rollup-plugin-typescript2";
 import terser from "@rollup/plugin-terser";
@@ -20,24 +21,27 @@ export default  {
     input: paths.input,
     output: {
         file: paths.file,
-        format: "es",
+        format: "esm",
         sourcemap: true,
     },
     plugins: [
         postcss({
-            extensions: ['.css'],
+            config: {
+                path: "./postcss.config.cjs",
+            },
+            extensions: [".css"],
             minimize: true,
-            inject: 'top',
-            extract: true,
-            sourceMap: false,
-            use: ['sass'],
-            modules: false
+            use: ["sass"],
+            inject: {
+                insertAt: "top",
+            },
         }),
         babel({
             babelHelpers: "bundled",
             exclude: "node_modules/**",
             extensions,
         }),
+        commonjs({ include: "node_modules/**" }),
         terser(),
         typescript({ useTsconfigDeclarationDir: true }),
         nodeResolve({extensions}),
