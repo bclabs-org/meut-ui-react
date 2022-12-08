@@ -17,6 +17,18 @@ module.exports = {
           DEFAULT: '#4E73CF',
           disabled: 'rgba(78, 115, 207, 0.4)',
         },
+        meut: {
+          gray: {
+            DEFAULT: '#E3E6EB',
+            500: '#B6C0D2',
+            600: '#475569',
+            700: '#313C53',
+            800: '#1C263C',
+            900: '#020319',
+          }
+        },
+        danger: '#D63384',
+        warning: '#FACC15',
       }
     },
   },
