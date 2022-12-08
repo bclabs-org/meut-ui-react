@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "scripts": {
     "build": "rm -rf dist && rm -rf lib && rollup -c",
-    "watch": "rollup -cw"
+    "watch": "rollup -cw",
+    "lint": "eslint '**/*.{ts,tsx}'"
   },
   "main": "dist/bundle.js",
   "types": "lib/index.d.ts",
@@ -22,6 +23,7 @@
     "@types/react": "^18.0.25",
     "@types/react-dom": "^18.0.9",
     "autoprefixer": "^10.4.13",
+    "eslint-config-bclabs": "git+https://github.com/bclabs-org/eslint-config-bclabs.git",
     "postcss": "^8.4.19",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
