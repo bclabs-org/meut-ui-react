@@ -5,7 +5,7 @@ type Props = {
 }
 
 export const Card: React.FC<Props> = ({children}) => {
-  return <div className="border border-white shadow-light-100 rounded-200">
+  return <div className="border border-white shadow-light-100 rounded-200 hover:shadow-light-400 active:shadow-light-300">
       {children}
     </div>
 }
