@@ -1,6 +1,4 @@
 import React from 'react';
-type Props = {
-    children: React.ReactNode;
-};
-export declare const Card: React.FC<Props>;
-export {};
+export declare var Card: (_ref: any) => React.DetailedReactHTMLElement<{
+    className: string;
+}, HTMLElement>;
