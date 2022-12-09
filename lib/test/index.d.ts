@@ -1,2 +1,2 @@
-import { TestButton } from "./TestButton";
+import TestButton from './TestButton';
 export default TestButton;

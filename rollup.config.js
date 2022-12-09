@@ -25,6 +25,7 @@ export default  {
         sourcemap: true,
     },
     plugins: [
+        typescript({ useTsconfigDeclarationDir: true }),
         postcss({
             config: {
                 path: "./postcss.config.cjs",
@@ -42,9 +43,8 @@ export default  {
             extensions,
         }),
         commonjs({ include: "node_modules/**" }),
-        terser(),
-        typescript({ useTsconfigDeclarationDir: true }),
         nodeResolve({extensions}),
+        terser(),
     ],
     external: ["react", "react-dom", "typescript"]
 };
