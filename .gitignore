@@ -29,3 +29,7 @@ yarn-error.log*
 tsconfig.json
 
 *.xml
+
+yarn.lock
+/.github
+/.idea
