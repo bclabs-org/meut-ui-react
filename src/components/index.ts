@@ -1,5 +1,6 @@
 import './index.css';
-import TestButton from "./test";
-import Card from "./card";
+import TestButton from './Test';
+import Card from './Card';
+import Button from './Button';
 
-export { TestButton, Card };
+export { TestButton, Button, Card };
