@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import classNames from 'classnames';
 
 type ButtonProps = {
@@ -8,18 +8,13 @@ type ButtonProps = {
 };
 
 const Button = ({ children, color, size }: ButtonProps) => {
-  let minWidth = '';
-  let height = '';
-
+  let btnSize = '';
   if (size === 'large') {
-    minWidth = 'min-w-[142px]';
-    height = 'h-[63px]';
+    btnSize = 'min-w-[142px] h-[64px] text-[20px] py-[20px] px-[40px]';
   } else if (size === 'medium') {
-    minWidth = 'min-w-[98px]';
-    height = 'h-[48px]';
+    btnSize = 'min-w-[98px] h-[48px] text-[16px] py-[14px] px-[24px]';
   } else if (size === 'small') {
-    minWidth = 'min-w-[76px]';
-    height = 'h-[32px]';
+    btnSize = 'min-w-[76px] h-[32px] text-[14px] py-[8px] px-[16px]';
   }
 
   let btnColor;
@@ -30,13 +25,13 @@ const Button = ({ children, color, size }: ButtonProps) => {
   } else if (color === 'bg-tertiary') {
     btnColor = 'bg-tertiary hover:bg-tertiary-hover active:bg-tertiary-active';
   }
-  const styleClass = classNames(btnColor, minWidth, height);
+  const styleClass = classNames(btnColor, btnSize);
 
   const handleClick = (e: React.MouseEvent) => {
 
   };
 
-  return <button onClick={handleClick} className={`${styleClass} inline-flex justify-center items-center text-white rounded-100 px-4 py-2`}>
+  return <button onClick={handleClick} className={`${styleClass} text-white rounded-100 font-bold`}>
         {children}
     </button>;
 };
