@@ -40,4 +40,5 @@ const Button = ({ children, color, size }: ButtonProps) => {
         {children}
     </button>;
 };
+
 export default Button;
