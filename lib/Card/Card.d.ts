@@ -1,6 +1,6 @@
 import React from 'react';
-type Props = {
+type CardProps = {
     children: React.ReactNode;
 };
-declare const Card: React.FC<Props>;
+declare const Card: React.FC<CardProps>;
 export default Card;
