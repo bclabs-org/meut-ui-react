@@ -1,29 +1,37 @@
-import React from 'react';
-import classNames from 'classnames';
+import React, {ChangeEvent} from 'react';
 
 type TextInputProps = {
-  children: React.ReactNode,
+  type?: string;
+  name?: string;
+  label?: string;
+  placeholder?: string;
+  helperMessage?: string;
+  onChange?: {(e: React.ChangeEvent<any>): void, <T=string | React.ChangeEvent<any>>(field: T): T extends React.ChangeEvent<any> ? void : ((e: (string | React.ChangeEvent<any>)) => void)};
+  onBlur?: {(e: React.FocusEvent<any, Element>): void, <T=any>(fieldOrEvent: T): T extends string ? ((e: any) => void) : void};
+  value?: string;
 };
 
-const TextInput = ({ children }: TextInputProps) => {
+const TextInput = ({ type, name, label, placeholder, helperMessage, onChange, onBlur, value }: TextInputProps) => {
 
   return (
     <div>
-      <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-        Email
+      <label htmlFor={name}>
+        {label}
       </label>
-      <div className="mt-1">
+      <div className="my-1">
         <input
-          type="email"
-          name="email"
-          id="email"
-          className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-          placeholder="you@example.com"
-          aria-describedby="email-description"
+          type={type}
+          name={name}
+          id={name}
+          className="w-[432px] h-[50px] border border-gray-300 rounded-100"
+          placeholder={placeholder}
+          onChange={onChange}
+          onBlur={onBlur}
+          value={value}
         />
       </div>
-      <p className="mt-2 text-sm text-gray-500" id="email-description">
-        We'll only use this for spam.
+      <p className="text-sm" id={name}>
+        {helperMessage}
       </p>
     </div>
   )
