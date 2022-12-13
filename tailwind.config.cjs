@@ -70,6 +70,7 @@ module.exports = {
           background: `linear-gradient(0deg, rgba(0, 0, 0, 0.07), rgba(0, 0, 0, 0.07)), ${theme('colors.tertiary.DEFAULT')}`
         }
       }))
-    })
+    }),
+    require('@tailwindcss/forms'),
   ],
 }
