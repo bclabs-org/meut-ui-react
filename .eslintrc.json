@@ -1,5 +1,5 @@
-{
-  "extends": [
+module.exports = {
+  extends: [
     "eslint-config-bclabs/typescript"
   ]
 }
