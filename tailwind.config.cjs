@@ -4,6 +4,9 @@ module.exports = {
   content: ["./src/**/*.{html,js,jsx,ts,tsx}"],
   theme: {
     extend: {
+      fontFamily: {
+        'roboto': ['Roboto', 'sans-serif']
+      },
       colors: {
         primary: {
           DEFAULT: '#6CD28A',
@@ -49,6 +52,7 @@ module.exports = {
     },
   },
   plugins: [
+    require('@tailwindcss/forms'),
     plugin(function ({addComponents, theme}) {
       addComponents(({
         '.bg-primary-hover': {
