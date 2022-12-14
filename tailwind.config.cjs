@@ -4,6 +4,9 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
+      fontFamily: {
+        'roboto': ['Roboto', 'sans-serif']
+      },
       colors: {
         primary: {
           DEFAULT: '#6CD28A',
@@ -49,6 +52,7 @@ module.exports = {
     },
   },
   plugins: [
+    require('@tailwindcss/forms'),
     plugin(function ({addComponents, theme}) {
       addComponents(({
         '.bg-primary-hover': {
@@ -68,8 +72,16 @@ module.exports = {
         },
         '.bg-tertiary-active': {
           background: `linear-gradient(0deg, rgba(0, 0, 0, 0.07), rgba(0, 0, 0, 0.07)), ${theme('colors.tertiary.DEFAULT')}`
-        }
+        },
+        '.text-input-border-hover': {
+          outline: '3px solid rgba(108, 210, 138, 0.2)'
+        },
+        '.text-input-border-focus': {
+          outline: 'none',
+          border: `2px solid ${theme('colors.primary.DEFAULT')}`
+        },
       }))
-    })
+    }),
+    require('@tailwindcss/forms'),
   ],
 }
