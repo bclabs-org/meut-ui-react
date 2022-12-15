@@ -1,6 +1,5 @@
-import React from 'react';
-import { Fragment, useState } from 'react'
-import { Dialog, Transition } from '@headlessui/react'
+import React, { Fragment } from 'react';
+import { Dialog, Transition } from '@headlessui/react';
 
 type ModalProps = {
   children: React.ReactNode;
@@ -8,8 +7,7 @@ type ModalProps = {
   setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const Modal: React.FC<ModalProps> = ({ children, isModalOpen, setIsModalOpen }) => {
-  return (
+const Modal: React.FC<ModalProps> = ({ children, isModalOpen, setIsModalOpen }) => (
     <Transition.Root show={isModalOpen} as={Fragment}>
       <Dialog as="div" className="relative z-10" onClose={setIsModalOpen}>
         <Transition.Child
@@ -45,7 +43,6 @@ const Modal: React.FC<ModalProps> = ({ children, isModalOpen, setIsModalOpen }) 
         </div>
       </Dialog>
     </Transition.Root>
-  )
-}
+);
 
 export default Modal;

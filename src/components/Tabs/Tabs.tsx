@@ -5,7 +5,7 @@ type TabsPropsType = {
   color?: string,
   tabNames: string[]
 }
-const Tabs = ({ color = 'primary', tabNames }: TabsPropsType) => {
+const Tabs: React.FC<TabsPropsType> = ({ color = 'primary', tabNames }: TabsPropsType) => {
   const initialTabs = tabNames.map((name, index) => ({
     name,
     current: index === 0,
@@ -34,7 +34,8 @@ const Tabs = ({ color = 'primary', tabNames }: TabsPropsType) => {
             <div key={tab.name} onClick={() => handleClick(index)} style={{ cursor: 'pointer' }}
                  className={classNames(
                    tab.current ? clickedStyle : idleStyle,
-                   'text-[16px] font-roboto justify-center items-center border-b-2 py-[12px]')}>{tab.name}
+                   'text-[16px] font-roboto justify-center items-center border-b-2 py-[12px]',
+                 )}>{tab.name}
             </div>
           ))}
         </nav>

@@ -5,7 +5,7 @@ type PropsType = {
     size: string
     imageFile: string
 }
-const ProfilePhoto = ({ size, imageFile }: PropsType) => {
+const ProfilePhoto: React.FC<PropsType> = ({ size, imageFile }: PropsType) => {
   let styleClass = '';
   if (size === 'large') {
     styleClass = 'w-[150px] h-[150px]';
