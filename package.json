@@ -5,6 +5,7 @@
     "build": "rm -rf dist && rm -rf lib && rollup -c",
     "watch": "rollup -cw",
     "lint": "eslint '**/*.{ts,tsx}'",
+    "lint:fix": "eslint '**/*.{ts,tsx}' --fix",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },

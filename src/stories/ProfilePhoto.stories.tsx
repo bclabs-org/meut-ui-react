@@ -20,5 +20,5 @@ const Template: ComponentStory<typeof ProfilePhoto> = (args) => <ProfilePhoto {.
 export const Default = Template.bind({});
 Default.args = {
   size: 'large',
-  imageFile: 'https://avatars.githubusercontent.com/u/67389821?v=4'
+  imageFile: 'https://avatars.githubusercontent.com/u/67389821?v=4',
 };

@@ -11,9 +11,9 @@ type TextInputProps = {
   value?: string;
 };
 
-const TextInput = ({ type, name, label, placeholder, helperMessage, errorMessage, onChange, value }: TextInputProps) => {
-
-  return (
+const TextInput = ({
+  type, name, label, placeholder, helperMessage, errorMessage, onChange, value,
+}: TextInputProps) => (
     <div>
       <label htmlFor={name}>
         {label}
@@ -40,13 +40,12 @@ const TextInput = ({ type, name, label, placeholder, helperMessage, errorMessage
             {errorMessage}
           </p>
         </div>
-        ) : (
+      ) : (
         <p className="text-sm text-gray-500" id={name}>
           {helperMessage}
         </p>
-        )}
+      )}
     </div>
-  )
-};
+);
 
 export default TextInput;
