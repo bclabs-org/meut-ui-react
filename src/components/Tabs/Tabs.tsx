@@ -5,7 +5,7 @@ type TabsPropsType = {
   color?: string,
   tabNames: string[]
 }
-const Tabs = ({ color = 'primary', tabNames }: TabsPropsType) => {
+const Tabs: React.FC<TabsPropsType> = ({ color = 'primary', tabNames }: TabsPropsType) => {
   const initialTabs = tabNames.map((name, index) => ({
     name,
     current: index === 0,

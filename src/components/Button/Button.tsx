@@ -7,7 +7,7 @@ type ButtonProps = {
     size: string
 };
 
-const Button = ({ children, color, size }: ButtonProps) => {
+const Button: React.FC<ButtonProps> = ({ children, color, size }: ButtonProps) => {
   let btnSize = '';
   if (size === 'large') {
     btnSize = 'h-[64px] text-[20px] py-[20px] px-[40px]';
@@ -28,7 +28,7 @@ const Button = ({ children, color, size }: ButtonProps) => {
   const styleClass = classNames(btnColor, btnSize);
 
   const handleClick = (e: React.MouseEvent) => {
-
+    e.preventDefault();
   };
 
   return <button onClick={handleClick} className={`${styleClass} text-white rounded-100 font-bold flex items-center`}>

@@ -15,7 +15,7 @@ Default.args = {
   children: <>
     <p>Lorem Ipsum</p>
     <p>is simply dummy text of the printing and typesetting industry.</p>
-    <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+    <p>Lorem Ipsum has been the industry&apos;s standard dummy text ever since the 1500s,</p>
     <p>when an unknown printer took a galley of type and scrambled</p>
     <p>it to make a type specimen book.</p>
     <p>It has survived not only five centuries,</p>
