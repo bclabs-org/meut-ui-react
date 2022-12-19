@@ -30,7 +30,7 @@ const Button: React.FC<ButtonProps> = ({ children, color, size }: ButtonProps) =
   const styleClass = classNames(btnSize, btnColor);
 
   const handleClick = (e: React.MouseEvent) => {
-    e.preventDefault();
+    // e.preventDefault();
   };
 
   return <button onClick={handleClick} className={`${styleClass} rounded-100 text-white font-bold flex justify-center items-center`}>
