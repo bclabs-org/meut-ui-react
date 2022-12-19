@@ -3,9 +3,9 @@ import classNames from 'classnames';
 
 type ButtonProps = {
   children: React.ReactNode,
-  color: string,
   size: string,
   disabled?: boolean,
+  color?: string,
   [key: string]: any
 };
 
