@@ -10,7 +10,9 @@ type ButtonProps = {
 
 const Button: React.FC<ButtonProps> = ({ children, color, size, addClassNames }: ButtonProps) => {
   let btnSize = '';
-  if (size === 'large') {
+  if (size === 'x-large') {
+    btnSize = 'w-[432px] h-[64px] text-[20px]';
+  } else if (size === 'large') {
     btnSize = 'h-[64px] text-[20px] py-[20px] px-[40px]';
   } else if (size === 'medium') {
     btnSize = 'h-[48px] text-[16px] py-[14px] px-[24px]';
@@ -32,7 +34,7 @@ const Button: React.FC<ButtonProps> = ({ children, color, size, addClassNames }:
     e.preventDefault();
   };
 
-  return <button onClick={handleClick} className={`text-white rounded-100 font-bold flex items-center ${styleClass}`}>
+  return <button onClick={handleClick} className={`text-white rounded-100 font-bold flex justify-center items-center ${styleClass}`}>
         {children}
     </button>;
 };
