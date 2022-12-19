@@ -42,6 +42,7 @@ const TextInput: React.FC<TextInputProps> = ({
         placeholder={placeholder}
         onChange={onChange}
         value={value}
+        autoComplete="off"
       />
     </div>
     {errorMessage ? (
