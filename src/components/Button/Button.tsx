@@ -5,36 +5,54 @@ type ButtonProps = {
   children: React.ReactNode,
   color: string,
   size: string,
-  disabled?: boolean;
+  disabled?: boolean,
+  [key: string]: any
 };
 
-const Button: React.FC<ButtonProps> = ({ children, color, size, disabled }: ButtonProps) => {
+const Button: React.FC<ButtonProps> = ({
+  children, color = 'primary', size, disabled, ...rest
+}: ButtonProps) => {
   let btnSize = '';
-  if (size === 'x-large') {
-    btnSize = 'w-[432px] h-[64px] text-[20px]';
-  } else if (size === 'large') {
-    btnSize = 'h-[64px] text-[20px] py-[20px] px-[40px]';
-  } else if (size === 'medium') {
-    btnSize = 'h-[48px] text-[16px] py-[14px] px-[24px]';
-  } else if (size === 'small') {
-    btnSize = 'h-[32px] text-[14px] py-[8px] px-[16px]';
+
+  switch (size) {
+    case 'x-large':
+      btnSize = 'w-full h-[64px] text-[20px]';
+      break;
+    case 'large':
+      btnSize = 'h-[64px] text-[20px] py-[20px] px-[40px]';
+      break;
+    case 'medium':
+      btnSize = 'h-[48px] text-[16px] py-[14px] px-[24px]';
+      break;
+    case 'small':
+      btnSize = 'h-[32px] text-[14px] py-[8px] px-[16px]';
+      break;
+    default:
+      throw Error('invalid size value');
   }
 
   let btnColor;
-  if (color === 'bg-primary') {
-    btnColor = 'bg-primary hover:bg-primary-hover active:bg-primary-active';
-  } else if (color === 'bg-secondary') {
-    btnColor = 'bg-secondary hover:bg-secondary-hover active:bg-secondary-active';
-  } else if (color === 'bg-tertiary') {
-    btnColor = 'bg-tertiary hover:bg-tertiary-hover active:bg-tertiary-active';
+  switch (color) {
+    case 'primary':
+      btnColor = 'bg-primary hover:bg-primary-hover active:bg-primary-active';
+      break;
+    case 'secondary':
+      btnColor = 'bg-secondary hover:bg-secondary-hover active:bg-secondary-active';
+      break;
+    case 'tertiary':
+      btnColor = 'bg-tertiary hover:bg-tertiary-hover active:bg-tertiary-active';
+      break;
+    default:
+      throw Error('invalid size value');
   }
+
   const styleClass = classNames(btnSize, btnColor);
 
   const handleClick = (e: React.MouseEvent) => {
     // e.preventDefault();
   };
 
-  return <button disabled={disabled} onClick={handleClick} className={`${styleClass} rounded-100 text-white font-bold flex justify-center items-center disabled:opacity-40`}>
+  return <button {...rest} disabled={disabled} onClick={handleClick} className={`${styleClass} rounded-100 text-white font-bold flex justify-center items-center disabled:opacity-40`}>
         {children}
     </button>;
 };
