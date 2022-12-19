@@ -33,6 +33,7 @@ const TextInput: React.FC<TextInputProps> = ({
     <div className="my-1">
       <input
         type={type}
+        maxLength={type === 'password' ? 20 : undefined}
         name={name}
         id={name}
         className={`w-[432px] h-[50px] rounded-100 focus:ring-0 ${errorMessage ? 'border-2 border-danger focus:border-danger' : 'border border-gray-300 hover:text-input-border-hover focus:text-input-border-focus'}`}
