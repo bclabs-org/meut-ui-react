@@ -2,14 +2,17 @@ import React from 'react';
 import classNames from 'classnames';
 
 type ButtonProps = {
-    children: React.ReactNode,
-    color: string,
-    size: string
+  children: React.ReactNode,
+  color: string,
+  size: string,
+  disabled?: boolean;
 };
 
-const Button: React.FC<ButtonProps> = ({ children, color, size }: ButtonProps) => {
+const Button: React.FC<ButtonProps> = ({ children, color, size, disabled }: ButtonProps) => {
   let btnSize = '';
-  if (size === 'large') {
+  if (size === 'x-large') {
+    btnSize = 'w-[432px] h-[64px] text-[20px]';
+  } else if (size === 'large') {
     btnSize = 'h-[64px] text-[20px] py-[20px] px-[40px]';
   } else if (size === 'medium') {
     btnSize = 'h-[48px] text-[16px] py-[14px] px-[24px]';
@@ -25,13 +28,13 @@ const Button: React.FC<ButtonProps> = ({ children, color, size }: ButtonProps) =
   } else if (color === 'bg-tertiary') {
     btnColor = 'bg-tertiary hover:bg-tertiary-hover active:bg-tertiary-active';
   }
-  const styleClass = classNames(btnColor, btnSize);
+  const styleClass = classNames(btnSize, btnColor);
 
   const handleClick = (e: React.MouseEvent) => {
-    e.preventDefault();
+    // e.preventDefault();
   };
 
-  return <button onClick={handleClick} className={`${styleClass} text-white rounded-100 font-bold flex items-center`}>
+  return <button disabled={disabled} onClick={handleClick} className={`${styleClass} rounded-100 text-white font-bold flex justify-center items-center disabled:opacity-40`}>
         {children}
     </button>;
 };
