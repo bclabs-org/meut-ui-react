@@ -5,9 +5,10 @@ type ButtonProps = {
   children: React.ReactNode,
   color: string,
   size: string,
+  disabled?: boolean;
 };
 
-const Button: React.FC<ButtonProps> = ({ children, color, size }: ButtonProps) => {
+const Button: React.FC<ButtonProps> = ({ children, color, size, disabled }: ButtonProps) => {
   let btnSize = '';
   if (size === 'x-large') {
     btnSize = 'w-[432px] h-[64px] text-[20px]';
@@ -33,7 +34,7 @@ const Button: React.FC<ButtonProps> = ({ children, color, size }: ButtonProps) =
     // e.preventDefault();
   };
 
-  return <button onClick={handleClick} className={`${styleClass} rounded-100 text-white font-bold flex justify-center items-center`}>
+  return <button disabled={disabled} onClick={handleClick} className={`${styleClass} rounded-100 text-white font-bold flex justify-center items-center disabled:opacity-40`}>
         {children}
     </button>;
 };
