@@ -1,5 +1,4 @@
 import React from 'react';
-
 type TabsPropsType = {
     color?: string;
     tabNames: string[];
