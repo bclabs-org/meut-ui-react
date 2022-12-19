@@ -5,10 +5,9 @@ type ButtonProps = {
   children: React.ReactNode,
   color: string,
   size: string,
-  addClassNames?: string
 };
 
-const Button: React.FC<ButtonProps> = ({ children, color, size, addClassNames }: ButtonProps) => {
+const Button: React.FC<ButtonProps> = ({ children, color, size }: ButtonProps) => {
   let btnSize = '';
   if (size === 'x-large') {
     btnSize = 'w-[432px] h-[64px] text-[20px]';
@@ -28,7 +27,7 @@ const Button: React.FC<ButtonProps> = ({ children, color, size, addClassNames }:
   } else if (color === 'bg-tertiary') {
     btnColor = 'bg-tertiary hover:bg-tertiary-hover active:bg-tertiary-active';
   }
-  const styleClass = classNames(btnColor, btnSize, addClassNames);
+  const styleClass = classNames(btnColor, btnSize);
 
   const handleClick = (e: React.MouseEvent) => {
     e.preventDefault();
