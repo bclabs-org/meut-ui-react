@@ -3,7 +3,6 @@ type ButtonProps = {
     children: React.ReactNode;
     size: string;
     disabled?: boolean;
-
     color?: string;
     [key: string]: any;
 };
