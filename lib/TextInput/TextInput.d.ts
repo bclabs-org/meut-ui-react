@@ -11,6 +11,7 @@ type TextInputProps = {
         (e: React.ChangeEvent<HTMLInputElement>): void;
         <T = string | React.ChangeEvent<HTMLInputElement>>(field: T): T extends React.ChangeEvent<HTMLInputElement> ? void : ((e: (string | React.ChangeEvent<HTMLInputElement>)) => void);
     };
+    onBlur?: React.FocusEventHandler<HTMLInputElement> | undefined;
     value?: string;
 };
 declare const TextInput: React.FC<TextInputProps>;
