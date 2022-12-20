@@ -6,6 +6,7 @@ type TextInputProps = {
     placeholder?: string;
     helperMessage?: string;
     errorMessage?: string;
+    maxLength?: number;
     onChange?: {
         (e: React.ChangeEvent<HTMLInputElement>): void;
         <T = string | React.ChangeEvent<HTMLInputElement>>(field: T): T extends React.ChangeEvent<HTMLInputElement> ? void : ((e: (string | React.ChangeEvent<HTMLInputElement>)) => void);
