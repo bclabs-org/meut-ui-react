@@ -14,7 +14,7 @@ type TextInputProps = {
       T extends React.ChangeEvent<HTMLInputElement> ? void :
         ((e: (string | React.ChangeEvent<HTMLInputElement>)) => void)
   };
-  onBlur?: React.FocusEventHandler<HTMLInputElement> | undefined;
+  onBlur?: React.FocusEventHandler<HTMLInputElement>;
   value?: string;
 };
 
