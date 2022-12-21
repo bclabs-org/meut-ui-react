@@ -15,6 +15,7 @@ type TextInputProps = {
         ((e: (string | React.ChangeEvent<HTMLInputElement>)) => void)
   };
   onBlur?: React.FocusEventHandler<HTMLInputElement>;
+  onFocus?: React.FocusEventHandler<HTMLInputElement>;
   value?: string;
 };
 
@@ -28,6 +29,7 @@ const TextInput: React.FC<TextInputProps> = ({
   maxLength,
   onChange,
   onBlur,
+  onFocus,
   value,
 }: TextInputProps) => (
   <div>
@@ -44,6 +46,7 @@ const TextInput: React.FC<TextInputProps> = ({
         placeholder={placeholder}
         onChange={onChange}
         onBlur={onBlur}
+        onFocus={onFocus}
         value={value}
         autoComplete="off"
       />
