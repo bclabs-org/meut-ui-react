@@ -23,6 +23,6 @@ const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 export const Default = Template.bind({});
 Default.args = {
   children: '버튼',
-  color: 'qprimary',
+  color: 'primary',
   size: 'large',
 };
