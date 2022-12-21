@@ -28,7 +28,7 @@ const TextInput: React.FC<TextInputProps> = ({
   onChange,
   value,
 }: TextInputProps) => (
-  <div>
+  <div className={'font-montserrat'}>
     <label htmlFor={name}>
       {label}
     </label>
