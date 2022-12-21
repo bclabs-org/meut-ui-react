@@ -8,7 +8,7 @@ export default {
   component: Button,
   argTypes: {
     color: {
-      options: ['bg-primary', 'bg-secondary', 'bg-tertiary'],
+      options: ['primary', 'secondary', 'tertiary'],
       control: { type: 'radio' },
     },
     size: {
@@ -23,6 +23,6 @@ const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 export const Default = Template.bind({});
 Default.args = {
   children: '버튼',
-  color: 'bg-primary',
+  color: 'qprimary',
   size: 'large',
 };
