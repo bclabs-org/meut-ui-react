@@ -43,7 +43,7 @@ const Button: React.FC<ButtonProps> = ({
       btnColor = 'bg-tertiary hover:bg-tertiary-hover active:bg-tertiary-active';
       break;
     default:
-      throw Error('invalid size value');
+      throw Error('invalid color value');
   }
 
   const styleClass = classNames(btnSize, btnColor);
