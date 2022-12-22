@@ -8,14 +8,14 @@ type TextInputProps = {
   helperMessage?: string;
   errorMessage?: string;
   maxLength?: number;
-  onChange?: {
+  handleChange?: {
     (e: React.ChangeEvent<HTMLInputElement>): void,
     <T = string | React.ChangeEvent<HTMLInputElement>>(field: T):
       T extends React.ChangeEvent<HTMLInputElement> ? void :
         ((e: (string | React.ChangeEvent<HTMLInputElement>)) => void)
   };
-  onBlur?: React.FocusEventHandler<HTMLInputElement>;
-  onFocus?: React.FocusEventHandler<HTMLInputElement>;
+  handleBlur?: React.FocusEventHandler<HTMLInputElement>;
+  handleFocus?: React.FocusEventHandler<HTMLInputElement>;
   value?: string;
 };
 
@@ -27,9 +27,9 @@ const TextInput: React.FC<TextInputProps> = ({
   helperMessage,
   errorMessage,
   maxLength,
-  onChange,
-  onBlur,
-  onFocus,
+  handleChange,
+  handleBlur,
+  handleFocus,
   value,
 }: TextInputProps) => (
   <div>
@@ -44,9 +44,9 @@ const TextInput: React.FC<TextInputProps> = ({
         id={name}
         className={`w-full h-[50px] rounded-100 focus:ring-0 ${errorMessage ? 'border-2 border-danger focus:border-danger' : 'border border-gray-300 hover:text-input-border-hover focus:text-input-border-focus'}`}
         placeholder={placeholder}
-        onChange={onChange}
-        onBlur={onBlur}
-        onFocus={onFocus}
+        onChange={handleChange}
+        onBlur={handleBlur}
+        onFocus={handleFocus}
         value={value}
         autoComplete="off"
       />
