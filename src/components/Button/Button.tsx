@@ -6,11 +6,12 @@ type ButtonProps = {
   size: string,
   disabled?: boolean,
   color?: string,
-  [key: string]: any
+  onClick?: () => void;
+  [key: string]: any,
 };
 
 const Button: React.FC<ButtonProps> = ({
-  children, color = 'primary', size, disabled, ...rest
+  children, color = 'primary', size, disabled, onClick, ...rest
 }: ButtonProps) => {
   let btnSize = '';
 
@@ -43,7 +44,7 @@ const Button: React.FC<ButtonProps> = ({
       btnColor = 'bg-tertiary hover:bg-tertiary-hover active:bg-tertiary-active';
       break;
     default:
-      throw Error('invalid size value');
+      throw Error('invalid color value');
   }
 
   const styleClass = classNames(btnSize, btnColor);
@@ -52,7 +53,7 @@ const Button: React.FC<ButtonProps> = ({
     // e.preventDefault();
   };
 
-  return <button {...rest} disabled={disabled} onClick={handleClick} className={`${styleClass} rounded-100 text-white font-bold flex justify-center items-center disabled:opacity-40`}>
+  return <button {...rest} disabled={disabled} onClick={onClick} className={`${styleClass} rounded-100 text-white font-bold flex justify-center items-center disabled:opacity-40`}>
         {children}
     </button>;
 };
