@@ -14,6 +14,8 @@ type TextInputProps = {
       T extends React.ChangeEvent<HTMLInputElement> ? void :
         ((e: (string | React.ChangeEvent<HTMLInputElement>)) => void)
   };
+  onBlur?: React.FocusEventHandler<HTMLInputElement>;
+  onFocus?: React.FocusEventHandler<HTMLInputElement>;
   value?: string;
 };
 
@@ -26,6 +28,8 @@ const TextInput: React.FC<TextInputProps> = ({
   errorMessage,
   maxLength,
   onChange,
+  onBlur,
+  onFocus,
   value,
 }: TextInputProps) => (
   <div className={'font-montserrat'}>
@@ -41,6 +45,8 @@ const TextInput: React.FC<TextInputProps> = ({
         className={`w-full h-[50px] rounded-100 focus:ring-0 ${errorMessage ? 'border-2 border-danger focus:border-danger' : 'border border-gray-300 hover:text-input-border-hover focus:text-input-border-focus'}`}
         placeholder={placeholder}
         onChange={onChange}
+        onBlur={onBlur}
+        onFocus={onFocus}
         value={value}
         autoComplete="off"
       />
