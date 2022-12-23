@@ -49,7 +49,7 @@ const Button: React.FC<ButtonProps> = ({
 
   const styleClass = classNames(btnSize, btnColor);
 
-  return <button {...rest} disabled={disabled} onClick={handleClick} className={`${styleClass} rounded-100 text-white font-bold flex justify-center items-center disabled:opacity-40`}>
+  return <button {...rest} disabled={disabled} onClick={handleClick} className={`${styleClass} rounded-100 text-white font-bold font-montserrat flex justify-center items-center disabled:opacity-40`}>
         {children}
     </button>;
 };

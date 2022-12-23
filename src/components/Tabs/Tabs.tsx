@@ -34,7 +34,7 @@ const Tabs: React.FC<TabsPropsType> = ({ color = 'primary', tabNames }: TabsProp
             <div key={tab.name} onClick={() => handleClick(index)} style={{ cursor: 'pointer' }}
                  className={classNames(
                    tab.current ? clickedStyle : idleStyle,
-                   'text-[16px] font-roboto justify-center items-center border-b-2 py-[12px]',
+                   'text-[16px] font-montserrat justify-center items-center border-b-2 py-[12px]',
                  )}>{tab.name}
             </div>
           ))}

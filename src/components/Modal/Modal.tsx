@@ -15,7 +15,7 @@ const Modal: React.FC<ModalProps> = ({
   <Transition.Root show={isModalOpen} as={Fragment}>
     <Dialog
       as="div"
-      className="relative z-10"
+      className="relative z-10 font-montserrat"
       onClose={() => setIsModalOpen(false)}
     >
       <Transition.Child

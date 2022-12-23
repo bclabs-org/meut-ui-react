@@ -5,7 +5,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'roboto': ['Roboto', 'sans-serif']
+        'roboto': ['Roboto', 'sans-serif'],
+        'montserrat': ['Montserrat', 'sans-serif']
       },
       colors: {
         primary: {
@@ -82,6 +83,5 @@ module.exports = {
         },
       }))
     }),
-    require('@tailwindcss/forms'),
   ],
 }
