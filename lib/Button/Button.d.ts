@@ -4,6 +4,7 @@ type ButtonProps = {
     size: string;
     disabled?: boolean;
     color?: string;
+    handleClick?: () => void;
     [key: string]: any;
 };
 declare const Button: React.FC<ButtonProps>;

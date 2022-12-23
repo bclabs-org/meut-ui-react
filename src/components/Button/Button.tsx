@@ -6,11 +6,12 @@ type ButtonProps = {
   size: string,
   disabled?: boolean,
   color?: string,
-  [key: string]: any
+  handleClick?: () => void;
+  [key: string]: any,
 };
 
 const Button: React.FC<ButtonProps> = ({
-  children, color = 'primary', size, disabled, ...rest
+  children, color = 'primary', size, disabled, handleClick, ...rest
 }: ButtonProps) => {
   let btnSize = '';
 
@@ -48,11 +49,7 @@ const Button: React.FC<ButtonProps> = ({
 
   const styleClass = classNames(btnSize, btnColor);
 
-  const handleClick = (e: React.MouseEvent) => {
-    // e.preventDefault();
-  };
-
-  return <button {...rest} disabled={disabled} onClick={handleClick} className={`${styleClass} rounded-100 text-white font-montserrat flex justify-center items-center disabled:opacity-40`}>
+  return <button {...rest} disabled={disabled} onClick={handleClick} className={`${styleClass} rounded-100 text-white font-bold font-montserrat flex justify-center items-center disabled:opacity-40`}>
         {children}
     </button>;
 };
