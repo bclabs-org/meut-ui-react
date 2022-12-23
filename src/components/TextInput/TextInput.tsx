@@ -32,7 +32,7 @@ const TextInput: React.FC<TextInputProps> = ({
   onFocus,
   value,
 }: TextInputProps) => (
-  <div>
+  <div className={'font-montserrat'}>
     <label htmlFor={name}>
       {label}
     </label>
