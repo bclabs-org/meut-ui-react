@@ -17,6 +17,7 @@ type TextInputProps = {
   onBlur?: React.FocusEventHandler<HTMLInputElement>;
   onFocus?: React.FocusEventHandler<HTMLInputElement>;
   value?: string;
+  [key: string]: any
 };
 
 const TextInput: React.FC<TextInputProps> = ({
@@ -31,6 +32,7 @@ const TextInput: React.FC<TextInputProps> = ({
   onBlur,
   onFocus,
   value,
+  ...rest
 }: TextInputProps) => (
   <div className={'font-montserrat'}>
     <label htmlFor={name}>
@@ -49,6 +51,7 @@ const TextInput: React.FC<TextInputProps> = ({
         onFocus={onFocus}
         value={value}
         autoComplete="off"
+        {...rest}
       />
     </div>
     {errorMessage ? (
