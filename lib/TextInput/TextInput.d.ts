@@ -16,7 +16,7 @@ type TextInputProps = {
     onFocus?: React.FocusEventHandler<HTMLInputElement>;
     value?: string;
     verificationTime?: number;
-    handleSendVerificationEmail: () => void;
+    handleClickOnExtraMessage: () => void;
     flag: boolean;
     [key: string]: any;
 };
