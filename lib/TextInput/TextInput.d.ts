@@ -6,6 +6,7 @@ type TextInputProps = {
     placeholder?: string;
     helperMessage?: string;
     errorMessage?: string;
+    extraMessage?: string;
     maxLength?: number;
     onChange?: {
         (e: React.ChangeEvent<HTMLInputElement>): void;
@@ -14,6 +15,10 @@ type TextInputProps = {
     onBlur?: React.FocusEventHandler<HTMLInputElement>;
     onFocus?: React.FocusEventHandler<HTMLInputElement>;
     value?: string;
+    verificationTime?: number;
+    handleSendVerificationEmail: () => void;
+    isResendCode: boolean;
+    [key: string]: any;
 };
 declare const TextInput: React.FC<TextInputProps>;
 export default TextInput;
