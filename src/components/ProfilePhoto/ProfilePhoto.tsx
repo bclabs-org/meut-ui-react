@@ -7,14 +7,16 @@ type PropsType = {
 }
 const ProfilePhoto: React.FC<PropsType> = ({ size, imageFile }: PropsType) => {
   let styleClass = '';
-  if (size === 'large') {
-    styleClass = 'w-[150px] h-[150px]';
+  if (size === 'x-large') {
+    styleClass = 'w-[148px] h-[148px]';
+  } else if (size === 'large') {
+    styleClass = 'w-[128px] h-[128px]';
   } else if (size === 'medium') {
     styleClass = 'w-[64px] h-[64px]';
   } else if (size === 'small') {
-    styleClass = 'w-[48px] h-[48px]';
-  } else if (size === 'smaller') {
     styleClass = 'w-[40px] h-[40px]';
+  } else if (size === 'smaller') {
+    styleClass = 'w-[24px] h-[24px]';
   }
 
   return (
