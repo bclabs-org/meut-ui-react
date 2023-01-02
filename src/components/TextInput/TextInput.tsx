@@ -20,7 +20,7 @@ type TextInputProps = {
   value?: string;
   verificationTime?: number;
   handleSendVerificationEmail: () => void;
-  isResendCode: boolean;
+  flag: boolean;
   [key: string]: any;
 };
 
@@ -38,7 +38,7 @@ const TextInput: React.FC<TextInputProps> = ({
   onFocus,
   value,
   verificationTime,
-  isResendCode,
+  flag,
   handleSendVerificationEmail,
   ...rest
 }: TextInputProps) => (
@@ -82,7 +82,7 @@ const TextInput: React.FC<TextInputProps> = ({
           </p>
         </>}
           <p className="text-sm text-gray-500">
-            {isResendCode ? <span className="cursor-pointer text-green-500" onClick={handleSendVerificationEmail}>{extraMessage}</span> : extraMessage}
+            {flag ? <span className="cursor-pointer text-green-500" onClick={handleSendVerificationEmail}>{extraMessage}</span> : extraMessage}
           </p>
       </div>
     ) : (
