@@ -17,7 +17,7 @@ type TextInputProps = {
     value?: string;
     verificationTime?: number;
     handleSendVerificationEmail: () => void;
-    isResendCode: boolean;
+    flag: boolean;
     [key: string]: any;
 };
 declare const TextInput: React.FC<TextInputProps>;
