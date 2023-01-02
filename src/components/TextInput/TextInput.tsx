@@ -19,7 +19,7 @@ type TextInputProps = {
   onFocus?: React.FocusEventHandler<HTMLInputElement>;
   value?: string;
   verificationTime?: number;
-  handleSendVerificationEmail: () => void;
+  handleClickOnExtraMessage: () => void;
   flag: boolean;
   [key: string]: any;
 };
@@ -39,7 +39,7 @@ const TextInput: React.FC<TextInputProps> = ({
   value,
   verificationTime,
   flag,
-  handleSendVerificationEmail,
+  handleClickOnExtraMessage,
   ...rest
 }: TextInputProps) => (
   <div className={'font-montserrat'}>
@@ -82,7 +82,7 @@ const TextInput: React.FC<TextInputProps> = ({
           </p>
         </>}
           <p className="text-sm text-gray-500">
-            {flag ? <span className="cursor-pointer text-green-500" onClick={handleSendVerificationEmail}>{extraMessage}</span> : extraMessage}
+            {flag ? <span className="cursor-pointer text-green-500" onClick={handleClickOnExtraMessage}>{extraMessage}</span> : extraMessage}
           </p>
       </div>
     ) : (
