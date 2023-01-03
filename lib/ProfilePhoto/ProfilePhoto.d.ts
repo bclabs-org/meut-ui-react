@@ -1,6 +1,5 @@
 import React from 'react';
 import './style.css';
-
 type PropsType = {
     size: string;
     imageFile: string;
