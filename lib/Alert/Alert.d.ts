@@ -3,7 +3,7 @@ import React from 'react';
 type AlertProps = {
     text: string;
     color?: string;
-    shadow?: boolean;
+    setIsAlertOpen: React.Dispatch<React.SetStateAction<boolean>>;
     closeBtn?: boolean;
 };
 declare const Alert: React.FC<AlertProps>;

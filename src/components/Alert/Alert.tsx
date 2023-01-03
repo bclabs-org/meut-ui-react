@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { MouseEventHandler } from 'react';
 import { XCircleIcon, XMarkIcon, ExclamationTriangleIcon } from '@heroicons/react/20/solid';
 
 type AlertProps = {
   text: string;
   color?: string;
-  shadow?: boolean;
+  setIsAlertOpen: React.Dispatch<React.SetStateAction<boolean>>;
   closeBtn?: boolean;
 };
 
 const Alert: React.FC<AlertProps> = ({
-  text, color = 'error', shadow = false, closeBtn = false,
+  text,
+  color = 'error',
+  setIsAlertOpen,
+  closeBtn = false,
 }: AlertProps) => {
   let alertBackground;
   let alertIcon;
@@ -37,21 +40,26 @@ const Alert: React.FC<AlertProps> = ({
     return <ExclamationTriangleIcon className={`${alertIcon} w-5 h-5`} aria-hidden="true" />;
   };
   return (
-    <div className={`${alertBackground} rounded-md p-4 w-max ${shadow && 'shadow-lg'}`}>
-      <div className="flex h-[20px]">
-        <div>
-          {renderIcon()}
-        </div>
-        <div className="ml-3">
-          <p className={`${alertText} text-sm font-medium`}>{text}</p>
-        </div>
-        <div className="ml-3">
-          <button
-            type="button"
-            className={`inline-flex items-center ${alertBackground} ${alertIcon}`}
-          >
-            {closeBtn && <XMarkIcon className="h-5 w-5" aria-hidden="true" /> }
-          </button>
+    <div className="fixed my-0 mx-auto left-0 right-0 flex justify-center">
+      <div
+        className={`${alertBackground} rounded-md p-4 w-max fixed z-10 top-[96px] show shadow-xl`}
+      >
+        <div className="flex h-[20px]">
+          <div>
+            {renderIcon()}
+          </div>
+          <div className="ml-3">
+            <p className={`${alertText} text-sm`}>{text}</p>
+          </div>
+          <div className="ml-3">
+            <button
+              type="button"
+              className={`inline-flex items-center ${alertBackground} ${alertIcon}`}
+              onClick={() => setIsAlertOpen(false)}
+            >
+              {closeBtn && <XMarkIcon className="h-5 w-5" aria-hidden="true" /> }
+            </button>
+          </div>
         </div>
       </div>
     </div>

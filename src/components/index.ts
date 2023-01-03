@@ -8,5 +8,5 @@ import Tabs from './Tabs';
 import Alert from './Alert';
 
 export {
-  Button, Card, TextInput, Modal, ProfilePhoto, Tabs, Alert
+  Button, Card, TextInput, Modal, ProfilePhoto, Tabs, Alert,
 };
