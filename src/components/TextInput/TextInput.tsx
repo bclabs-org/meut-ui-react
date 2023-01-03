@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from "react";
+import React, { ChangeEvent } from 'react';
 
 type TextInputProps = {
   type?: string;
@@ -57,8 +57,8 @@ const TextInput: React.FC<TextInputProps> = ({
         id={name}
         className={`w-full h-[50px] rounded-100 focus:ring-0 ${
           errorMessage
-            ? "border-2 border-danger focus:border-danger"
-            : "border border-gray-300 hover:text-input-border-hover focus:text-input-border-focus"
+            ? 'border-2 border-danger focus:border-danger'
+            : 'border border-gray-300 hover:text-input-border-hover focus:text-input-border-focus'
         }`}
         placeholder={placeholder}
         onChange={onChange}
