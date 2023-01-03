@@ -15,7 +15,7 @@ const Modal: React.FC<ModalProps> = ({
   <Transition.Root show={isModalOpen} as={Fragment}>
     <Dialog
       as="div"
-      className="relative z-10 font-montserrat"
+      className="relative z-10"
       onClose={() => setIsModalOpen(false)}
     >
       <Transition.Child
@@ -41,7 +41,7 @@ const Modal: React.FC<ModalProps> = ({
             leaveFrom="opacity-100 translate-y-0 sm:scale-100"
             leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
           >
-            <Dialog.Panel className="w-[496px] relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all">
+            <Dialog.Panel className="w-max relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all">
               <div className="p-8">{children}</div>
             </Dialog.Panel>
           </Transition.Child>

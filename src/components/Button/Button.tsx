@@ -2,18 +2,23 @@ import React from 'react';
 import classNames from 'classnames';
 
 type ButtonProps = {
-  children: React.ReactNode,
-  size: string,
-  disabled?: boolean,
-  color?: string,
+  children: React.ReactNode;
+  size: string;
+  disabled?: boolean;
+  color?: string;
   handleClick?: () => void;
-  [key: string]: any,
+  [key: string]: any;
 };
 
 const Button: React.FC<ButtonProps> = ({
-  children, color = 'primary', size, disabled, handleClick, ...rest
+  children,
+  color = 'primary',
+  size,
+  disabled,
+  handleClick,
+  ...rest
 }: ButtonProps) => {
-  let btnSize = '';
+  let btnSize;
 
   switch (size) {
     case 'x-large':
@@ -49,9 +54,16 @@ const Button: React.FC<ButtonProps> = ({
 
   const styleClass = classNames(btnSize, btnColor);
 
-  return <button {...rest} disabled={disabled} onClick={handleClick} className={`${styleClass} rounded-100 text-white font-bold font-montserrat flex justify-center items-center disabled:opacity-40`}>
-        {children}
-    </button>;
+  return (
+    <button
+      {...rest}
+      disabled={disabled}
+      onClick={handleClick}
+      className={`${styleClass} rounded-100 text-white font-bold flex justify-center items-center disabled:opacity-40`}
+    >
+      {children}
+    </button>
+  );
 };
 
 export default Button;
