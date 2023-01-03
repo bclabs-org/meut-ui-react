@@ -1,5 +1,4 @@
 import React from 'react';
-
 type AlertProps = {
     text: string;
     color?: string;
