@@ -44,7 +44,7 @@ const TextInput: React.FC<TextInputProps> = ({
   handleClickOnExtraMessage,
   ...rest
 }: TextInputProps) => (
-  <div className={"font-montserrat"}>
+  <div>
     <div className="flex justify-between">
       <label htmlFor={name}>{label}</label>
       <span>{verificationTime}</span>

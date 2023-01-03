@@ -61,7 +61,7 @@ const Button: React.FC<ButtonProps> = ({
       {...rest}
       disabled={disabled}
       onClick={handleClick}
-      className={`${styleClass} rounded-100 text-white font-bold font-montserrat flex justify-center items-center disabled:opacity-40`}
+      className={`${styleClass} rounded-100 text-white font-bold flex justify-center items-center disabled:opacity-40`}
     >
       {children}
     </button>

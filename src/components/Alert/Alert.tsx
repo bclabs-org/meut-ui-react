@@ -39,7 +39,7 @@ const Alert: React.FC<AlertProps> = ({
             />
           </div>
           <div className="ml-3">
-            <p className={`${alertText} text-sm font-medium`}>{text}</p>
+            <p className={`${alertText} text-sm`}>{text}</p>
           </div>
           <div className="ml-3">
             <button
