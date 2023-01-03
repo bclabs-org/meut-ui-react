@@ -29,7 +29,7 @@ const Alert: React.FC<AlertProps> = ({
   return (
     <div className="fixed my-0 mx-auto left-0 right-0 flex justify-center">
       <div
-        className={`${alertBackground} rounded-md p-4 w-max fixed z-10 top-[96px] show`}
+        className={`${alertBackground} rounded-md p-4 w-max fixed z-10 top-[96px] show shadow-xl`}
       >
         <div className="flex h-[20px]">
           <div>
