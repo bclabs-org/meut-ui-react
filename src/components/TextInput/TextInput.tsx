@@ -72,7 +72,7 @@ const TextInput: React.FC<TextInputProps> = ({
     {(errorMessage || extraMessage) && (
       <div className="flex justify-between">
         {errorMessage && (
-          <div>
+          <div className="flex items-center">
             <div className="mt-1">
               <svg
                 width="14"
