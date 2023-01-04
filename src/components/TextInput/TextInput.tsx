@@ -20,7 +20,7 @@ type TextInputProps = {
   onBlur?: React.FocusEventHandler<HTMLInputElement>;
   onFocus?: React.FocusEventHandler<HTMLInputElement>;
   value?: string;
-  verificationTime?: number;
+  verificationTime?: string;
   handleClickOnExtraMessage: () => void;
   flag: boolean;
   [key: string]: any;
@@ -44,20 +44,20 @@ const TextInput: React.FC<TextInputProps> = ({
   handleClickOnExtraMessage,
   ...rest
 }: TextInputProps) => (
-  <div>
-    <div className="flex justify-between">
+  <div className="font-medium">
+    <div className="flex justify-between text-onTertiary mb-1">
       <label htmlFor={name}>{label}</label>
-      <span>{verificationTime}</span>
+      <span className={`${verificationTime === '0:00' && 'text-warning'}`}>{verificationTime}</span>
     </div>
-    <div className="my-1">
+    <div>
       <input
         type={type}
         maxLength={maxLength}
         name={name}
         id={name}
-        className={`w-full h-[50px] rounded-100 focus:ring-0 ${
+        className={`w-full h-12 rounded-100 focus:ring-0 placeholder:text-gray-300 ${
           errorMessage
-            ? 'border-2 border-danger focus:border-danger'
+            ? 'border-2 border-warning focus:border-warning'
             : 'border border-gray-300 hover:text-input-border-hover focus:text-input-border-focus'
         }`}
         placeholder={placeholder}
@@ -69,49 +69,45 @@ const TextInput: React.FC<TextInputProps> = ({
         {...rest}
       />
     </div>
-    {(errorMessage || extraMessage) && (
-      <div className="flex justify-between">
+    {(errorMessage || extraMessage || helperMessage) && (
+      <div className="text-sm mt-1">
         {errorMessage && (
-          <div>
-            <div className="mt-1">
+          <div className="flex">
+            <div>
               <svg
-                width="14"
-                height="14"
-                viewBox="0 0 14 14"
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
                   fillRule="evenodd"
                   clipRule="evenodd"
-                  d="M0.333008 7C0.333008 10.682 3.31767 13.6667 6.99967 13.6667C10.6817 13.6667 13.6663 10.682 13.6663 7C13.6663 3.318 10.6817 0.333333 6.99967 0.333333C3.31767 0.333333 0.333008 3.318 0.333008 7ZM12.333 7C12.333 9.94552 9.94519 12.3333 6.99967 12.3333C4.05416 12.3333 1.66634 9.94552 1.66634 7C1.66634 4.05448 4.05416 1.66667 6.99967 1.66667C9.94519 1.66667 12.333 4.05448 12.333 7ZM7.66634 9V10.3333H6.33301V9H7.66634ZM7.66634 7.66667V3.66667H6.33301V7.66667H7.66634Z"
-                  fill="#D63384"
+                  d="M0.25 10C0.25 4.61522 4.61522 0.25 10 0.25C15.3848 0.25 19.75 4.61522 19.75 10C19.75 15.3848 15.3848 19.75 10 19.75C4.61522 19.75 0.25 15.3848 0.25 10ZM10 6.25C10.4142 6.25 10.75 6.58579 10.75 7V10.75C10.75 11.1642 10.4142 11.5 10 11.5C9.58579 11.5 9.25 11.1642 9.25 10.75V7C9.25 6.58579 9.58579 6.25 10 6.25ZM10 14.5C10.4142 14.5 10.75 14.1642 10.75 13.75C10.75 13.3358 10.4142 13 10 13C9.58579 13 9.25 13.3358 9.25 13.75C9.25 14.1642 9.58579 14.5 10 14.5Z"
+                  fill="#DB2777"
                 />
               </svg>
             </div>
-            <span className="text-sm ml-2 text-gray-500" id={name}>
-              {errorMessage}&nbsp;
+            <span className="ml-2 text-warning" id={name}>
+              {errorMessage}
             </span>
           </div>
         )}
-        <p className="text-sm text-gray-500">
-          {flag ? (
-            <span
-              className="cursor-pointer text-green-500"
-              onClick={handleClickOnExtraMessage}
-            >
-              {extraMessage}
-            </span>
-          ) : (
-            extraMessage
-          )}
-        </p>
+        {extraMessage && flag && (
+          <span className="cursor-pointer text-onSecondary" onClick={handleClickOnExtraMessage}>
+            {extraMessage}
+          </span>
+        )}
+        {extraMessage && !flag && (
+          <span className="text-onSecondary opacity-40">{extraMessage}</span>
+        )}
+        {helperMessage && (
+          <span className="text-neutral" id={name}>
+            {helperMessage}
+          </span>
+        )}
       </div>
-    )}
-    {helperMessage && (
-      <p className="text-sm text-gray-500" id={name}>
-        {helperMessage}
-      </p>
     )}
   </div>
 );
