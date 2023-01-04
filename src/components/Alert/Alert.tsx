@@ -7,6 +7,7 @@ type AlertProps = {
   setIsAlertOpen: React.Dispatch<React.SetStateAction<boolean>>;
   closeBtn?: boolean;
   animation?: string;
+  [key: string]: any;
 };
 
 const Alert: React.FC<AlertProps> = ({
@@ -15,6 +16,7 @@ const Alert: React.FC<AlertProps> = ({
   setIsAlertOpen,
   closeBtn = false,
   animation = '',
+  ...rest
 }: AlertProps) => {
   let alertBackground;
   let alertIcon;
@@ -55,7 +57,10 @@ const Alert: React.FC<AlertProps> = ({
 
   return (
     <div
-      className={`${alertBackground} rounded-md p-4 w-max fixed z-10 ${alertAnimation} shadow-xl`}
+      {...rest}
+      className={`${alertBackground} rounded-md p-4 w-max fixed z-10 ${alertAnimation} shadow-xl${
+        rest.className && ` ${rest.className}`
+      }`}
     >
       <div className="flex h-[20px]">
         <div>{renderIcon()}</div>
