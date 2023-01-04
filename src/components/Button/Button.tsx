@@ -39,13 +39,13 @@ const Button: React.FC<ButtonProps> = ({
   let btnColor;
   switch (color) {
     case 'primary':
-      btnColor = 'bg-primary hover:bg-primary-hover active:bg-primary-active';
+      btnColor = 'bg-primary text-onPrimary hover:bg-primary-hover active:bg-primary-active';
       break;
     case 'secondary':
-      btnColor = 'bg-secondary hover:bg-secondary-hover active:bg-secondary-active';
+      btnColor = 'bg-secondary text-onSecondary hover:bg-secondary-hover active:bg-secondary-active';
       break;
     case 'tertiary':
-      btnColor = 'bg-tertiary hover:bg-tertiary-hover active:bg-tertiary-active';
+      btnColor = 'bg-tertiary text-onTertiary hover:bg-tertiary-hover active:bg-tertiary-active';
       break;
     default:
       throw Error('invalid color value');
@@ -58,7 +58,7 @@ const Button: React.FC<ButtonProps> = ({
       {...rest}
       disabled={disabled}
       onClick={handleClick}
-      className={`${styleClass} rounded-100 text-white font-bold flex justify-center items-center disabled:opacity-40`}
+      className={`${styleClass} rounded-100 font-bold flex justify-center items-center disabled:opacity-40`}
     >
       {children}
     </button>

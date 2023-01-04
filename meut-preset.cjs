@@ -8,33 +8,36 @@ module.exports = {
       },
       colors: {
         primary: {
-          DEFAULT: '#6CD28A',
-          disabled: 'rgba(108, 210, 138, 0.4)',
+          DEFAULT: '#10B981',
+          disabled: 'rgba(16, 185, 129, 0.4)',
+          hover: '#059669',
+          focus: '#047857'
         },
+        onPrimary: '#FFFFFF',
         secondary: {
-          DEFAULT: '#8B63E4',
-          disabled: 'rgba(139, 99, 228, 0.4)',
+          DEFAULT: '#ECFDF5',
+          disabled: 'rgba(236, 253, 245, 0.4)',
+          hover: '#D1FAE5',
+          focus: '#A7F3D0'
         },
+        onSecondary: '#047857',
         tertiary: {
-          DEFAULT: '#4E73CF',
-          disabled: 'rgba(78, 115, 207, 0.4)',
+          DEFAULT: '#F9FAFB',
+          disabled: 'rgba(249, 250, 251, 0.4)',
+          hover: '#F3F4F6',
+          focus: '#E5E7EB'
         },
-        meut: {
-          gray: {
-            DEFAULT: '#E3E6EB',
-            500: '#B6C0D2',
-            600: '#475569',
-            700: '#313C53',
-            800: '#1C263C',
-            900: '#020319',
-          },
-          red: {
-            DEFAULT: '#F56565',
-            500: '#9c3a3a'
-          }
+        onNeutral: '#FFFFFF',
+        neutral: {
+          DEFAULT: '#6B7280',
+          disabled: 'rgba(107, 114, 128, 0.4)',
+          hover: '#4B5563',
+          focus: '#374151'
         },
+        onTertiary: '#374151',
         danger: '#D63384',
-        warning: '#FACC15',
+        warning: '#DB2777',
+        overlay: 'rgba(107, 114, 128, 0.75)'
       },
       borderRadius: {
         100: '4px',
@@ -54,36 +57,4 @@ module.exports = {
       }
     },
   },
-  plugins: [
-    require('@tailwindcss/forms'),
-    plugin(function ({addComponents, theme}) {
-      addComponents(({
-        '.bg-primary-hover': {
-          background: `linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), ${theme('colors.primary.DEFAULT')}`
-        },
-        '.bg-primary-active': {
-          background: `linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), ${theme('colors.primary.DEFAULT')}`
-        },
-        '.bg-secondary-hover': {
-          background: `linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), ${theme('colors.secondary.DEFAULT')}`
-        },
-        '.bg-secondary-active': {
-          background: `linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), ${theme('colors.secondary.DEFAULT')}`
-        },
-        '.bg-tertiary-hover': {
-          background: `linear-gradient(0deg, rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.03)), ${theme('colors.tertiary.DEFAULT')}`
-        },
-        '.bg-tertiary-active': {
-          background: `linear-gradient(0deg, rgba(0, 0, 0, 0.07), rgba(0, 0, 0, 0.07)), ${theme('colors.tertiary.DEFAULT')}`
-        },
-        '.text-input-border-hover': {
-          outline: '3px solid rgba(108, 210, 138, 0.2)'
-        },
-        '.text-input-border-focus': {
-          outline: 'none',
-          border: `2px solid ${theme('colors.primary.DEFAULT')}`
-        },
-      }))
-    }),
-  ],
 }
