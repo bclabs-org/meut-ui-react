@@ -33,7 +33,6 @@ const Alert: React.FC<AlertProps> = ({
     default:
       throw Error('invalid color value');
   }
-  console.log(color, animation);
 
   let alertAnimation;
   switch (animation) {
