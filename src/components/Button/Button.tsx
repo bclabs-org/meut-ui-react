@@ -19,7 +19,6 @@ const Button: React.FC<ButtonProps> = ({
   ...rest
 }: ButtonProps) => {
   let btnSize;
-
   switch (size) {
     case 'x-large':
       btnSize = 'w-full h-[64px] text-[20px]';

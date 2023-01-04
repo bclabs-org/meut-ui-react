@@ -6,6 +6,7 @@ type AlertProps = {
   color?: string;
   setIsAlertOpen: React.Dispatch<React.SetStateAction<boolean>>;
   closeBtn?: boolean;
+  animation?: string;
 };
 
 const Alert: React.FC<AlertProps> = ({
@@ -13,11 +14,11 @@ const Alert: React.FC<AlertProps> = ({
   color = 'error',
   setIsAlertOpen,
   closeBtn = false,
+  animation = '',
 }: AlertProps) => {
   let alertBackground;
   let alertIcon;
   let alertText;
-
   switch (color) {
     case 'error':
       alertBackground = 'bg-pink-50';
@@ -33,34 +34,45 @@ const Alert: React.FC<AlertProps> = ({
       throw Error('invalid color value');
   }
 
+  let alertAnimation;
+  switch (animation) {
+    case 'fromTop':
+      alertAnimation = 'top-[96px] show';
+      break;
+    case '':
+      alertAnimation = '';
+      break;
+    default:
+      throw Error('invalid animation value');
+  }
+
   const renderIcon = () => {
     if (color === 'error') {
       return <XCircleIcon className={`${alertIcon} w-5 h-5`} aria-hidden="true" />;
     }
     return <ExclamationTriangleIcon className={`${alertIcon} w-5 h-5`} aria-hidden="true" />;
   };
+
   return (
-    <div className="fixed my-0 mx-auto left-0 right-0 flex justify-center">
-      <div
-        className={`${alertBackground} rounded-md p-4 w-max fixed z-10 top-[96px] show shadow-xl`}
-      >
-        <div className="flex h-[20px]">
-          <div>
-            {renderIcon()}
-          </div>
-          <div className="ml-3">
-            <p className={`${alertText} text-sm`}>{text}</p>
-          </div>
+    <div
+      className={`${alertBackground} rounded-md p-4 w-max fixed z-10 ${alertAnimation} shadow-xl`}
+    >
+      <div className="flex h-[20px]">
+        <div>{renderIcon()}</div>
+        <div className="ml-3">
+          <p className={`${alertText} text-sm`}>{text}</p>
+        </div>
+        {closeBtn && (
           <div className="ml-3">
             <button
               type="button"
               className={`inline-flex items-center ${alertBackground} ${alertIcon}`}
               onClick={() => setIsAlertOpen(false)}
             >
-              {closeBtn && <XMarkIcon className="h-5 w-5" aria-hidden="true" /> }
+              <XMarkIcon className="h-5 w-5" aria-hidden="true" />
             </button>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );

@@ -6,7 +6,4 @@ import Modal from './Modal';
 import ProfilePhoto from './ProfilePhoto';
 import Tabs from './Tabs';
 import Alert from './Alert';
-
-export {
-  Button, Card, TextInput, Modal, ProfilePhoto, Tabs, Alert,
-};
+export { Button, Card, TextInput, Modal, ProfilePhoto, Tabs, Alert, };
