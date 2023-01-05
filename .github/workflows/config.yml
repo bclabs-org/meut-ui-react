@@ -21,6 +21,10 @@ jobs:
           yarn install
           yarn build
       - name: Deploy Storybook
-        env:
-          TEST2: ${{ secrets.DEPLOY_TOKEN }}
-        run: echo $TEST2
+        run: |
+          yarn build:storybook
+      - name: Deploy Storybook
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.DEPLOY_TOKEN }}
+          publish_dir: ../../storybook-static
