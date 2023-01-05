@@ -1,4 +1,4 @@
-import React, { MouseEventHandler } from 'react';
+import React from 'react';
 import { XCircleIcon, XMarkIcon, ExclamationTriangleIcon } from '@heroicons/react/20/solid';
 
 type AlertProps = {
@@ -7,6 +7,7 @@ type AlertProps = {
   setIsAlertOpen: React.Dispatch<React.SetStateAction<boolean>>;
   closeBtn?: boolean;
   animation?: string;
+  className?: string;
 };
 
 const Alert: React.FC<AlertProps> = ({
@@ -15,6 +16,7 @@ const Alert: React.FC<AlertProps> = ({
   setIsAlertOpen,
   closeBtn = false,
   animation = '',
+  className,
 }: AlertProps) => {
   let alertBackground;
   let alertIcon;
@@ -55,7 +57,9 @@ const Alert: React.FC<AlertProps> = ({
 
   return (
     <div
-      className={`${alertBackground} rounded-md p-4 w-max fixed z-10 ${alertAnimation} shadow-xl`}
+      className={`${alertBackground} rounded-md p-4 w-max fixed z-10 ${alertAnimation} shadow-xl${
+        className && ` ${className}`
+      }`}
     >
       <div className="flex h-[20px]">
         <div>{renderIcon()}</div>
