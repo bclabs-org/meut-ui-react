@@ -22,5 +22,5 @@ jobs:
           yarn build
       - name: Deploy Storybook
         env:
-          TEST2: ${{ secrets.TOKEN }}
+          TEST2: ${{ secrets.DEPLOY_TOKEN }}
         run: echo $TEST2
