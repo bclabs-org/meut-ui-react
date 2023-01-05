@@ -14,6 +14,7 @@ export default {
     errorMessage: { control: { type: 'text' } },
     onChange: { action: 'onChange' },
     value: { control: { type: 'text' } },
+    maxLength: {control: { type: 'number' } },
   },
 } as ComponentMeta<typeof TextInput>;
 

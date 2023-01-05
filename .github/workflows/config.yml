@@ -8,11 +8,17 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: setup git config
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
       - name: Install and Build
         run: |
           yarn install
           yarn build
+      - name: Deploy Storybook
           yarn build:storybook
           yarn deploy:storybook
         env:
