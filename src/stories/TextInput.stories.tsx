@@ -24,7 +24,7 @@ export const Default = Template.bind({});
 Default.args = {
   type: 'text',
   name: 'default',
-  placeholder: '텍스트를 입력해주세요!!!',
+  placeholder: '텍스트를 입력해주세요!!!!!',
 };
 
 export const Helper = Template.bind({});
