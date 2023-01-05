@@ -7,17 +7,9 @@ type ModalProps = {
   setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const Modal: React.FC<ModalProps> = ({
-  children,
-  isModalOpen,
-  setIsModalOpen,
-}) => (
+const Modal: React.FC<ModalProps> = ({ children, isModalOpen, setIsModalOpen }) => (
   <Transition.Root show={isModalOpen} as={Fragment}>
-    <Dialog
-      as="div"
-      className="relative z-10"
-      onClose={() => setIsModalOpen(false)}
-    >
+    <Dialog as="div" className="relative z-10" onClose={() => setIsModalOpen(false)}>
       <Transition.Child
         as={Fragment}
         enter="ease-out duration-300"
@@ -41,8 +33,8 @@ const Modal: React.FC<ModalProps> = ({
             leaveFrom="opacity-100 translate-y-0 sm:scale-100"
             leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
           >
-            <Dialog.Panel className="w-max relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all">
-              <div className="p-8">{children}</div>
+            <Dialog.Panel className="w-[468px] relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all">
+              <div className="py-8 px-10">{children}</div>
             </Dialog.Panel>
           </Transition.Child>
         </div>

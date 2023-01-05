@@ -4,6 +4,7 @@ import classNames from 'classnames';
 type ButtonProps = {
   children: React.ReactNode;
   size: string;
+  full?: boolean;
   disabled?: boolean;
   color?: string;
   handleClick?: () => void;
@@ -14,23 +15,18 @@ const Button: React.FC<ButtonProps> = ({
   children,
   color = 'primary',
   size,
+  full = false,
   disabled,
   handleClick,
   ...rest
 }: ButtonProps) => {
   let btnSize;
   switch (size) {
-    case 'x-large':
-      btnSize = 'w-full h-[64px] text-[20px]';
-      break;
     case 'large':
-      btnSize = 'h-[64px] text-[20px] py-[20px] px-[40px]';
-      break;
-    case 'medium':
-      btnSize = 'h-[48px] text-[16px] py-[14px] px-[24px]';
+      btnSize = 'h-12 py-3 px-6';
       break;
     case 'small':
-      btnSize = 'h-[32px] text-[14px] py-[8px] px-[16px]';
+      btnSize = 'h-9 text-sm py-2 px-4';
       break;
     default:
       throw Error('invalid size value');
@@ -42,7 +38,8 @@ const Button: React.FC<ButtonProps> = ({
       btnColor = 'bg-primary text-onPrimary hover:bg-primary-hover active:bg-primary-active';
       break;
     case 'secondary':
-      btnColor = 'bg-secondary text-onSecondary hover:bg-secondary-hover active:bg-secondary-active';
+      btnColor =
+        'bg-secondary text-onSecondary hover:bg-secondary-hover active:bg-secondary-active';
       break;
     case 'tertiary':
       btnColor = 'bg-tertiary text-onTertiary hover:bg-tertiary-hover active:bg-tertiary-active';
@@ -58,7 +55,9 @@ const Button: React.FC<ButtonProps> = ({
       {...rest}
       disabled={disabled}
       onClick={handleClick}
-      className={`${styleClass} rounded-100 font-bold flex justify-center items-center disabled:opacity-40`}
+      className={`${styleClass} ${
+        full && 'w-full'
+      } rounded-100 font-semibold flex justify-center items-center disabled:opacity-40`}
     >
       {children}
     </button>
