@@ -8,35 +8,35 @@ module.exports = {
       },
       colors: {
         primary: {
-          DEFAULT: '#10B981',
+          DEFAULT: '#10B981', // emerald-500
           disabled: 'rgba(16, 185, 129, 0.4)',
-          hover: '#059669',
-          focus: '#047857'
+          hover: '#059669', // emerald-600
+          focus: '#047857' // emerald-700
         },
         onPrimary: '#FFFFFF',
         secondary: {
-          DEFAULT: '#ECFDF5',
+          DEFAULT: '#ECFDF5', // emerald-50
           disabled: 'rgba(236, 253, 245, 0.4)',
-          hover: '#D1FAE5',
-          focus: '#A7F3D0'
+          hover: '#D1FAE5', // emerald-100
+          focus: '#A7F3D0' // emerald-200
         },
-        onSecondary: '#047857',
+        onSecondary: '#047857', // emerald-700
         tertiary: {
-          DEFAULT: '#F9FAFB',
+          DEFAULT: '#F9FAFB', // gray-50
           disabled: 'rgba(249, 250, 251, 0.4)',
-          hover: '#F3F4F6',
-          focus: '#E5E7EB'
+          hover: '#F3F4F6', // gray-100
+          focus: '#E5E7EB' // gray-200
         },
         onNeutral: '#FFFFFF',
         neutral: {
-          DEFAULT: '#6B7280',
+          DEFAULT: '#6B7280', // gray-500
           disabled: 'rgba(107, 114, 128, 0.4)',
-          hover: '#4B5563',
-          focus: '#374151'
+          hover: '#4B5563', // gray-600
+          focus: '#374151' // gray-700
         },
-        onTertiary: '#374151',
+        onTertiary: '#374151', // gray-700
         danger: '#D63384',
-        warning: '#DB2777',
+        warning: '#DB2777', // pink-600
         overlay: 'rgba(107, 114, 128, 0.75)'
       },
       borderRadius: {
