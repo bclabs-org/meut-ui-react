@@ -1,0 +1,19 @@
+name: Build & Deploy Storybook
+on:
+  push:
+    branches:
+      - develop
+    paths: ['src/**/*']
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install and Build
+        run: |
+          yarn install
+          yarn build
+          yarn build:storybook
+          yarn deploy:storybook
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
