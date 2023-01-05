@@ -30,7 +30,7 @@ Default.args = {
 
 export const Disabled = Template.bind({});
 Disabled.args = {
-  children: '버튼 비활성화',
+  children: '비활성화',
   color: 'secondary',
   size: 'small',
 };
