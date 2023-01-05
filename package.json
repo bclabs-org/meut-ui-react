@@ -1,4 +1,5 @@
 {
+  "homepage": "https://bclabs-org.github.io/meut-ui-react",
   "name": "meut-ui-react",
   "version": "0.0.1",
   "scripts": {
@@ -7,7 +8,8 @@
     "lint": "eslint '**/*.{ts,tsx}'",
     "lint:fix": "eslint '**/*.{ts,tsx}' --fix",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build:storybook": "build-storybook",
+    "deploy:storybook": "npm run build:storybook && gh-pages -d storybook-static"
   },
   "main": "dist/bundle.js",
   "types": "lib/index.d.ts",
@@ -39,6 +41,7 @@
     "babel-loader": "^8.3.0",
     "classnames": "^2.3.2",
     "eslint-config-bclabs": "git+https://github.com/bclabs-org/eslint-config-bclabs.git",
+    "gh-pages": "^4.0.0",
     "postcss": "^8.4.19",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
