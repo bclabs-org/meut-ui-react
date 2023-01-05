@@ -10,12 +10,9 @@ jobs:
       - name: checkout
         uses: actions/checkout@v3
       - name: git config
-        env:
-          USER_NAME: ${{ github.event.pusher.name }}
-          USER_EMAIL: ${{ github.event.pusher.email }}
         run: |
-          git config --global user.email "$USER_EMAIL"
-          git config --global user.name "$USER_NAME"
+          git config --global user.email "bclabs-mia"
+          git config --global user.name "mia.kim@bclabs.co.kr"
       - name: Install and Build
         run: |
           yarn install
