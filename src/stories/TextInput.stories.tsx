@@ -33,6 +33,7 @@ Helper.args = {
   name: 'default',
   placeholder: '텍스트를 입력해주세요',
   helperMessage: '10글자 이상 입력해야 됩니다',
+  maxLength: 10,
 };
 
 export const Error = Template.bind({});
