@@ -10,7 +10,7 @@ jobs:
       - name: checkout
         uses: actions/checkout@v3
       - name: git config
-        env:
+        with:
           USER_NAME: ${{ github.event.pusher.name }}
           USER_EMAIL: ${{ github.event.pusher.email }}
         run: |
@@ -21,6 +21,6 @@ jobs:
           yarn install
           yarn build
       - name: Deploy Storybook
-        env:
+        with:
           TEST2: ${{ secrets.TOKEN }}
-      - run: echo $TEST2
+        run: echo $TEST2
