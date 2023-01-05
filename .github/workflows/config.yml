@@ -13,7 +13,7 @@ jobs:
       - name: setup git config
         run: |
           git config user.name "GitHub Actions Bot"
-          git config user.email "<>"
+          git config user.email "mia.kim@bclabs.co.kr"
       - name: Install and Build
         run: |
           yarn install

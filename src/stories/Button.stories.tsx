@@ -15,6 +15,7 @@ export default {
       options: ['large', 'small'],
       control: { type: 'radio' },
     },
+    full: { control: { type: 'boolean' } },
   },
 } as ComponentMeta<typeof Button>;
 
