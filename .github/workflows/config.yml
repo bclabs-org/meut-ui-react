@@ -19,6 +19,7 @@ jobs:
           yarn install
           yarn build
       - name: Deploy Storybook
+        run: |
           yarn build:storybook
           yarn deploy:storybook
         env:
