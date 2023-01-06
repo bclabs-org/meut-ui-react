@@ -17,6 +17,8 @@ jobs:
           git config --global user.name "$USER_NAME"
           git config --global user.email "$USER_EMAIL"
       - name: Build And Push
+        with:
+          token: ${{ secrets.DEPLOY_TOKEN }}
         run: |
           yarn install
           yarn build
