@@ -1,22 +1,16 @@
-import React, { ChangeEvent } from 'react';
+import React from 'react';
 
 type TextInputProps = {
   type?: string;
   name?: string;
   label?: string;
+  disabled?: boolean;
   placeholder?: string;
   helperMessage?: string;
   errorMessage?: string;
   extraMessage?: string;
   maxLength?: number;
-  onChange?: {
-    (e: React.ChangeEvent<HTMLInputElement>): void;
-    <T = string | React.ChangeEvent<HTMLInputElement>>(
-      field: T
-    ): T extends React.ChangeEvent<HTMLInputElement>
-      ? void
-      : (e: string | React.ChangeEvent<HTMLInputElement>) => void;
-  };
+  onChange?: () => void;
   onBlur?: React.FocusEventHandler<HTMLInputElement>;
   onFocus?: React.FocusEventHandler<HTMLInputElement>;
   value?: string;
@@ -30,6 +24,7 @@ const TextInput: React.FC<TextInputProps> = ({
   type,
   name,
   label,
+  disabled,
   placeholder,
   helperMessage,
   errorMessage,
@@ -44,7 +39,7 @@ const TextInput: React.FC<TextInputProps> = ({
   handleClickOnExtraMessage,
   ...rest
 }: TextInputProps) => (
-  <div className="font-medium">
+  <div className={`font-medium ${disabled && 'opacity-40'}`}>
     <div className="flex justify-between text-onTertiary mb-1">
       <label htmlFor={name}>{label}</label>
       <span className={`${verificationTime === '0:00' && 'text-warning'}`}>{verificationTime}</span>
@@ -58,8 +53,9 @@ const TextInput: React.FC<TextInputProps> = ({
         className={`w-full h-12 p-3 rounded-100 focus:ring-0 placeholder:text-gray-300 ${
           errorMessage
             ? 'border-2 border-warning focus:border-warning'
-            : 'border border-gray-300 hover:outline-[3px] hover:outline-secondary-hover focus:outline-0 focus:border-2 focus:border-primary'
+            : 'border border-gray-300 hover:outline hover:outline-[3px] hover:outline-secondary-hover focus:outline-0 focus:border-2 focus:border-primary disabled:hover:outline-0'
         }`}
+        disabled={disabled}
         placeholder={placeholder}
         onChange={onChange}
         onBlur={onBlur}
