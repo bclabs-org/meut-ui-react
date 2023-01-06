@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { XCircleIcon, XMarkIcon, ExclamationTriangleIcon } from '@heroicons/react/20/solid';
 
 type AlertProps = {
@@ -62,11 +62,9 @@ const Alert: React.FC<AlertProps> = ({
 
   return (
     <div
-      className={`${alertBackground} rounded-md p-4 w-max fixed z-10 ${alertAnimation} shadow-xl ${
-        className && `${className}`
-      }`}
+      className={`${alertBackground} ${alertAnimation} ${className} rounded-md p-4 w-max fixed z-10 shadow-xl`}
     >
-      <div className="flex">
+      <div className={`flex ${!subText && 'h-5'}`}>
         <div>{renderIcon()}</div>
         <div className={`ml-3 text-sm`}>
           <p className={`${alertText} font-medium`}>{text}</p>
