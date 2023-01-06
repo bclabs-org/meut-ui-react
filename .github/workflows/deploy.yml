@@ -1,0 +1,25 @@
+name: Build & Deploy
+on:
+  push:
+    branches:
+      - actions_test
+    paths: ['src/**/*']
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: git config
+        env:
+          USER_NAME: ${{ github.event.pusher.name }}
+          USER_EMAIL: ${{ github.event.pusher.email }}
+        run: |
+          git config --global user.name "$USER_NAME"
+          git config --global user.email "$USER_EMAIL"
+      - name: Build And Push
+        run: |
+          yarn install
+          yarn build
+          git add .
+          git commit -m 'chore: update bundle file'
+          git push --set-upstream origin actions_test
