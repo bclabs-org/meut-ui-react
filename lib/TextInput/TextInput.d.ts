@@ -3,6 +3,7 @@ type TextInputProps = {
     type?: string;
     name?: string;
     label?: string;
+    disabled?: boolean;
     placeholder?: string;
     helperMessage?: string;
     errorMessage?: string;
