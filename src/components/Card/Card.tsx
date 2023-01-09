@@ -5,7 +5,7 @@ type CardProps = {
 };
 
 const Card: React.FC<CardProps> = ({ children }) => (
-  <div className="w-[343px] cursor-pointer p-5 rounded-400 border border-gray-300 bg-tertiary hover:border-2 hover:border-primary hover:bg-white active:border active:border-gray-300 active:bg-tertiary">
+  <div className="w-[343px] grid gap-y-5 cursor-pointer p-5 rounded-400 border border-gray-300 bg-tertiary hover:border-2 hover:border-primary hover:bg-white active:border active:border-gray-300 active:bg-tertiary">
     {children}
   </div>
 );
