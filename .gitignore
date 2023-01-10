@@ -27,6 +27,3 @@ yarn-error.log*
 .idea/
 
 *.xml
-
-# bundle files
-/dist
