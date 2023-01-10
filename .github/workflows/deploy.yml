@@ -3,8 +3,7 @@ on:
   push:
     branches:
       - actions_test
-permissions:
-  contents: write
+    paths: ['src/**/*']
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
