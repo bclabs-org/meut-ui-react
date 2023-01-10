@@ -23,5 +23,11 @@ jobs:
           yarn install
           yarn build
           git add .
-          git commit -m 'chore: update bundle file ${USER_NAME} ${USER_EMAIL}'
+          git commit -m `chore: update bundle file ${USER_NAME} ${USER_EMAIL}`
           git push --set-upstream origin actions_test
+      - name: Publish storybook to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.DEPLOY_TOKEN }}
+          publish_dir: ./storybook-static
+          publish_branch: gh-pages
