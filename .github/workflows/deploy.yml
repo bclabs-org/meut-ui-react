@@ -15,14 +15,14 @@ jobs:
           USER_EMAIL: ${{ github.event.pusher.email }}
       - name: git config
         run: |
-          git config --global user.name "${USER_NAME}"
-          git config --global user.email "${USER_EMAIL}"
+          git config --global user.name "$USER_NAME"
+          git config --global user.email "$USER_EMAIL"
       - name: Build And Push
         run: |
           yarn install
           yarn build
           git add .
-          git commit -m 'chore: update bundle file'
+          git commit -m 'chore: update bundle file $USER_NAME $USER_EMAIL'
           git push --set-upstream origin actions_test
       - name: Publish storybook to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
