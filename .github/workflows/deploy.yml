@@ -21,7 +21,7 @@ jobs:
           yarn build
           git add .
           git commit -m 'chore: update bundle file'
-          git push --set-upstream origin actions_test
+          git push --set-upstream origin develop
       - name: Publish storybook to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
