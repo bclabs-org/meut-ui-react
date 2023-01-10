@@ -3,6 +3,7 @@ import { XCircleIcon, XMarkIcon, ExclamationTriangleIcon } from '@heroicons/reac
 
 type AlertProps = {
   text: string;
+  subText?: string;
   color?: string;
   setIsAlertOpen: React.Dispatch<React.SetStateAction<boolean>>;
   closeBtn?: boolean;
@@ -12,6 +13,7 @@ type AlertProps = {
 
 const Alert: React.FC<AlertProps> = ({
   text,
+  subText,
   color = 'error',
   setIsAlertOpen,
   closeBtn = false,
@@ -21,16 +23,19 @@ const Alert: React.FC<AlertProps> = ({
   let alertBackground;
   let alertIcon;
   let alertText;
+  let alertSubText;
   switch (color) {
     case 'error':
       alertBackground = 'bg-pink-50';
       alertIcon = 'text-pink-600';
       alertText = 'text-pink-800';
+      alertSubText = 'text-pink-700';
       break;
     case 'attention':
       alertBackground = 'bg-yellow-50';
       alertIcon = 'text-yellow-400';
       alertText = 'text-yellow-800';
+      alertSubText = 'text-yellow-700';
       break;
     default:
       throw Error('invalid color value');
@@ -39,7 +44,7 @@ const Alert: React.FC<AlertProps> = ({
   let alertAnimation;
   switch (animation) {
     case 'fromTop':
-      alertAnimation = 'top-[96px] show';
+      alertAnimation = 'top-24 show';
       break;
     case '':
       alertAnimation = '';
@@ -57,14 +62,13 @@ const Alert: React.FC<AlertProps> = ({
 
   return (
     <div
-      className={`${alertBackground} rounded-md p-4 w-max fixed z-10 ${alertAnimation} shadow-xl${
-        className && ` ${className}`
-      }`}
+      className={`${alertBackground} ${alertAnimation} ${className} rounded-md p-4 w-max fixed z-10 shadow-xl`}
     >
-      <div className="flex h-[20px]">
+      <div className={`flex ${!subText && 'h-5'}`}>
         <div>{renderIcon()}</div>
-        <div className="ml-3">
-          <p className={`${alertText} text-sm`}>{text}</p>
+        <div className={`ml-3 text-sm`}>
+          <p className={`${alertText} font-medium`}>{text}</p>
+          {subText && <p className={`mt-2 ${alertSubText}`}>{subText}</p>}
         </div>
         {closeBtn && (
           <div className="ml-3">
