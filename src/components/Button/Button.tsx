@@ -37,7 +37,7 @@ const Button: React.FC<ButtonProps> = ({
     case 'primary':
       btnColor = 'bg-primary text-onPrimary hover:bg-primary-hover active:bg-primary-active';
       break;
-    case 'secondary2':
+    case 'secondary':
       btnColor =
         'bg-secondary text-onSecondary hover:bg-secondary-hover active:bg-secondary-active';
       break;
