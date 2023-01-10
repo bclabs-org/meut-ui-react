@@ -1,0 +1,30 @@
+name: Build & Deploy
+on:
+  push:
+    branches:
+      - develop
+    paths: ['src/**/*']
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.DEPLOY_TOKEN }}
+      - name: git config
+        run: |
+          git config --global user.name "bclabs-mia"
+          git config --global user.email "mia.kim@bclabs.co.kr"
+      - name: Build And Push
+        run: |
+          yarn install
+          yarn build
+          git add .
+          git commit -m 'chore: update bundle file'
+          git push --set-upstream origin develop
+      - name: Publish storybook to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.DEPLOY_TOKEN }}
+          publish_dir: ./storybook-static
+          publish_branch: gh-pages
