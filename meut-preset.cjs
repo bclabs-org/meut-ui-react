@@ -39,16 +39,6 @@ module.exports = {
         warning: '#DB2777', // pink-600
         overlay: 'rgba(107, 114, 128, 0.75)'
       },
-      borderRadius: {
-        100: '4px',
-        200: '8px',
-        300: '12px',
-        400: '16px',
-        500: '20px',
-        600: '24px',
-        700: '32px',
-        800: '48px',
-      },
       boxShadow: {
         'light-100': '0px 6px 6px rgba(0, 83, 125, 0.1)',
         'light-200': '0px 12px 12px rgba(0, 83, 125, 0.1)',
