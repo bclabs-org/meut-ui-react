@@ -2,10 +2,10 @@ import React from 'react';
 type AlertProps = {
     text: string;
     subText?: string;
-    color?: string;
+    color?: 'error' | 'attention';
     setIsAlertOpen: React.Dispatch<React.SetStateAction<boolean>>;
     closeBtn?: boolean;
-    animation?: string;
+    animation?: 'fromTop';
     className?: string;
 };
 declare const Alert: React.FC<AlertProps>;
