@@ -2,7 +2,8 @@ name: Build & Deploy
 on:
   push:
     branches:
-      - actions_test
+      - develop
+    paths: ['src/**/*']
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
