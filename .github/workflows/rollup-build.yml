@@ -3,7 +3,7 @@ on:
   push:
     branches:
       - master
-    paths: ['src/**/components']
+    paths: ['src/components/**/*']
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
