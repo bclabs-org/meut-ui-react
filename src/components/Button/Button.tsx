@@ -3,10 +3,10 @@ import classNames from 'classnames';
 
 type ButtonProps = {
   children: React.ReactNode;
-  size: string;
+  size: 'small' | 'large';
   full?: boolean;
   disabled?: boolean;
-  color?: string;
+  color?: 'primary' | 'secondary' | 'tertiary';
   handleClick?: () => void;
   [key: string]: any;
 };
@@ -22,11 +22,11 @@ const Button: React.FC<ButtonProps> = ({
 }: ButtonProps) => {
   let btnSize;
   switch (size) {
-    case 'large':
-      btnSize = 'h-12 py-3 px-6';
-      break;
     case 'small':
       btnSize = 'h-9 text-sm py-2 px-4';
+      break;
+    case 'large':
+      btnSize = 'h-12 py-3 px-6';
       break;
     default:
       throw Error('invalid size value');

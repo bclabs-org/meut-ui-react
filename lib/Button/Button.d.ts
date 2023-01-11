@@ -1,10 +1,10 @@
 import React from 'react';
 type ButtonProps = {
     children: React.ReactNode;
-    size: string;
+    size: 'small' | 'large';
     full?: boolean;
     disabled?: boolean;
-    color?: string;
+    color?: 'primary' | 'secondary' | 'tertiary';
     handleClick?: () => void;
     [key: string]: any;
 };

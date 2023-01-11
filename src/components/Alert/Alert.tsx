@@ -4,10 +4,10 @@ import { XCircleIcon, XMarkIcon, ExclamationTriangleIcon } from '@heroicons/reac
 type AlertProps = {
   text: string;
   subText?: string;
-  color?: string;
+  color?: 'error' | 'attention';
   setIsAlertOpen: React.Dispatch<React.SetStateAction<boolean>>;
   closeBtn?: boolean;
-  animation?: string;
+  animation?: 'fromTop';
   className?: string;
 };
 
@@ -17,7 +17,7 @@ const Alert: React.FC<AlertProps> = ({
   color = 'error',
   setIsAlertOpen,
   closeBtn = false,
-  animation = '',
+  animation,
   className,
 }: AlertProps) => {
   let alertBackground;
@@ -46,7 +46,7 @@ const Alert: React.FC<AlertProps> = ({
     case 'fromTop':
       alertAnimation = 'top-24 show';
       break;
-    case '':
+    case undefined:
       alertAnimation = '';
       break;
     default:
