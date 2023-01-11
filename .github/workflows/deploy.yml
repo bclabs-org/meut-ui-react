@@ -1,4 +1,4 @@
-name: Build & Push
+name: Publish storybook
 on:
   push:
     branches:
