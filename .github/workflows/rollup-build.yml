@@ -2,8 +2,8 @@ name: Build & Push
 on:
   push:
     branches:
-      - master
-    paths: ['src/**/components']
+      - develop
+    paths: ['src/components/**/*']
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
