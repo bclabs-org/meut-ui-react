@@ -1,0 +1,24 @@
+name: Build & Push
+on:
+  push:
+    branches:
+      - master
+    paths: ['src/**/components']
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.DEPLOY_TOKEN }}
+      - name: git config
+        run: |
+          git config --global user.name "bclabs-mia"
+          git config --global user.email "mia.kim@bclabs.co.kr"
+      - name: Build And Push
+        run: |
+          yarn install
+          yarn build
+          git add .
+          git commit -m 'chore: update bundle file'
+          git push --set-upstream origin develop
