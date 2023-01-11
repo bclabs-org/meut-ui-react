@@ -26,3 +26,10 @@ Default.args = {
   color: 'primary',
   size: 'large',
 };
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+  children: '버튼 비활성화',
+  color: 'primary',
+  size: 'large',
+};
