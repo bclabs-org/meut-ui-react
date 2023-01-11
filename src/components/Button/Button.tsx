@@ -57,7 +57,7 @@ const Button: React.FC<ButtonProps> = ({
       onClick={handleClick}
       className={`${styleClass} ${
         full && 'w-full'
-      } rounded-100 font-semibold flex justify-center items-center disabled:opacity-40`}
+      } rounded font-semibold flex justify-center items-center disabled:opacity-40`}
     >
       {children}
     </button>
