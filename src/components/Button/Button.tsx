@@ -60,6 +60,7 @@ const Button: React.FC<ButtonProps> = ({
       } rounded font-semibold flex justify-center items-center disabled:opacity-40`}
     >
       {children}
+      원복
     </button>
   );
 };
