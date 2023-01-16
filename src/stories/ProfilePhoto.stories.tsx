@@ -1,14 +1,14 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import ProfilePhoto from '../components/ProfilePhoto/index';
+import ProfilePhoto from '../components/ProfilePhoto/ProfilePhoto';
 
 export default {
   title: 'Components/ProfilePhoto',
   component: ProfilePhoto,
   argTypes: {
     size: {
-      options: ['large', 'medium', 'small'],
+      options: ['x-small', 'small', 'medium', 'large', 'x-large'],
       control: { type: 'select' },
     },
     imageFile: { control: { type: 'text' } },

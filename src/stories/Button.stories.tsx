@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import Button from '../components/Button/index';
+import Button from '../components/Button/Button';
 
 export default {
   title: 'Components/Button',
@@ -12,7 +12,7 @@ export default {
       control: { type: 'radio' },
     },
     size: {
-      options: ['large', 'small'],
+      options: ['small', 'large'],
       control: { type: 'radio' },
     },
   },
@@ -32,4 +32,13 @@ Disabled.args = {
   children: '버튼 비활성화',
   color: 'primary',
   size: 'large',
+  disabled: true
+};
+
+export const Full = Template.bind({});
+Full.args = {
+  children: '버튼 width full',
+  color: 'primary',
+  size: 'large',
+  full: true
 };
