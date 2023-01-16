@@ -1,10 +1,11 @@
-interface CheckboxPropsType {
+import React from 'react';
+type CheckboxProps = {
     label?: string;
     isDisabled?: boolean;
     isComplete?: boolean;
     disabled?: boolean;
     checked?: boolean;
     onChange?: () => void;
-}
-declare const Checkbox: ({ label, isDisabled, disabled, isComplete, checked, onChange, }: CheckboxPropsType) => JSX.Element;
+};
+declare const Checkbox: React.FC<CheckboxProps>;
 export default Checkbox;

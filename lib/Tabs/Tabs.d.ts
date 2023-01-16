@@ -1,7 +1,7 @@
 import React from 'react';
-type TabsPropsType = {
+type TabsProps = {
     color?: string;
     tabNames: string[];
 };
-declare const Tabs: React.FC<TabsPropsType>;
+declare const Tabs: React.FC<TabsProps>;
 export default Tabs;

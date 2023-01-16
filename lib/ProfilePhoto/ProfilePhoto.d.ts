@@ -1,8 +1,8 @@
 import React from 'react';
 import './style.css';
-type PropsType = {
+type ProfilePhotoProps = {
     size: 'x-small' | 'small' | 'medium' | 'large' | 'x-large';
     imageFile: string;
 };
-declare const ProfilePhoto: React.FC<PropsType>;
+declare const ProfilePhoto: React.FC<ProfilePhotoProps>;
 export default ProfilePhoto;
