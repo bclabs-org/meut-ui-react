@@ -1,10 +1,10 @@
 import React from 'react';
-import { XCircleIcon, XMarkIcon, ExclamationTriangleIcon } from '@heroicons/react/20/solid';
+import { XCircleIcon, XMarkIcon, ExclamationTriangleIcon, CheckCircleIcon } from '@heroicons/react/20/solid';
 
 type AlertProps = {
   text: string;
   subText?: string;
-  color?: 'error' | 'attention';
+  color?: 'error' | 'attention' | 'completion';
   setIsAlertOpen: React.Dispatch<React.SetStateAction<boolean>>;
   closeBtn?: boolean;
   animation?: 'fromTop';
@@ -22,20 +22,30 @@ const Alert: React.FC<AlertProps> = ({
 }: AlertProps) => {
   let alertBackground;
   let alertIcon;
+  let alertCloseBtn;
   let alertText;
   let alertSubText;
   switch (color) {
     case 'error':
       alertBackground = 'bg-pink-50';
-      alertIcon = 'text-pink-600';
+      alertIcon = 'text-warning';
+      alertCloseBtn = 'text-warning'
       alertText = 'text-pink-800';
       alertSubText = 'text-pink-700';
       break;
     case 'attention':
       alertBackground = 'bg-yellow-50';
       alertIcon = 'text-yellow-400';
+      alertCloseBtn = 'text-yellow-600'
       alertText = 'text-yellow-800';
       alertSubText = 'text-yellow-700';
+      break;
+    case 'completion':
+      alertBackground = 'bg-secondary';
+      alertIcon = 'text-emerald-400';
+      alertCloseBtn = 'text-primary'
+      alertText = 'text-emerald-800';
+      alertSubText = 'text-emerald-700';
       break;
     default:
       throw Error('invalid color value');
@@ -57,21 +67,24 @@ const Alert: React.FC<AlertProps> = ({
     if (color === 'error') {
       return <XCircleIcon className={`${alertIcon} w-5 h-5`} aria-hidden="true" />;
     }
-    return <ExclamationTriangleIcon className={`${alertIcon} w-5 h-5`} aria-hidden="true" />;
+    if (color === 'attention') {
+      return <ExclamationTriangleIcon className={`${alertIcon} w-5 h-5`} aria-hidden="true" />;
+    }
+    return <CheckCircleIcon className={`${alertIcon} w-5 h-5`} aria-hidden="true" />;
   };
 
   return (
     <div
-      className={`${alertBackground} ${alertAnimation} ${className} rounded-md p-4 w-max fixed z-10 shadow-xl`}
+      className={`${alertBackground} ${alertAnimation} ${className} rounded-md p-4 max-w-[343px] fixed z-10 shadow-xl`}
     >
-      <div className={`flex ${!subText && 'h-5'}`}>
+      <div className={`flex gap-x-3 ${!subText && 'h-5'}`}>
         <div>{renderIcon()}</div>
-        <div className={`ml-3 text-sm`}>
+        <div className="text-sm">
           <p className={`${alertText} font-medium`}>{text}</p>
           {subText && <p className={`mt-2 ${alertSubText}`}>{subText}</p>}
         </div>
         {closeBtn && (
-          <div className="ml-3">
+          <div>
             <button
               type="button"
               className={`inline-flex items-center ${alertBackground} ${alertIcon}`}
