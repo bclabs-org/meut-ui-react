@@ -6,15 +6,6 @@ import TextInput from '../components/TextInput/index';
 export default {
   title: 'Components/TextInput',
   component: TextInput,
-  argTypes: {
-    type: { control: { type: 'text' } },
-    name: { control: { type: 'text' } },
-    label: { control: { type: 'text' } },
-    placeholder: { control: { type: 'text' } },
-    helperMessage: { control: { type: 'text' } },
-    errorMessage: { control: { type: 'text' } },
-    extraMessage: { control: { type: 'text' } },
-  },
 } as ComponentMeta<typeof TextInput>;
 
 const Template: ComponentStory<typeof TextInput> = (args) => <TextInput {...args} />;

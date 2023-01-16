@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
 
-type TabsPropsType = {
+type TabsProps = {
   color?: string;
   tabNames: string[];
 };
 
-const Tabs: React.FC<TabsPropsType> = ({ color = 'primary', tabNames }: TabsPropsType) => {
+const Tabs: React.FC<TabsProps> = ({ color = 'primary', tabNames }: TabsProps) => {
   const initialTabs = tabNames.map((name, index) => ({
     name,
     current: index === 0,

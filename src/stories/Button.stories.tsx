@@ -6,16 +6,6 @@ import Button from '../components/Button/Button';
 export default {
   title: 'Components/Button',
   component: Button,
-  argTypes: {
-    color: {
-      options: ['primary', 'secondary', 'tertiary'],
-      control: { type: 'radio' },
-    },
-    size: {
-      options: ['small', 'large'],
-      control: { type: 'radio' },
-    },
-  },
 } as ComponentMeta<typeof Button>;
 
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;

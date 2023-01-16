@@ -6,10 +6,6 @@ import Modal from '../components/Modal/Modal';
 export default {
   title: 'Components/Modal',
   component: Modal,
-  argTypes: {
-    isModalOpen: { control: { type: 'boolean' } },
-    setIsModalOpen: { action: 'setIsModalOpen' },
-  },
 } as ComponentMeta<typeof Modal>;
 
 const Template: ComponentStory<typeof Modal> = (args) => <Modal {...args} />;

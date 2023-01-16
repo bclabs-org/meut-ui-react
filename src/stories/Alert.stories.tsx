@@ -6,13 +6,6 @@ import Alert from '../components/Alert/Alert';
 export default {
   title: 'Components/Alert',
   component: Alert,
-  argTypes: {
-    color: {
-      options: ['error', 'attention'],
-      control: { type: 'radio' },
-    },
-    imageFile: { control: { type: 'text' } },
-  },
 } as ComponentMeta<typeof Alert>;
 
 const Template: ComponentStory<typeof Alert> = (args) => <Alert {...args} />;
