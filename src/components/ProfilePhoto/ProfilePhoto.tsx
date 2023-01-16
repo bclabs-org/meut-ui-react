@@ -2,7 +2,7 @@ import React from 'react';
 import './style.css';
 
 type ProfilePhotoProps = {
-  size: 'x-small' | 'small' | 'medium' | 'large' | 'x-large';
+  size: 'x-small' | 'small' | 'small-medium' | 'medium' | 'large' | 'x-large';
   imageFile: string;
 };
 const ProfilePhoto: React.FC<ProfilePhotoProps> = ({ size, imageFile }: ProfilePhotoProps) => {
@@ -12,6 +12,9 @@ const ProfilePhoto: React.FC<ProfilePhotoProps> = ({ size, imageFile }: ProfileP
       profilePhotoSize = 'w-6 h-6';
       break;
     case 'small':
+      profilePhotoSize = 'w-8 h-8';
+      break;
+    case 'small-medium':
       profilePhotoSize = 'w-10 h-10';
       break;
     case 'medium':
