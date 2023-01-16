@@ -1,11 +1,11 @@
 import React from 'react';
 import './style.css';
 
-type PropsType = {
+type ProfilePhotoProps = {
   size: 'x-small' | 'small' | 'medium' | 'large' | 'x-large';
   imageFile: string;
 };
-const ProfilePhoto: React.FC<PropsType> = ({ size, imageFile }: PropsType) => {
+const ProfilePhoto: React.FC<ProfilePhotoProps> = ({ size, imageFile }: ProfilePhotoProps) => {
   let profilePhotoSize;
   switch (size) {
     case 'x-small':

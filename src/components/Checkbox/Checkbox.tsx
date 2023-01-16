@@ -2,7 +2,7 @@ import React from 'react';
 
 import { CheckCircleIcon } from '@heroicons/react/20/solid';
 
-interface CheckboxPropsType {
+type CheckboxProps = {
   label?: string;
   isDisabled?: boolean;
   isComplete?: boolean;
@@ -11,14 +11,14 @@ interface CheckboxPropsType {
   onChange?: () => void;
 }
 
-const Checkbox = ({
+const Checkbox: React.FC<CheckboxProps> = ({
   label,
   isDisabled = false,
   disabled = false,
   isComplete,
   checked = false,
   onChange,
-}: CheckboxPropsType) => (
+}: CheckboxProps) => (
   <>
     {isDisabled ? (
       <div>

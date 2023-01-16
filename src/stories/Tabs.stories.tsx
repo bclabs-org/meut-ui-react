@@ -1,18 +1,11 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import Tabs from '../components/Tabs/index';
+import Tabs from '../components/Tabs/Tabs';
 
 export default {
   title: 'Components/Tabs',
   component: Tabs,
-  argTypes: {
-    color: {
-      options: ['primary'],
-      control: { type: 'radio' },
-    },
-    tabNames: { control: 'object' },
-  },
 } as ComponentMeta<typeof Tabs>;
 
 const Template: ComponentStory<typeof Tabs> = (args) => <Tabs {...args} />;

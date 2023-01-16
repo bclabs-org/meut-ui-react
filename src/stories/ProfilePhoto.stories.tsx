@@ -1,18 +1,11 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import ProfilePhoto from '../components/ProfilePhoto/index';
+import ProfilePhoto from '../components/ProfilePhoto/ProfilePhoto';
 
 export default {
   title: 'Components/ProfilePhoto',
   component: ProfilePhoto,
-  argTypes: {
-    size: {
-      options: ['large', 'medium', 'small'],
-      control: { type: 'select' },
-    },
-    imageFile: { control: { type: 'text' } },
-  },
 } as ComponentMeta<typeof ProfilePhoto>;
 
 const Template: ComponentStory<typeof ProfilePhoto> = (args) => <ProfilePhoto {...args} />;
