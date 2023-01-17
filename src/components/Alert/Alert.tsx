@@ -1,13 +1,13 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { XCircleIcon, XMarkIcon, ExclamationTriangleIcon } from '@heroicons/react/20/solid';
 
 type AlertProps = {
   text: string;
   subText?: string;
   color?: 'error' | 'attention';
+  isAlertOpen: boolean;
   setIsAlertOpen: React.Dispatch<React.SetStateAction<boolean>>;
   closeBtn?: boolean;
-  animation?: 'fromTop';
   className?: string;
 };
 
@@ -15,9 +15,9 @@ const Alert: React.FC<AlertProps> = ({
   text,
   subText,
   color = 'error',
+  isAlertOpen,
   setIsAlertOpen,
   closeBtn = false,
-  animation,
   className,
 }: AlertProps) => {
   let alertBackground;
@@ -41,18 +41,6 @@ const Alert: React.FC<AlertProps> = ({
       throw Error('invalid color value');
   }
 
-  let alertAnimation;
-  switch (animation) {
-    case 'fromTop':
-      alertAnimation = 'top-24 show';
-      break;
-    case undefined:
-      alertAnimation = '';
-      break;
-    default:
-      throw Error('invalid animation value');
-  }
-
   const renderIcon = () => {
     if (color === 'error') {
       return <XCircleIcon className={`${alertIcon} w-5 h-5`} aria-hidden="true" />;
@@ -60,9 +48,17 @@ const Alert: React.FC<AlertProps> = ({
     return <ExclamationTriangleIcon className={`${alertIcon} w-5 h-5`} aria-hidden="true" />;
   };
 
+  useEffect(() => {
+    if (isAlertOpen) {
+      setTimeout(() => {
+        setIsAlertOpen(false)
+      }, 5000)
+    }
+  }, [isAlertOpen])
+
   return (
     <div
-      className={`${alertBackground} ${alertAnimation} ${className} rounded-md p-4 w-max fixed z-10 shadow-xl`}
+      className={`${alertBackground} ${className} rounded-md p-4 w-max fixed z-10 shadow-xl`}
     >
       <div className={`flex ${!subText && 'h-5'}`}>
         <div>{renderIcon()}</div>

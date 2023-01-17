@@ -35,5 +35,4 @@ WithAnimation.args = {
   color: 'error',
   text: 'Error Alert',
   closeBtn: true,
-  animation: 'fromTop'
 };
