@@ -38,7 +38,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
               >
                 <div className="h-2 w-2 rounded-full bg-gray-300" />
               </div>
-              <p className="ml-3 text-sm font-medium text-gray-500 ">{label}</p>
+              <p className="ml-3 text-sm font-medium text-gray-500">{label}</p>
             </div>
           )}
         </nav>

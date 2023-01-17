@@ -48,14 +48,6 @@ const Alert: React.FC<AlertProps> = ({
     return <ExclamationTriangleIcon className={`${alertIcon} w-5 h-5`} aria-hidden="true" />;
   };
 
-  useEffect(() => {
-    if (isAlertOpen) {
-      setTimeout(() => {
-        setIsAlertOpen(false)
-      }, 5000)
-    }
-  }, [isAlertOpen])
-
   return (
     <div
       className={`${alertBackground} ${className} rounded-md p-4 w-max fixed z-10 shadow-xl`}
