@@ -2,7 +2,7 @@ import React from 'react';
 type AlertProps = {
     text: string;
     subText?: string;
-    color?: 'error' | 'attention';
+    color?: 'error' | 'attention' | 'completion';
     isAlertOpen: boolean;
     setIsAlertOpen: React.Dispatch<React.SetStateAction<boolean>>;
     closeBtn?: boolean;
