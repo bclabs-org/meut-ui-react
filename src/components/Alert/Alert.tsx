@@ -5,9 +5,9 @@ type AlertProps = {
   text: string;
   subText?: string;
   color?: 'error' | 'attention' | 'completion';
+  isAlertOpen: boolean;
   setIsAlertOpen: React.Dispatch<React.SetStateAction<boolean>>;
   closeBtn?: boolean;
-  animation?: 'fromTop';
   className?: string;
 };
 
@@ -15,9 +15,9 @@ const Alert: React.FC<AlertProps> = ({
   text,
   subText,
   color = 'error',
+  isAlertOpen,
   setIsAlertOpen,
   closeBtn = false,
-  animation,
   className,
 }: AlertProps) => {
   let alertBackground;
@@ -51,18 +51,6 @@ const Alert: React.FC<AlertProps> = ({
       throw Error('invalid color value');
   }
 
-  let alertAnimation;
-  switch (animation) {
-    case 'fromTop':
-      alertAnimation = 'top-24 show';
-      break;
-    case undefined:
-      alertAnimation = '';
-      break;
-    default:
-      throw Error('invalid animation value');
-  }
-
   const renderIcon = () => {
     if (color === 'error') {
       return <XCircleIcon className={`${alertIcon} w-5 h-5`} aria-hidden="true" />;
@@ -75,7 +63,7 @@ const Alert: React.FC<AlertProps> = ({
 
   return (
     <div
-      className={`${alertBackground} ${alertAnimation} ${className} rounded-md p-4 max-w-[343px] fixed z-10 shadow-xl`}
+      className={`${alertBackground} ${className} rounded-md p-4 max-w-[343px] fixed z-10 shadow-xl`}
     >
       <div className={`flex gap-x-3 ${!subText && 'h-5'}`}>
         <div>{renderIcon()}</div>
