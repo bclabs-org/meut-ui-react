@@ -1,5 +1,10 @@
 import React from 'react';
-import { XCircleIcon, XMarkIcon, ExclamationTriangleIcon, CheckCircleIcon } from '@heroicons/react/20/solid';
+import {
+  XCircleIcon,
+  XMarkIcon,
+  ExclamationTriangleIcon,
+  CheckCircleIcon
+} from '@heroicons/react/20/solid';
 
 type AlertProps = {
   text: string;
