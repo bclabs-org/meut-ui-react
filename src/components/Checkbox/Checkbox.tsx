@@ -9,7 +9,7 @@ type CheckboxProps = {
   disabled?: boolean;
   checked?: boolean;
   onChange?: () => void;
-}
+};
 
 const Checkbox: React.FC<CheckboxProps> = ({
   label,
@@ -54,7 +54,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
               type="checkbox"
               disabled={disabled}
               checked={checked}
-              className="h-4 w-4 border-gray-300 text-primary focus:ring-0"
+              className="h-4 w-4 border-gray-300 text-primary focus:ring-0 checkbox"
               onChange={onChange}
             />
           </div>
