@@ -91,12 +91,15 @@ const TextInput: React.FC<TextInputProps> = ({
           </div>
         )}
         {extraMessage && flag && (
-          <span className="cursor-pointer text-onSecondary" onClick={handleClickOnExtraMessage}>
+          <span
+            className="cursor-pointer text-onSecondary underline"
+            onClick={handleClickOnExtraMessage}
+          >
             {extraMessage}
           </span>
         )}
         {extraMessage && !flag && (
-          <span className="text-onSecondary opacity-40">{extraMessage}</span>
+          <span className="text-onSecondary opacity-40 underline">{extraMessage}</span>
         )}
         {!errorMessage && helperMessage && (
           <span className="text-neutral" id={name}>
