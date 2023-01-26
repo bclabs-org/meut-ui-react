@@ -70,17 +70,17 @@ const Alert: React.FC<AlertProps> = ({
     <div
       className={`${alertBackground} ${className} rounded-md p-4 max-w-[343px] fixed z-10 shadow-xl`}
     >
-      <div className={`flex gap-x-3 items-center`}>
+      <div className="flex gap-x-3">
         <div>{renderIcon()}</div>
-        <div className="text-sm">
+        <div className="text-sm flex flex-col justify-center">
           <p className={`${alertText} font-medium break-all`}>{text}</p>
-          {subText && <p className={`mt-2 ${alertSubText}`}>{subText}</p>}
+          {subText && <p className={`mt-2 break-all ${alertSubText}`}>{subText}</p>}
         </div>
         {closeBtn && (
           <div className="h-5 w-5">
             <button
               type="button"
-              className={`inline-flex items-center ${alertBackground} ${alertIcon}`}
+              className={`${alertBackground} ${alertIcon}`}
               onClick={() => setIsAlertOpen(false)}
             >
               <XMarkIcon className="h-5 w-5" aria-hidden="true" />
