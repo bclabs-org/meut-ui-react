@@ -73,8 +73,8 @@ const Alert: React.FC<AlertProps> = ({
       <div className="flex gap-x-3">
         <div>{renderIcon()}</div>
         <div className="text-sm flex flex-col justify-center">
-          <p className={`${alertText} font-medium break-all`}>{text}</p>
-          {subText && <p className={`mt-2 break-all ${alertSubText}`}>{subText}</p>}
+          <p className={`${alertText} font-medium break-words`}>{text}</p>
+          {subText && <p className={`mt-2 break-words ${alertSubText}`}>{subText}</p>}
         </div>
         {closeBtn && (
           <div className="h-5 w-5">
