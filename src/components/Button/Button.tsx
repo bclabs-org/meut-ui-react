@@ -35,14 +35,16 @@ const Button: React.FC<ButtonProps> = ({
   let btnColor;
   switch (color) {
     case 'primary':
-      btnColor = 'bg-primary text-onPrimary hover:bg-primary-hover active:bg-primary-active';
+      btnColor =
+        'bg-primary text-onPrimary hover:bg-primary-hover active:bg-primary-active disabled:hover:bg-primary';
       break;
     case 'secondary':
       btnColor =
-        'bg-secondary text-onSecondary hover:bg-secondary-hover active:bg-secondary-active';
+        'bg-secondary text-onSecondary hover:bg-secondary-hover active:bg-secondary-active disabled:hover:bg-secondary';
       break;
     case 'tertiary':
-      btnColor = 'bg-tertiary text-onTertiary hover:bg-tertiary-hover active:bg-tertiary-active';
+      btnColor =
+        'bg-tertiary text-onTertiary hover:bg-tertiary-hover active:bg-tertiary-active disabled:hover:bg-tertiary';
       break;
     default:
       throw Error('invalid color value');
