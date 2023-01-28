@@ -5,6 +5,7 @@ import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/20/solid';
 
 type DropdownProps = {
   content: string[];
+  label: string;
   disabled?: boolean;
   placeholder: string;
   selected: string;
@@ -13,18 +14,21 @@ type DropdownProps = {
 
 const Dropdown: React.FC<DropdownProps> = ({
   content,
+  label,
   disabled,
   placeholder,
   selected,
   setSelected,
 }) => {
   return (
-    <Menu as="div" className={`relative inline-block text-left ${disabled && 'opacity-40'}`}>
-      {({ open }) => (
-        <>
-          <div>
-            <Menu.Button
-              className={`inline-flex w-full justify-between items-center rounded bg-white px-3 py-2.5 font-medium
+    <>
+      <p className="font-medium text-onTertiary">{label}</p>
+      <Menu as="div" className={`relative inline-block text-left ${disabled && 'opacity-40'}`}>
+        {({ open }) => (
+          <>
+            <div>
+              <Menu.Button
+                className={`inline-flex w-full justify-between items-center rounded bg-white px-3 py-2.5 font-medium
                  ${
                    open
                      ? 'border-2 border-primary'
@@ -32,47 +36,48 @@ const Dropdown: React.FC<DropdownProps> = ({
                        'disabled:cursor-default disabled:outline-0 disabled:border disabled:border-gray-300'
                  } 
                 `}
-              disabled={disabled}
+                disabled={disabled}
+              >
+                <span className={`py-1 ${!selected && 'text-gray-300'}`}>
+                  {selected || placeholder}
+                </span>
+                {open ? (
+                  <ChevronUpIcon className="h-5 w-5" aria-hidden="true" />
+                ) : (
+                  <ChevronDownIcon className="h-5 w-5" aria-hidden="true" />
+                )}
+              </Menu.Button>
+            </div>
+            <Transition
+              as={Fragment}
+              enter="transition ease-out duration-100"
+              enterFrom="transform opacity-0 scale-95"
+              enterTo="transform opacity-100 scale-100"
+              leave="transition ease-in duration-75"
+              leaveFrom="transform opacity-100 scale-100"
+              leaveTo="transform opacity-0 scale-95"
             >
-              <span className={`py-1 ${!selected && 'text-gray-300'}`}>
-                {selected || placeholder}
-              </span>
-              {open ? (
-                <ChevronUpIcon className="h-5 w-5" aria-hidden="true" />
-              ) : (
-                <ChevronDownIcon className="h-5 w-5" aria-hidden="true" />
-              )}
-            </Menu.Button>
-          </div>
-          <Transition
-            as={Fragment}
-            enter="transition ease-out duration-100"
-            enterFrom="transform opacity-0 scale-95"
-            enterTo="transform opacity-100 scale-100"
-            leave="transition ease-in duration-75"
-            leaveFrom="transform opacity-100 scale-100"
-            leaveTo="transform opacity-0 scale-95"
-          >
-            <Menu.Items className="mt-2 overflow-hidden rounded bg-white shadow-lg ring-1 ring-black ring-opacity-5">
-              {content.map((item) => (
-                <Menu.Item key={item}>
-                  <div
-                    className={`block cursor-pointer px-3 py-2.5 font-medium ${
-                      item === selected
-                        ? 'text-gray-900 bg-gray-200'
-                        : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900 focus:bg-gray-200'
-                    }`}
-                    onClick={() => setSelected(item)}
-                  >
-                    <p className="my-1">{item}</p>
-                  </div>
-                </Menu.Item>
-              ))}
-            </Menu.Items>
-          </Transition>
-        </>
-      )}
-    </Menu>
+              <Menu.Items className="mt-2 overflow-hidden rounded bg-white shadow-lg ring-1 ring-black ring-opacity-5">
+                {content.map((item) => (
+                  <Menu.Item key={item}>
+                    <div
+                      className={`block cursor-pointer px-3 py-2.5 font-medium ${
+                        item === selected
+                          ? 'text-gray-900 bg-gray-200'
+                          : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900 focus:bg-gray-200'
+                      }`}
+                      onClick={() => setSelected(item)}
+                    >
+                      <p className="my-1">{item}</p>
+                    </div>
+                  </Menu.Item>
+                ))}
+              </Menu.Items>
+            </Transition>
+          </>
+        )}
+      </Menu>
+    </>
   );
 };
 
