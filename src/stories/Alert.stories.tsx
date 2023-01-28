@@ -1,4 +1,3 @@
-import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import Alert from '../components/Alert/Alert';
@@ -20,7 +19,8 @@ export const WithSubText = Template.bind({});
 WithSubText.args = {
   color: 'error',
   text: 'Error Alert',
-  subText: 'subText It has survived not only five centuries subText It has survived not only five centuries subText It has survived not only five centuries',
+  subText:
+    'subText It has survived not only five centuries subText It has survived not only five centuries subText It has survived not only five centuries',
 };
 
 export const WithCloseBtn = Template.bind({});

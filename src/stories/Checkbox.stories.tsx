@@ -1,4 +1,3 @@
-import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import Checkbox from '../components/Checkbox/Checkbox';
@@ -28,6 +27,3 @@ NotClickable.args = {
   isDisabled: true,
   isComplete: true,
 };
-
-
-
