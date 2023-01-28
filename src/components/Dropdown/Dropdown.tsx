@@ -22,7 +22,7 @@ const Dropdown: React.FC<DropdownProps> = ({
 }) => {
   return (
     <>
-      <p className="font-medium text-onTertiary">{label}</p>
+      <p className="font-medium text-onTertiary mb-1">{label}</p>
       <Menu as="div" className={`relative inline-block text-left ${disabled && 'opacity-40'}`}>
         {({ open }) => (
           <>
