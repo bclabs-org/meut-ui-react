@@ -29,7 +29,7 @@ const Tabs: React.FC<TabsProps> = ({
         <div
           key={tab}
           onClick={() => setSelectedTab(tab)}
-          className={`h-16 flex justify-center items-center py-2 ${
+          className={`h-16 flex justify-center items-center cursor-pointer py-2 ${
             selectedTab === tab
               ? 'border-b-2 border-primary hover:border-primary'
               : 'hover:border-b-2 hover:border-emerald-200'
