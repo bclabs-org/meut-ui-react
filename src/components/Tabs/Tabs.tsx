@@ -1,51 +1,50 @@
-import React, { useState } from 'react';
-import classNames from 'classnames';
+import React from 'react';
 
 type TabsProps = {
-  color?: string;
   tabNames: string[];
+  selectedTab: string;
+  setSelectedTab: React.Dispatch<React.SetStateAction<string>>;
 };
 
-const Tabs: React.FC<TabsProps> = ({ color = 'primary', tabNames }: TabsProps) => {
-  const initialTabs = tabNames.map((name, index) => ({
-    name,
-    current: index === 0,
-  }));
-
-  const [tabs, setTabs] = useState(initialTabs);
-  const handleClick = (idx) => {
-    setTabs(
-      tabs.map((tab, index) => ({
-        name: tab.name,
-        current: idx === index,
-      }))
-    );
-  };
-
-  let clickedStyle = '';
-  const idleStyle =
-    'border-transparent text-neutral hover:text-neutral-focus hover:border-gray-300';
-
-  if (color === 'primary') {
-    clickedStyle = 'border-primary text-primary';
+const Tabs: React.FC<TabsProps> = ({
+  tabNames,
+  selectedTab = '탭 이름1',
+  setSelectedTab,
+}: TabsProps) => {
+  let gridCols;
+  switch (tabNames.length) {
+    case 2:
+      gridCols = 'grid-cols-2';
+      break;
+    case 3:
+      gridCols = 'grid-cols-3';
+      break;
+    default:
+      throw Error('invalid length value');
   }
 
   return (
-    <nav className={'flex -mb-px space-x-8'}>
-      {tabs.map((tab, index) => (
+    <div className={`grid ${gridCols} border-b border-gray-200`}>
+      {tabNames.map((tab) => (
         <div
-          key={tab.name}
-          onClick={() => handleClick(index)}
-          style={{ cursor: 'pointer' }}
-          className={classNames(
-            tab.current ? clickedStyle : idleStyle,
-            'justify-center items-center border-b-2 py-3'
-          )}
+          key={tab}
+          onClick={() => setSelectedTab(selectedTab)}
+          className={`h-16 flex justify-center items-center py-2 ${
+            selectedTab === tab
+              ? 'border-b-2 border-primary hover:border-primary'
+              : 'hover:border-b-2 hover:border-emerald-200'
+          }`}
         >
-          {tab.name}
+          <p
+            className={`text-lg font-medium text-onTertiary ${
+              selectedTab === tab ? 'font-semibold text-gray-900' : 'hover:text-gray-800'
+            }`}
+          >
+            {tab}
+          </p>
         </div>
       ))}
-    </nav>
+    </div>
   );
 };
 
