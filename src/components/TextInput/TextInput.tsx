@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from '../Button';
 
 type TextInputProps = {
   type?: string;
@@ -15,8 +16,10 @@ type TextInputProps = {
   onFocus?: React.FocusEventHandler<HTMLInputElement>;
   value?: string;
   verificationTime?: string;
-  handleClickOnExtraMessage: () => void;
-  flag: boolean;
+  handleClickOnExtraMessage?: () => void;
+  flag?: boolean;
+  miniButton?: string;
+  handleMiniButtonClick?: () => void;
   [key: string]: any;
 };
 
@@ -36,6 +39,8 @@ const TextInput: React.FC<TextInputProps> = ({
   value,
   verificationTime,
   flag,
+  miniButton,
+  handleMiniButtonClick,
   handleClickOnExtraMessage,
   ...rest
 }: TextInputProps) => (
@@ -44,7 +49,7 @@ const TextInput: React.FC<TextInputProps> = ({
       <label htmlFor={name}>{label}</label>
       <span className={`${verificationTime === '0:00' && 'text-warning'}`}>{verificationTime}</span>
     </div>
-    <div>
+    <div className="relative">
       <input
         type={type}
         maxLength={maxLength}
@@ -64,6 +69,13 @@ const TextInput: React.FC<TextInputProps> = ({
         autoComplete="off"
         {...rest}
       />
+      {miniButton && (
+        <div className="absolute top-1.5 bottom-1.5 right-2.5">
+          <Button color="secondary" size="small" handleClick={handleMiniButtonClick}>
+            {miniButton}
+          </Button>
+        </div>
+      )}
     </div>
     {(errorMessage || extraMessage || helperMessage) && (
       <div className="text-sm mt-1">
