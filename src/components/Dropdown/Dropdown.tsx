@@ -23,7 +23,10 @@ const Dropdown: React.FC<DropdownProps> = ({
   return (
     <>
       <p className="font-medium text-onTertiary mb-1">{label}</p>
-      <Menu as="div" className={`relative inline-block text-left ${disabled && 'opacity-40'}`}>
+      <Menu
+        as="div"
+        className={`relative w-full inline-block text-left ${disabled && 'opacity-40'}`}
+      >
         {({ open }) => (
           <>
             <div>
@@ -57,7 +60,7 @@ const Dropdown: React.FC<DropdownProps> = ({
               leaveFrom="transform opacity-100 scale-100"
               leaveTo="transform opacity-0 scale-95"
             >
-              <Menu.Items className="mt-2 overflow-hidden rounded bg-white shadow-lg ring-1 ring-black ring-opacity-5">
+              <Menu.Items className="absolute w-full mt-2 overflow-hidden rounded bg-white shadow-lg ring-1 ring-black ring-opacity-5">
                 {content.map((item) => (
                   <Menu.Item key={item}>
                     <div
