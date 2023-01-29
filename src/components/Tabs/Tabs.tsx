@@ -28,7 +28,7 @@ const Tabs: React.FC<TabsProps> = ({
       {tabNames.map((tab) => (
         <div
           key={tab}
-          onClick={() => setSelectedTab(selectedTab)}
+          onClick={() => setSelectedTab(tab)}
           className={`h-16 flex justify-center items-center py-2 ${
             selectedTab === tab
               ? 'border-b-2 border-primary hover:border-primary'
