@@ -28,6 +28,3 @@ NotClickable.args = {
   isDisabled: true,
   isComplete: true,
 };
-
-
-

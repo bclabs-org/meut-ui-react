@@ -22,7 +22,7 @@ Disabled.args = {
   children: '버튼 비활성화',
   color: 'primary',
   size: 'large',
-  disabled: true
+  disabled: true,
 };
 
 export const Full = Template.bind({});
@@ -30,5 +30,5 @@ Full.args = {
   children: '버튼 width full',
   color: 'primary',
   size: 'large',
-  full: true
+  full: true,
 };

@@ -15,7 +15,7 @@ Default.args = {
   type: 'text',
   name: 'default',
   placeholder: '텍스트를 입력해주세요',
-  maxLength: 20
+  maxLength: 20,
 };
 
 export const Disabled = Template.bind({});
@@ -24,7 +24,7 @@ Disabled.args = {
   name: 'disabled',
   placeholder: '텍스트를 입력해주세요',
   maxLength: 20,
-  disabled: true
+  disabled: true,
 };
 
 export const Helper = Template.bind({});
@@ -34,7 +34,7 @@ Helper.args = {
   label: 'Email*',
   placeholder: '텍스트를 입력해주세요',
   helperMessage: '이메일을 입력하는 곳입니다',
-  maxLength: 20
+  maxLength: 20,
 };
 
 export const Error = Template.bind({});
@@ -44,7 +44,7 @@ Error.args = {
   label: 'Email*',
   placeholder: '텍스트를 입력해주세요',
   errorMessage: '다시 입력해주세요',
-  maxLength: 20
+  maxLength: 20,
 };
 
 export const Extra = Template.bind({});
@@ -56,5 +56,5 @@ Extra.args = {
   extraMessage: 'Resend',
   verificationTime: '0:01',
   maxLength: 20,
-  flag: true
+  flag: true,
 };
