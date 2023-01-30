@@ -14,8 +14,10 @@ type TextInputProps = {
     onFocus?: React.FocusEventHandler<HTMLInputElement>;
     value?: string;
     verificationTime?: string;
-    handleClickOnExtraMessage: () => void;
-    flag: boolean;
+    handleClickOnExtraMessage?: () => void;
+    flag?: boolean;
+    miniButton?: string;
+    handleMiniButtonClick?: () => void;
     [key: string]: any;
 };
 declare const TextInput: React.FC<TextInputProps>;
