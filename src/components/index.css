@@ -9,3 +9,7 @@
     @apply text-gray-900;
   }
 }
+
+.checkbox:focus {
+  --tw-ring-offset-width: 0
+}

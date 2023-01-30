@@ -58,7 +58,7 @@ const TextInput: React.FC<TextInputProps> = ({
         className={`w-full h-12 p-3 rounded focus:ring-0 placeholder:text-gray-300 ${
           errorMessage
             ? 'border-2 border-warning focus:border-warning'
-            : 'border border-gray-300 hover:outline hover:outline-[3px] hover:outline-secondary-hover focus:outline-0 focus:border-2 focus:border-primary disabled:hover:outline-0'
+            : 'border border-gray-300 hover:outline hover:outline-[3px] hover:outline-secondary-hover hover:focus:outline-0 focus:border-2 focus:border-primary disabled:hover:outline-0'
         }`}
         disabled={disabled}
         placeholder={placeholder}
