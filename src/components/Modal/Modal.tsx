@@ -9,7 +9,15 @@ type ModalProps = {
 
 const Modal: React.FC<ModalProps> = ({ children, isModalOpen, setIsModalOpen }) => (
   <Transition.Root show={isModalOpen} as={Fragment}>
-    <Dialog as="div" className="relative z-10" onClose={() => setIsModalOpen(false)}>
+    <Dialog
+      as="div"
+      className="relative z-10"
+      onClose={() => {}}
+      onClick={(e) => {
+        e.stopPropagation();
+        setIsModalOpen(false);
+      }}
+    >
       <Transition.Child
         as={Fragment}
         enter="ease-out duration-300"
