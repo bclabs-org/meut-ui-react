@@ -31,7 +31,7 @@ const Dropdown: React.FC<DropdownProps> = ({
           <>
             <div>
               <Menu.Button
-                className={`inline-flex w-full justify-between items-center rounded bg-white px-3 py-2.5 font-medium
+                className={`inline-flex w-full h-12 justify-between items-center rounded bg-white px-3 py-2 font-medium
                  ${
                    open
                      ? 'border-2 border-primary'

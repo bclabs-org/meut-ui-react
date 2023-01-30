@@ -24,7 +24,7 @@ const Tabs: React.FC<TabsProps> = ({
   }
 
   return (
-    <div className={`grid ${gridCols} border-b border-gray-200`}>
+    <div className={`grid ${gridCols} border-b border-gray-200 h-16`}>
       {tabNames.map((tab) => (
         <div
           key={tab}
