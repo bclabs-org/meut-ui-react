@@ -12,6 +12,6 @@ const Template: ComponentStory<typeof Tabs> = (args) => <Tabs {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  color: 'primary',
-  tabNames: ['탭 이름1', '탭 이름2', '탭 이름3', '탭 이름4'],
+  tabNames: ['탭 이름1', '탭 이름2', '탭 이름3'],
+  selectedTab: '탭 이름1',
 };

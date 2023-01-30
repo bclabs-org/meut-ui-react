@@ -1,7 +1,8 @@
 import React from 'react';
 type TabsProps = {
-    color?: string;
     tabNames: string[];
+    selectedTab: string;
+    setSelectedTab: React.Dispatch<React.SetStateAction<string>>;
 };
 declare const Tabs: React.FC<TabsProps>;
 export default Tabs;

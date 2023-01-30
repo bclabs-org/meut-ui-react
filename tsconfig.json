@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "esModuleInterop": true,
     "declaration": true,
     "declarationDir": "./lib",
     "target": "es5",
@@ -12,7 +13,6 @@
     "allowSyntheticDefaultImports": true,
     "noImplicitAny": false,
     "typeRoots": ["@types"],
-    "esModuleInterop": true
   },
   "include": [
     "**/*.tsx", "**/*.ts", "@types", "index.ts", "dist"
