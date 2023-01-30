@@ -31,7 +31,7 @@ const Dropdown: React.FC<DropdownProps> = ({
           <>
             <div>
               <Menu.Button
-                className={`inline-flex w-full justify-between items-center rounded bg-white px-3 py-2.5 font-medium
+                className={`inline-flex w-full h-12 justify-between items-center rounded bg-white px-3 py-2 font-medium
                  ${
                    open
                      ? 'border-2 border-primary'
@@ -41,7 +41,7 @@ const Dropdown: React.FC<DropdownProps> = ({
                 `}
                 disabled={disabled}
               >
-                <span className={`py-1 ${!selected && 'text-gray-300'}`}>
+                <span className={`py-1 ${!selected && 'text-neutral'}`}>
                   {selected || placeholder}
                 </span>
                 {open ? (
@@ -60,7 +60,7 @@ const Dropdown: React.FC<DropdownProps> = ({
               leaveFrom="transform opacity-100 scale-100"
               leaveTo="transform opacity-0 scale-95"
             >
-              <Menu.Items className="absolute w-full mt-2 overflow-hidden rounded bg-white shadow-lg ring-1 ring-black ring-opacity-5">
+              <Menu.Items className="absolute z-20 w-full mt-2 overflow-hidden rounded bg-white shadow-lg ring-1 ring-black ring-opacity-5">
                 {content.map((item) => (
                   <Menu.Item key={item}>
                     <div
