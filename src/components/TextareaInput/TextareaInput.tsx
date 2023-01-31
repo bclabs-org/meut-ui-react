@@ -18,6 +18,8 @@ const TextareaInput = ({
   value,
   placeholder,
   onChange,
+  maxByteSize,
+  byteSize,
   ...props
 }: TextareaInputProps) => {
   return (
@@ -33,6 +35,11 @@ const TextareaInput = ({
         className="block mt-1 w-[468px] h-[105px] border border-gray-300 rounded-md text-base text-gray-900 font-medium
 hover:ring-[3px] hover:ring-emerald-100 focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500"
       />
+      {maxByteSize ? (
+        <p className="mt-1 text-sm m-0 p-0">
+          {`${value?.length} Word(s) / ${byteSize} Byte(s) (Total ${maxByteSize} Bytes)`}
+        </p>
+      ) : null}
     </div>
   );
 };
