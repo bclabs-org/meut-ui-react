@@ -21,11 +21,11 @@ const TextareaInput = ({
   error,
   maxByteSize,
   byteSize,
-  ...props
+  ...rest
 }: TextareaInputProps) => {
   return (
     <div className="box-border">
-      <label htmlFor={name} className="block text-sm font-medium">
+      <label htmlFor={name} className="block text-sm font-medium" {...rest}>
         {label}
       </label>
       <textarea
@@ -38,9 +38,10 @@ const TextareaInput = ({
             ? `border-pink-600 ring-1 ring-pink-600 focus:ring-pink-600 focus:border-pink-600`
             : `hover:ring-[3px] hover:ring-emerald-100 focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500`
         } `}
+        {...rest}
       />
       {maxByteSize ? (
-        <p className="mt-1 text-sm m-0 p-0">
+        <p className="mt-1 text-sm m-0 p-0" {...rest}>
           {`${value?.length} Word(s) / ${byteSize} Byte(s) (Total ${maxByteSize} Bytes)`}
         </p>
       ) : null}
