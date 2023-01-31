@@ -71,7 +71,7 @@ const TextInput: React.FC<TextInputProps> = ({
       />
       {miniButton && (
         <div className="absolute top-1.5 bottom-1.5 right-2.5">
-          <Button color="secondary" size="small" handleClick={handleMiniButtonClick}>
+          <Button type="button" color="secondary" size="small" handleClick={handleMiniButtonClick}>
             {miniButton}
           </Button>
         </div>
