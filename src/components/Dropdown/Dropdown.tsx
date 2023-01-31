@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Fragment } from 'react';
 import { Menu, Transition } from '@headlessui/react';
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/20/solid';
@@ -8,8 +8,8 @@ type DropdownProps = {
   label: string;
   disabled?: boolean;
   placeholder: string;
-  selected: string;
-  setSelected: React.Dispatch<React.SetStateAction<string>>;
+  selected?: string;
+  setSelected?: React.Dispatch<React.SetStateAction<string>>;
 };
 
 const Dropdown: React.FC<DropdownProps> = ({
@@ -20,12 +20,15 @@ const Dropdown: React.FC<DropdownProps> = ({
   selected,
   setSelected,
 }) => {
+  const [dropdownSelected, setDropdownSelected] = useState('')
   return (
     <>
       <p className="font-medium text-onTertiary mb-1">{label}</p>
       <Menu
-        as="div"
+        as="select"
         className={`relative w-full inline-block text-left ${disabled && 'opacity-40'}`}
+        value={dropdownSelected}
+        onChange={(e) => console.log(e.target.value)}
       >
         {({ open }) => (
           <>
@@ -41,8 +44,8 @@ const Dropdown: React.FC<DropdownProps> = ({
                 `}
                 disabled={disabled}
               >
-                <span className={`py-1 ${!selected && 'text-neutral'}`}>
-                  {selected || placeholder}
+                <span className={`py-1 ${!dropdownSelected && 'text-neutral'}`}>
+                  {dropdownSelected || placeholder}
                 </span>
                 {open ? (
                   <ChevronUpIcon className="h-5 w-5" aria-hidden="true" />
@@ -60,18 +63,17 @@ const Dropdown: React.FC<DropdownProps> = ({
               leaveFrom="transform opacity-100 scale-100"
               leaveTo="transform opacity-0 scale-95"
             >
-              <Menu.Items className="absolute z-20 w-full mt-2 overflow-hidden rounded bg-white shadow-lg ring-1 ring-black ring-opacity-5">
+              <Menu.Items className="absolute z-20 w-full mt-2 overflow-hidden rounded bg-red-500 shadow-lg ring-1 ring-black ring-opacity-5">
                 {content.map((item) => (
                   <Menu.Item key={item}>
                     <div
                       className={`block cursor-pointer px-3 py-2.5 font-medium ${
-                        item === selected
+                        item === dropdownSelected
                           ? 'text-gray-900 bg-gray-200'
                           : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900 focus:bg-gray-200'
                       }`}
-                      onClick={() => setSelected(item)}
                     >
-                      <p className="my-1">{item}</p>
+                      <option className="my-1" value={item}>{item}</option>
                     </div>
                   </Menu.Item>
                 ))}
