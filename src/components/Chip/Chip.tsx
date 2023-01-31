@@ -16,7 +16,7 @@ const Chip: React.FC<ChipProps> = ({
         ? 'bg-primary text-onPrimary font-semibold'
         : 'bg-tertiary text-base font-medium text-onTertiary hover:bg-secondary focus:bg-primary focus:text-onPrimary focus:font-semibold'} `}>
         {label}
-        <span className={`px-3 py-0.5 ml-1 rounded-xl text-onTertiary font-medium ${
+        <span className={`px-3 py-1 ml-1 rounded-[10px] text-onTertiary text-xs font-medium ${
           selected
             ? 'bg-white'
             : 'bg-tertiary group-focus:bg-white'
