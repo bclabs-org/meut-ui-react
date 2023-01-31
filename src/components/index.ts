@@ -8,5 +8,6 @@ import Tabs from './Tabs';
 import Alert from './Alert';
 import Checkbox from './Checkbox';
 import Dropdown from './Dropdown';
+import Chip from './Chip';
 
-export { Button, Card, TextInput, Modal, ProfilePhoto, Tabs, Alert, Checkbox, Dropdown };
+export { Button, Card, TextInput, Modal, ProfilePhoto, Tabs, Alert, Checkbox, Dropdown, Chip };
