@@ -18,6 +18,7 @@ const TextareaInput = ({
   value,
   placeholder,
   onChange,
+  error,
   maxByteSize,
   byteSize,
   ...props
@@ -32,8 +33,11 @@ const TextareaInput = ({
         placeholder={placeholder}
         onChange={onChange}
         value={value}
-        className="block mt-1 w-[468px] h-[105px] border border-gray-300 rounded-md text-base text-gray-900 font-medium
-hover:ring-[3px] hover:ring-emerald-100 focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500"
+        className={`block mt-1 w-[468px] h-[105px] border border-gray-300 rounded-md text-base text-gray-900 font-medium ${
+          error
+            ? `border-pink-600 ring-1 ring-pink-600 focus:ring-pink-600 focus:border-pink-600`
+            : `hover:ring-[3px] hover:ring-emerald-100 focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500`
+        } `}
       />
       {maxByteSize ? (
         <p className="mt-1 text-sm m-0 p-0">
