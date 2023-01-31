@@ -1,5 +1,4 @@
-import React from 'react';
-import { Fragment } from 'react';
+import React, { Fragment } from 'react';
 import { Menu, Transition } from '@headlessui/react';
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/20/solid';
 
@@ -19,8 +18,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   placeholder,
   selected,
   setSelected,
-}) => {
-  return (
+}) => (
     <>
       <p className="font-medium text-onTertiary mb-1">{label}</p>
       <Menu
@@ -82,6 +80,5 @@ const Dropdown: React.FC<DropdownProps> = ({
       </Menu>
     </>
   );
-};
 
 export default Dropdown;
