@@ -46,7 +46,7 @@ type TextareaInputProps = {
   byteSize: number;
   placeholder?: string;
   disabled?: boolean;
-  handleTextareaChange: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
+  onChange: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
   saveButton?: boolean;
   handleSaveButtonClick?: () => void;
   error?: boolean;
@@ -61,7 +61,7 @@ const TextareaInput = ({
   name,
   value,
   placeholder,
-  handleTextareaChange,
+  onChange,
   disabled,
   error,
   maxByteSize,
@@ -142,7 +142,7 @@ const TextareaInput = ({
       <textarea
         name={name}
         placeholder={placeholder}
-        onChange={handleTextareaChange}
+        onChange={onChange}
         value={value}
         className={getTextareaInputClass()}
         disabled={disabled}
