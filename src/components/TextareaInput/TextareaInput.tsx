@@ -42,15 +42,16 @@ type TextareaInputProps = {
   label: string;
   name: string;
   value: string;
-  maxByteSize: number;
-  byteSize: number;
+  enableByteCount?: boolean;
+  maxByteSize?: number;
+  byteSize?: number;
   placeholder?: string;
   disabled?: boolean;
   onChange: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
-  saveButton?: boolean;
+  enableSaveButton?: boolean;
   handleSaveButtonClick?: () => void;
   error?: boolean;
-  imageUpload?: boolean;
+  enableImageUpload?: boolean;
   handleImageUpload?: () => void;
   handleGifUpload?: () => void;
   [key: string]: any;
@@ -64,11 +65,12 @@ const TextareaInput = ({
   onChange,
   disabled,
   error,
+  enableByteCount,
   maxByteSize,
   byteSize,
-  saveButton,
+  enableSaveButton,
   handleSaveButtonClick,
-  imageUpload,
+  enableImageUpload,
   handleImageUpload,
   handleGifUpload,
   ...rest
@@ -89,7 +91,7 @@ const TextareaInput = ({
   };
 
   const renderTextareaFooter = (): React.ReactNode => {
-    if (maxByteSize && saveButton && imageUpload) {
+    if (enableByteCount && enableSaveButton && enableImageUpload) {
       return (
         <div className="flex justify-between items-center mt-2">
           <div className={`flex gap-x-1`}>
@@ -110,7 +112,7 @@ const TextareaInput = ({
       );
     }
 
-    if (maxByteSize && saveButton) {
+    if (enableByteCount && enableSaveButton) {
       return (
         <div className="flex justify-between items-center mt-2">
           <p className="text-sm">
@@ -123,7 +125,7 @@ const TextareaInput = ({
       );
     }
 
-    if (maxByteSize) {
+    if (enableByteCount) {
       return (
         <p className="mt-1 text-sm m-0 p-0">
           {`${value?.length} Word(s) / ${byteSize} Byte(s) (Total ${maxByteSize} Bytes)`}
