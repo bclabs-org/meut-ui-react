@@ -90,6 +90,12 @@ const TextareaInput = ({
     return `${defaultClass} hover:ring-[3px] hover:ring-emerald-100 focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500`;
   };
 
+  const renderByteCounter = () => (
+    <p className="text-sm">
+      {`${value?.length} Word(s) / ${byteSize} Byte(s) (Total ${maxByteSize} Bytes)`}
+    </p>
+  );
+
   const renderTextareaFooter = (): React.ReactNode => {
     if (enableByteCount && enableSaveButton && enableImageUpload) {
       return (
@@ -102,12 +108,12 @@ const TextareaInput = ({
               {ICON_GIF()}
             </button>
           </div>
-          <p className="text-sm">
-            {`${value?.length} Word(s) / ${byteSize} Byte(s) (Total ${maxByteSize} Bytes)`}
-          </p>
-          <Button size={'small'} color={'tertiary'} handleClick={handleSaveButtonClick}>
-            Save
-          </Button>
+          <div className="flex items-center gap-x-2">
+            {renderByteCounter()}
+            <Button size={'small'} color={'tertiary'} handleClick={handleSaveButtonClick}>
+              Save
+            </Button>
+          </div>
         </div>
       );
     }
@@ -115,9 +121,7 @@ const TextareaInput = ({
     if (enableByteCount && enableSaveButton) {
       return (
         <div className="flex justify-between items-center mt-2">
-          <p className="text-sm">
-            {`${value?.length} Word(s) / ${byteSize} Byte(s) (Total ${maxByteSize} Bytes)`}
-          </p>
+          {renderByteCounter()}
           <Button size={'small'} color={'tertiary'} handleClick={handleSaveButtonClick}>
             Save
           </Button>
@@ -126,11 +130,7 @@ const TextareaInput = ({
     }
 
     if (enableByteCount) {
-      return (
-        <p className="mt-1 text-sm m-0 p-0">
-          {`${value?.length} Word(s) / ${byteSize} Byte(s) (Total ${maxByteSize} Bytes)`}
-        </p>
-      );
+      return renderByteCounter();
     }
 
     return null;
