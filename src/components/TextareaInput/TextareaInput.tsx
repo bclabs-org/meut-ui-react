@@ -39,15 +39,15 @@ const ICON_PICTURE = () => (
 );
 
 type TextareaInputProps = {
-  label: string;
-  name: string;
-  value: string;
+  label?: string;
+  name?: string;
+  value?: string;
   enableByteCount?: boolean;
   maxByteSize?: number;
   byteSize?: number;
   placeholder?: string;
   disabled?: boolean;
-  onChange: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
+  onChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
   enableSaveButton?: boolean;
   handleSaveButtonClick?: () => void;
   error?: boolean;
