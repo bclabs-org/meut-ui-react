@@ -90,26 +90,26 @@ const TextareaInput = ({
     return `${defaultClass} hover:ring-[3px] hover:ring-emerald-100 focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500`;
   };
 
-  const renderByteCounter = () => (
+  const ByteCounter = () => (
     <p className="text-sm">
       {`${value?.length} Word(s) / ${byteSize} Byte(s) (Total ${maxByteSize} Bytes)`}
     </p>
   );
 
-  const renderTextareaFooter = (): React.ReactNode => {
+  const TextareaFooter = (): React.ReactNode => {
     if (enableByteCount && enableSaveButton && enableImageUpload) {
       return (
         <div className="flex justify-between items-center mt-2">
           <div className={`flex gap-x-1`}>
             <button type="button" onClick={handleImageUpload}>
-              {ICON_PICTURE()}
+              <ICON_PICTURE />
             </button>
             <button type="button" onClick={handleGifUpload}>
-              {ICON_GIF()}
+              <ICON_GIF />
             </button>
           </div>
           <div className="flex items-center gap-x-2">
-            {renderByteCounter()}
+            <ByteCounter />
             <Button size={'small'} color={'tertiary'} handleClick={handleSaveButtonClick}>
               Save
             </Button>
@@ -121,7 +121,7 @@ const TextareaInput = ({
     if (enableByteCount && enableSaveButton) {
       return (
         <div className="flex justify-between items-center mt-2">
-          {renderByteCounter()}
+          <ByteCounter />
           <Button size={'small'} color={'tertiary'} handleClick={handleSaveButtonClick}>
             Save
           </Button>
@@ -130,7 +130,11 @@ const TextareaInput = ({
     }
 
     if (enableByteCount) {
-      return <div className="mt-1">{renderByteCounter()}</div>;
+      return (
+        <div className="mt-1">
+          <ByteCounter />
+        </div>
+      );
     }
 
     return null;
@@ -150,7 +154,7 @@ const TextareaInput = ({
         disabled={disabled}
         {...rest}
       />
-      {renderTextareaFooter()}
+      <TextareaFooter />
     </div>
   );
 };
