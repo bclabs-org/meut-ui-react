@@ -130,7 +130,7 @@ const TextareaInput = ({
     }
 
     if (enableByteCount) {
-      return renderByteCounter();
+      return <div className="mt-1">{renderByteCounter()}</div>;
     }
 
     return null;
