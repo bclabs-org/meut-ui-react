@@ -137,7 +137,7 @@ const TextareaInput = ({
   };
 
   return (
-    <div className={`w-[468px] ${disabled ? `opacity-40 grayscale` : ``}`} {...rest}>
+    <div className={`w-[468px] ${disabled ? `opacity-40 grayscale` : ``}`}>
       <label htmlFor={name} className="block text-sm font-medium">
         {label}
       </label>
