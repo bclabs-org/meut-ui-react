@@ -11,12 +11,12 @@ const Card: React.FC<CardProps> = ({ children, color }) => {
   let cardActiveColor = 'hover:active:bg-tertiary'
   let borderHoverColor = 'hover:border-primary'
   switch (color) {
-    case 'gradient-buy':
+    case 'BuyRequest':
       cardColor = 'bg-gradient-buy';
       cardHoverColor = 'hover:bg-gradient-buy-hover';
       cardActiveColor = 'hover:active:bg-gradient-buy'
       break;
-    case 'gradient-sell':
+    case 'BuySell':
       cardColor = 'bg-gradient-sell';
       cardHoverColor = 'hover:bg-gradient-sell-hover';
       cardHoverColor = 'hover:active:bg-gradient-sell'
