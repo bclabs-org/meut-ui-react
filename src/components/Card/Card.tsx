@@ -2,7 +2,7 @@ import React from 'react';
 
 type CardProps = {
   children: React.ReactNode;
-  color: string;
+  color?: string;
 };
 
 const Card: React.FC<CardProps> = ({ children, color }) => {
