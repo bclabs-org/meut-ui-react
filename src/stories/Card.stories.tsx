@@ -49,22 +49,6 @@ Fill.args = {
   ),
 };
 
-export const SellGradient = Template.bind({});
-SellGradient.args = {
-  children: (
-    <>
-      <p>Lorem Ipsum</p>
-      <p>is simply dummy text of the printing and typesetting industry.</p>
-      <p>Lorem Ipsum has been the industry&apos;s standard dummy text ever since the 1500s,</p>
-      <p>when an unknown printer took a galley of type and scrambled</p>
-      <p>it to make a type specimen book.</p>
-      <p>It has survived not only five centuries,</p>
-      <p>but also the leap into electronic typesetting,</p>
-    </>
-  ),
-  color: 'gradient-sell'
-};
-
 export const BuyGradient = Template.bind({});
 BuyGradient.args = {
   children: (
@@ -78,5 +62,21 @@ BuyGradient.args = {
       <p>but also the leap into electronic typesetting,</p>
     </>
   ),
-  color: 'gradient-buy'
+  color: 'BuyRequest'
+};
+
+export const SellGradient = Template.bind({});
+SellGradient.args = {
+  children: (
+    <>
+      <p>Lorem Ipsum</p>
+      <p>is simply dummy text of the printing and typesetting industry.</p>
+      <p>Lorem Ipsum has been the industry&apos;s standard dummy text ever since the 1500s,</p>
+      <p>when an unknown printer took a galley of type and scrambled</p>
+      <p>it to make a type specimen book.</p>
+      <p>It has survived not only five centuries,</p>
+      <p>but also the leap into electronic typesetting,</p>
+    </>
+  ),
+  color: 'BuySell'
 };
