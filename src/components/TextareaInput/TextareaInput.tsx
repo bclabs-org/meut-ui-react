@@ -90,24 +90,30 @@ const TextareaInput = ({
     return `${defaultClass} hover:ring-[3px] hover:ring-emerald-100 focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500`;
   };
 
-  const renderTextareaFooter = (): React.ReactNode => {
+  const ByteCounter = () => (
+    <p className="text-sm">
+      {`${value?.length} Word(s) / ${byteSize} Byte(s) (Total ${maxByteSize} Bytes)`}
+    </p>
+  );
+
+  const TextareaFooter = (): React.ReactNode => {
     if (enableByteCount && enableSaveButton && enableImageUpload) {
       return (
         <div className="flex justify-between items-center mt-2">
           <div className={`flex gap-x-1`}>
             <button type="button" onClick={handleImageUpload}>
-              {ICON_PICTURE()}
+              <ICON_PICTURE />
             </button>
             <button type="button" onClick={handleGifUpload}>
-              {ICON_GIF()}
+              <ICON_GIF />
             </button>
           </div>
-          <p className="text-sm">
-            {`${value?.length} Word(s) / ${byteSize} Byte(s) (Total ${maxByteSize} Bytes)`}
-          </p>
-          <Button size={'small'} color={'tertiary'} handleClick={handleSaveButtonClick}>
-            Save
-          </Button>
+          <div className="flex items-center gap-x-2">
+            <ByteCounter />
+            <Button size={'small'} color={'tertiary'} handleClick={handleSaveButtonClick}>
+              Save
+            </Button>
+          </div>
         </div>
       );
     }
@@ -115,9 +121,7 @@ const TextareaInput = ({
     if (enableByteCount && enableSaveButton) {
       return (
         <div className="flex justify-between items-center mt-2">
-          <p className="text-sm">
-            {`${value?.length} Word(s) / ${byteSize} Byte(s) (Total ${maxByteSize} Bytes)`}
-          </p>
+          <ByteCounter />
           <Button size={'small'} color={'tertiary'} handleClick={handleSaveButtonClick}>
             Save
           </Button>
@@ -127,9 +131,9 @@ const TextareaInput = ({
 
     if (enableByteCount) {
       return (
-        <p className="mt-1 text-sm m-0 p-0">
-          {`${value?.length} Word(s) / ${byteSize} Byte(s) (Total ${maxByteSize} Bytes)`}
-        </p>
+        <div className="mt-1">
+          <ByteCounter />
+        </div>
       );
     }
 
@@ -150,7 +154,7 @@ const TextareaInput = ({
         disabled={disabled}
         {...rest}
       />
-      {renderTextareaFooter()}
+      <TextareaFooter />
     </div>
   );
 };
