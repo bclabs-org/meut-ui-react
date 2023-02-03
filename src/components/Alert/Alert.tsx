@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import {
   XCircleIcon,
   XMarkIcon,
@@ -56,7 +56,7 @@ const Alert: React.FC<AlertProps> = ({
       throw Error('invalid color value');
   }
 
-  const renderIcon = () => {
+  const renderIcon = (): ReactElement => {
     if (color === 'error') {
       return <XCircleIcon className={`${alertIcon} w-5 h-5`} aria-hidden="true" />;
     }
