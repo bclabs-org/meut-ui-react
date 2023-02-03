@@ -68,7 +68,7 @@ const Alert: React.FC<AlertProps> = ({
 
   return (
     <div
-      className={`${alertBackground} rounded-md p-4 max-w-[343px] fixed z-10 shadow-xl ${className}`}
+      className={`${alertBackground} rounded-md p-4 max-w-[343px] fixed z-[10] shadow-xl ${className}`}
     >
       <div className="flex gap-x-3">
         <div>{renderIcon()}</div>
