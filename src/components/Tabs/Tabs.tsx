@@ -4,12 +4,14 @@ type TabsProps = {
   tabNames: string[];
   selectedTab: string;
   setSelectedTab: React.Dispatch<React.SetStateAction<string>>;
+  className?: string;
 };
 
 const Tabs: React.FC<TabsProps> = ({
   tabNames,
   selectedTab = '탭 이름1',
   setSelectedTab,
+  className = '',
 }: TabsProps) => {
   let gridCols;
   switch (tabNames.length) {
@@ -24,7 +26,7 @@ const Tabs: React.FC<TabsProps> = ({
   }
 
   return (
-    <div className={`grid ${gridCols} border-b border-gray-200 h-16`}>
+    <div className={`grid ${gridCols} border-b border-gray-200 h-16 ${className}`}>
       {tabNames.map((tab) => (
         <div
           key={tab}
