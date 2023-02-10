@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ChangeEvent } from 'react';
 import Button from '../Button';
 
 type TextInputProps = {
@@ -11,7 +11,7 @@ type TextInputProps = {
   errorMessage?: string;
   extraMessage?: string;
   maxLength?: number;
-  onChange?: () => void;
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
   onBlur?: React.FocusEventHandler<HTMLInputElement>;
   onFocus?: React.FocusEventHandler<HTMLInputElement>;
   value?: string;
