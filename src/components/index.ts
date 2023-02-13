@@ -7,7 +7,20 @@ import ProfilePhoto from './ProfilePhoto';
 import Tabs from './Tabs';
 import Alert from './Alert';
 import Checkbox from './Checkbox';
+import Dropdown from './Dropdown';
+import Chip from './Chip';
+import TextareaInput from './TextareaInput';
 
 export {
-  Button, Card, TextInput, Modal, ProfilePhoto, Tabs, Alert, Checkbox,
+  Button,
+  Card,
+  TextInput,
+  Modal,
+  ProfilePhoto,
+  Tabs,
+  Alert,
+  Checkbox,
+  Dropdown,
+  Chip,
+  TextareaInput,
 };

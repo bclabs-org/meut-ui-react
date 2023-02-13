@@ -1,55 +1,51 @@
-import React, { useState } from 'react';
-import classNames from 'classnames';
+import React from 'react';
 
-type TabsPropsType = {
-  color?: string;
+type TabsProps = {
   tabNames: string[];
+  selectedTab: string;
+  setSelectedTab: React.Dispatch<React.SetStateAction<string>>;
+  className?: string;
 };
-const Tabs: React.FC<TabsPropsType> = ({
-  color = 'primary',
+
+const Tabs: React.FC<TabsProps> = ({
   tabNames,
-}: TabsPropsType) => {
-  const initialTabs = tabNames.map((name, index) => ({
-    name,
-    current: index === 0,
-  }));
-
-  const [tabs, setTabs] = useState(initialTabs);
-  const handleClick = (idx) => {
-    setTabs(
-      tabs.map((tab, index) => ({
-        name: tab.name,
-        current: idx === index,
-      })),
-    );
-  };
-
-  let clickedStyle = '';
-  const idleStyle = 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300';
-
-  if (color === 'primary') {
-    clickedStyle = 'border-primary text-primary';
+  selectedTab = '탭 이름1',
+  setSelectedTab,
+  className = '',
+}: TabsProps) => {
+  let gridCols;
+  switch (tabNames.length) {
+    case 2:
+      gridCols = 'grid-cols-2';
+      break;
+    case 3:
+      gridCols = 'grid-cols-3';
+      break;
+    default:
+      throw Error('invalid length value');
   }
 
   return (
-    <div>
-      <div className={''}>
-        <nav className={'flex -mb-px space-x-8'}>
-          {tabs.map((tab, index) => (
-            <div
-              key={tab.name}
-              onClick={() => handleClick(index)}
-              style={{ cursor: 'pointer' }}
-              className={classNames(
-                tab.current ? clickedStyle : idleStyle,
-                'text-[16px] justify-center items-center border-b-2 py-[12px]',
-              )}
-            >
-              {tab.name}
-            </div>
-          ))}
-        </nav>
-      </div>
+    <div className={`grid ${gridCols} border-b border-gray-200 h-16 ${className}`}>
+      {tabNames.map((tab) => (
+        <div
+          key={tab}
+          onClick={() => setSelectedTab(tab)}
+          className={`h-16 flex justify-center items-center cursor-pointer py-2 ${
+            selectedTab === tab
+              ? 'border-b-2 border-primary hover:border-primary'
+              : 'hover:border-b-2 hover:border-emerald-200'
+          }`}
+        >
+          <p
+            className={`text-lg font-medium text-onTertiary ${
+              selectedTab === tab ? 'font-semibold text-gray-900' : 'hover:text-gray-800'
+            }`}
+          >
+            {tab}
+          </p>
+        </div>
+      ))}
     </div>
   );
 };

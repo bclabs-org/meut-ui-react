@@ -6,15 +6,6 @@ import TextInput from '../components/TextInput/index';
 export default {
   title: 'Components/TextInput',
   component: TextInput,
-  argTypes: {
-    type: { control: { type: 'text' } },
-    name: { control: { type: 'text' } },
-    placeholder: { control: { type: 'text' } },
-    helperMessage: { control: { type: 'text' } },
-    errorMessage: { control: { type: 'text' } },
-    onChange: { action: 'onChange' },
-    value: { control: { type: 'text' } },
-  },
 } as ComponentMeta<typeof TextInput>;
 
 const Template: ComponentStory<typeof TextInput> = (args) => <TextInput {...args} />;
@@ -23,21 +14,47 @@ export const Default = Template.bind({});
 Default.args = {
   type: 'text',
   name: 'default',
-  placeholder: '텍스트를 입력해주세요!!',
+  placeholder: '텍스트를 입력해주세요',
+  maxLength: 20,
+};
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+  type: 'text',
+  name: 'disabled',
+  placeholder: '텍스트를 입력해주세요',
+  maxLength: 20,
+  disabled: true,
 };
 
 export const Helper = Template.bind({});
 Helper.args = {
   type: 'text',
-  name: 'default',
+  name: 'helper',
+  label: 'Email*',
   placeholder: '텍스트를 입력해주세요',
-  helperMessage: '10글자 이상 입력해야 됩니다',
+  helperMessage: '이메일을 입력하는 곳입니다',
+  maxLength: 20,
 };
 
 export const Error = Template.bind({});
 Error.args = {
   type: 'text',
-  name: 'default',
+  name: 'error',
+  label: 'Email*',
   placeholder: '텍스트를 입력해주세요',
   errorMessage: '다시 입력해주세요',
+  maxLength: 20,
+};
+
+export const Extra = Template.bind({});
+Extra.args = {
+  type: 'text',
+  name: 'extra',
+  label: 'Email*',
+  placeholder: '텍스트를 입력해주세요',
+  extraMessage: 'Resend',
+  verificationTime: '0:01',
+  maxLength: 20,
+  flag: true,
 };

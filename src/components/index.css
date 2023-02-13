@@ -10,17 +10,6 @@
   }
 }
 
-@-webkit-keyframes fadein {
-  from {top: 0; opacity: 0;}
-  to {top: 96px; opacity: 1;}
-}
-
-@keyframes fadein {
-  from {top: 0; opacity: 0;}
-  to {top: 96px; opacity: 1;}
-}
-
-.show {
-  -webkit-animation: fadein 0.5s, 60s;
-  animation: fadein 0.5s, 60s;
+.checkbox:focus {
+  --tw-ring-offset-width: 0
 }

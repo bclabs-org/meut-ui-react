@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { ChangeEvent } from 'react';
+import Button from '../Button';
 
 type TextInputProps = {
   type?: string;
@@ -10,13 +11,15 @@ type TextInputProps = {
   errorMessage?: string;
   extraMessage?: string;
   maxLength?: number;
-  onChange?: () => void;
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
   onBlur?: React.FocusEventHandler<HTMLInputElement>;
   onFocus?: React.FocusEventHandler<HTMLInputElement>;
   value?: string;
   verificationTime?: string;
-  handleClickOnExtraMessage: () => void;
-  flag: boolean;
+  handleClickOnExtraMessage?: () => void;
+  flag?: boolean;
+  miniButton?: string;
+  handleMiniButtonClick?: () => void;
   [key: string]: any;
 };
 
@@ -36,6 +39,8 @@ const TextInput: React.FC<TextInputProps> = ({
   value,
   verificationTime,
   flag,
+  miniButton,
+  handleMiniButtonClick,
   handleClickOnExtraMessage,
   ...rest
 }: TextInputProps) => (
@@ -44,16 +49,16 @@ const TextInput: React.FC<TextInputProps> = ({
       <label htmlFor={name}>{label}</label>
       <span className={`${verificationTime === '0:00' && 'text-warning'}`}>{verificationTime}</span>
     </div>
-    <div>
+    <div className="relative">
       <input
         type={type}
         maxLength={maxLength}
         name={name}
         id={name}
-        className={`w-full h-12 p-3 rounded-100 focus:ring-0 placeholder:text-gray-300 ${
+        className={`w-full h-12 p-3 rounded focus:ring-0 placeholder:text-neutral ${
           errorMessage
             ? 'border-2 border-warning focus:border-warning'
-            : 'border border-gray-300 hover:outline hover:outline-[3px] hover:outline-secondary-hover focus:outline-0 focus:border-2 focus:border-primary disabled:hover:outline-0'
+            : 'border border-gray-300 hover:outline hover:outline-[3px] hover:outline-secondary-hover hover:focus:outline-0 focus:border-2 focus:border-primary disabled:hover:outline-0'
         }`}
         disabled={disabled}
         placeholder={placeholder}
@@ -64,9 +69,16 @@ const TextInput: React.FC<TextInputProps> = ({
         autoComplete="off"
         {...rest}
       />
+      {miniButton && (
+        <div className="absolute top-1.5 bottom-1.5 right-2.5">
+          <Button type="button" color="secondary" size="small" handleClick={handleMiniButtonClick}>
+            {miniButton}
+          </Button>
+        </div>
+      )}
     </div>
     {(errorMessage || extraMessage || helperMessage) && (
-      <div className="text-sm mt-1">
+      <div className="text-sm mt-1 flex justify-between">
         {errorMessage && (
           <div className="flex">
             <div>
@@ -91,12 +103,15 @@ const TextInput: React.FC<TextInputProps> = ({
           </div>
         )}
         {extraMessage && flag && (
-          <span className="cursor-pointer text-onSecondary" onClick={handleClickOnExtraMessage}>
+          <span
+            className="cursor-pointer text-onSecondary underline"
+            onClick={handleClickOnExtraMessage}
+          >
             {extraMessage}
           </span>
         )}
         {extraMessage && !flag && (
-          <span className="text-onSecondary opacity-40">{extraMessage}</span>
+          <span className="text-onSecondary opacity-40 underline">{extraMessage}</span>
         )}
         {!errorMessage && helperMessage && (
           <span className="text-neutral" id={name}>

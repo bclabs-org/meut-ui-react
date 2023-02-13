@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ChangeEvent } from 'react';
 type TextInputProps = {
     type?: string;
     name?: string;
@@ -9,13 +9,15 @@ type TextInputProps = {
     errorMessage?: string;
     extraMessage?: string;
     maxLength?: number;
-    onChange?: () => void;
+    onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
     onBlur?: React.FocusEventHandler<HTMLInputElement>;
     onFocus?: React.FocusEventHandler<HTMLInputElement>;
     value?: string;
     verificationTime?: string;
-    handleClickOnExtraMessage: () => void;
-    flag: boolean;
+    handleClickOnExtraMessage?: () => void;
+    flag?: boolean;
+    miniButton?: string;
+    handleMiniButtonClick?: () => void;
     [key: string]: any;
 };
 declare const TextInput: React.FC<TextInputProps>;
