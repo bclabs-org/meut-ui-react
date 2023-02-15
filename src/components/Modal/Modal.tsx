@@ -5,17 +5,23 @@ type ModalProps = {
   children: React.ReactNode;
   isModalOpen: boolean;
   setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  onOutsideClick?: boolean;
 };
 
-const Modal: React.FC<ModalProps> = ({ children, isModalOpen, setIsModalOpen }) => (
+const Modal: React.FC<ModalProps> = ({
+  children,
+  isModalOpen,
+  setIsModalOpen,
+  onOutsideClick = true,
+}) => (
   <Transition.Root show={isModalOpen} as={Fragment}>
     <Dialog
       as="div"
       className="relative z-10"
-      onClose={() => {}}
+      onClose={() => null}
       onClick={(e) => {
         e.stopPropagation();
-        setIsModalOpen(false);
+        setIsModalOpen(!onOutsideClick);
       }}
     >
       <Transition.Child
