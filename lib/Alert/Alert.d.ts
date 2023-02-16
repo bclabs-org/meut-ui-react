@@ -7,6 +7,7 @@ type AlertProps = {
     setIsAlertOpen: React.Dispatch<React.SetStateAction<boolean>>;
     closeBtn?: boolean;
     className?: string;
+    isBackgroundShow?: boolean;
 };
 declare const Alert: React.FC<AlertProps>;
 export default Alert;
