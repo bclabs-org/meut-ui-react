@@ -14,6 +14,7 @@ type AlertProps = {
   setIsAlertOpen: React.Dispatch<React.SetStateAction<boolean>>;
   closeBtn?: boolean;
   className?: string;
+  isBackgroundShow?: boolean;
 };
 
 const Alert: React.FC<AlertProps> = ({
@@ -24,6 +25,7 @@ const Alert: React.FC<AlertProps> = ({
   setIsAlertOpen,
   closeBtn = false,
   className,
+  isBackgroundShow = true,
 }: AlertProps) => {
   let alertBackground;
   let alertIcon;
@@ -32,21 +34,27 @@ const Alert: React.FC<AlertProps> = ({
   let alertSubText;
   switch (color) {
     case 'error':
-      alertBackground = 'bg-pink-50';
+      if (isBackgroundShow) {
+        alertBackground = 'bg-pink-50';
+      }
       alertIcon = 'text-warning';
       alertCloseBtn = 'text-warning';
       alertText = 'text-pink-800';
       alertSubText = 'text-pink-700';
       break;
     case 'attention':
-      alertBackground = 'bg-yellow-50';
+      if (isBackgroundShow) {
+        alertBackground = 'bg-yellow-50';
+      }
       alertIcon = 'text-yellow-400';
       alertCloseBtn = 'text-yellow-600';
       alertText = 'text-yellow-800';
       alertSubText = 'text-yellow-700';
       break;
     case 'completion':
-      alertBackground = 'bg-secondary';
+      if (isBackgroundShow) {
+        alertBackground = 'bg-secondary';
+      }
       alertIcon = 'text-emerald-400';
       alertCloseBtn = 'text-primary';
       alertText = 'text-emerald-800';
@@ -68,7 +76,9 @@ const Alert: React.FC<AlertProps> = ({
 
   return (
     <div
-      className={`${alertBackground} rounded-md p-4 max-w-[343px] fixed z-[10] shadow-xl ${className}`}
+      className={`${alertBackground} rounded-md p-4 max-w-[343px] fixed z-[10] ${
+        isBackgroundShow && 'shadow-xl'
+      } ${className}`}
     >
       <div className="flex gap-x-3">
         <div>{renderIcon()}</div>
