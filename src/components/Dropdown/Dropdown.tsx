@@ -9,7 +9,7 @@ type DropdownProps = {
   placeholder: string;
   selected: string;
   setSelected: React.Dispatch<React.SetStateAction<string>>;
-  handleChange?: () => void;
+  handleChange?: () => any;
 };
 
 const Dropdown: React.FC<DropdownProps> = ({
