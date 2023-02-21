@@ -99,7 +99,7 @@ const Alert: React.FC<AlertProps> = ({
         isBackgroundShow && 'shadow-xl'
       } ${className}`}
     >
-      <div className="flex gap-x-3 max-w-[311px]">
+      <div className="flex gap-x-3">
         <div>{renderIcon()}</div>
         <div className="flex flex-col justify-center">
           <div className="flex">
