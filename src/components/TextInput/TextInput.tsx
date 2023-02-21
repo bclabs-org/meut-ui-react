@@ -127,7 +127,11 @@ const TextInput: React.FC<TextInputProps> = ({
               </span>
             </div>
           )}
-
+          {!errorMessage && helperMessage && (
+            <span className="w-full text-neutral" id={name}>
+              {helperMessage}
+            </span>
+          )}
           <div className="w-full flex justify-end">
             {extraMessage && flag && (
               <span
@@ -141,12 +145,6 @@ const TextInput: React.FC<TextInputProps> = ({
               <span className="text-onSecondary opacity-40 underline">{extraMessage}</span>
             )}
           </div>
-
-          {!errorMessage && helperMessage && (
-            <span className="text-neutral" id={name}>
-              {helperMessage}
-            </span>
-          )}
         </div>
       )}
     </div>
