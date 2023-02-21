@@ -95,11 +95,11 @@ const Alert: React.FC<AlertProps> = ({
 
   return (
     <div
-      className={`${alertBackground} rounded-md p-4 max-w-[343px] ${
+      className={`${alertBackground} rounded-md p-4 max-w-[343px] w-max ${
         isBackgroundShow && 'shadow-xl'
       } ${className}`}
     >
-      <div className="flex gap-x-3">
+      <div className="flex gap-x-3 max-w-[311px]">
         <div>{renderIcon()}</div>
         <div className="flex flex-col justify-center">
           <div className="flex">
@@ -110,7 +110,13 @@ const Alert: React.FC<AlertProps> = ({
             >
               {text}
             </p>
-            {timer && <span className="text-sm text-warning font-medium ml-1">{timer}</span>}
+            {timer && (
+              <span
+                className={`${textSmaller ? 'text-xs' : 'text-sm'} text-warning font-medium ml-1`}
+              >
+                {timer}
+              </span>
+            )}
           </div>
           {subText && (
             <p
