@@ -18,7 +18,7 @@ const Chip: React.FC<ChipProps> = ({ label, selected, count, handleClick, classN
     } ${className || ''}`}
   >
     {label}
-    {count ? (
+    {!!count || count === 0 ? (
       <span
         className={`px-3 py-1 ml-1 rounded-[10px] text-onTertiary text-xs font-medium ${
           selected ? 'bg-white' : 'bg-tertiary group-focus:bg-white'
