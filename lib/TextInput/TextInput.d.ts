@@ -19,6 +19,7 @@ type TextInputProps = {
     miniButton?: string;
     handleMiniButtonClick?: () => void;
     [key: string]: any;
+    currency?: string;
 };
 declare const TextInput: React.FC<TextInputProps>;
 export default TextInput;
