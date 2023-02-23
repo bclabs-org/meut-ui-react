@@ -105,7 +105,7 @@ const TextInput: React.FC<TextInputProps> = ({
       {(errorMessage || extraMessage || helperMessage) && (
         <div className="text-sm mt-1 flex justify-between">
           {errorMessage && (
-            <div className="flex">
+            <div className="w-full flex">
               <div>
                 <svg
                   width="20"
@@ -127,22 +127,24 @@ const TextInput: React.FC<TextInputProps> = ({
               </span>
             </div>
           )}
-          {extraMessage && flag && (
-            <span
-              className="cursor-pointer text-onSecondary underline"
-              onClick={handleClickOnExtraMessage}
-            >
-              {extraMessage}
-            </span>
-          )}
-          {extraMessage && !flag && (
-            <span className="text-onSecondary opacity-40 underline">{extraMessage}</span>
-          )}
           {!errorMessage && helperMessage && (
-            <span className="text-neutral" id={name}>
+            <span className="w-full text-neutral" id={name}>
               {helperMessage}
             </span>
           )}
+          <div className="w-full flex justify-end">
+            {extraMessage && flag && (
+              <span
+                className="cursor-pointer text-onSecondary underline"
+                onClick={handleClickOnExtraMessage}
+              >
+                {extraMessage}
+              </span>
+            )}
+            {extraMessage && !flag && (
+              <span className="text-onSecondary opacity-40 underline">{extraMessage}</span>
+            )}
+          </div>
         </div>
       )}
     </div>
