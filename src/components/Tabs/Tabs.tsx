@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { ForwardedRef } from 'react';
 
 type TabsProps = {
   tabNames: string[];
   selectedTab: string;
   setSelectedTab: React.Dispatch<React.SetStateAction<string>>;
   className?: string;
+  forwardedRef?: ForwardedRef<HTMLDivElement>;
 };
 
 const Tabs: React.FC<TabsProps> = ({
@@ -12,6 +13,7 @@ const Tabs: React.FC<TabsProps> = ({
   selectedTab = '탭 이름1',
   setSelectedTab,
   className = '',
+  forwardedRef,
 }: TabsProps) => {
   let gridCols;
   switch (tabNames.length) {
@@ -26,7 +28,10 @@ const Tabs: React.FC<TabsProps> = ({
   }
 
   return (
-    <div className={`grid ${gridCols} border-b border-gray-200 h-16 ${className}`}>
+    <div
+      className={`grid ${gridCols} border-b border-gray-200 h-16 ${className}`}
+      ref={forwardedRef}
+    >
       {tabNames.map((tab) => (
         <div
           key={tab}
