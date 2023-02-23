@@ -21,5 +21,5 @@ export const selected = Template.bind({});
 selected.args = {
   selected: true,
   label: 'All Strategies',
-  count: 18
+  count: 0
 };
