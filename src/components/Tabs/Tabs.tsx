@@ -32,7 +32,7 @@ const Tabs: React.FC<TabsProps> = ({
     if (onClick) {
       temporaryFunc = onClick;
     } else if (setSelectedTab) {
-      temporaryFunc = selectedTab;
+      temporaryFunc = setSelectedTab;
     }
 
     return temporaryFunc;
