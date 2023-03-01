@@ -42,7 +42,7 @@ const Tabs: React.FC<TabsProps> = ({
       gridCols = 'grid-cols-8';
       break;
     default:
-      throw Error('invalid length value');
+      throw Error('invalid tabs length value');
   }
 
   const getHandClick = () => {
