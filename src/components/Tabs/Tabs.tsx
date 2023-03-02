@@ -17,14 +17,32 @@ const Tabs: React.FC<TabsProps> = ({
 }: TabsProps) => {
   let gridCols;
   switch (tabNames.length) {
+    case 1:
+      gridCols = 'grid-cols-1';
+      break;
     case 2:
       gridCols = 'grid-cols-2';
       break;
     case 3:
       gridCols = 'grid-cols-3';
       break;
+    case 4:
+      gridCols = 'grid-cols-4';
+      break;
+    case 5:
+      gridCols = 'grid-cols-5';
+      break;
+    case 6:
+      gridCols = 'grid-cols-6';
+      break;
+    case 7:
+      gridCols = 'grid-cols-7';
+      break;
+    case 8:
+      gridCols = 'grid-cols-8';
+      break;
     default:
-      throw Error('invalid length value');
+      throw Error('invalid tabs length value');
   }
 
   const getHandClick = () => {
