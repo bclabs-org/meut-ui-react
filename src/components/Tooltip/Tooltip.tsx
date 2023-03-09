@@ -8,11 +8,14 @@ type Content = {
 
 type TextInputProps = {
   content: Content[];
+  children?: React.ReactNode;
 };
 
-const Tooltip: React.FC<TextInputProps> = ({ content }: TextInputProps) => {
+const Tooltip: React.FC<TextInputProps> = ({ content, children }: TextInputProps) => {
   return (
     <div className="relative max-w-[405px] w-max bg-gray-50 rounded-lg shadow-md break-all">
+      {/* 툴팁은 제일 최상위 div만 쓰이고 보여줄 내용은 children으로 받아서 아래 주석풀어서 쓰시면됩니다. 현재 아래에 작성된 내용은 퀀트카드에 쓰일 툴팁을 만들어 놓을 곳 이 없어서 여기에 만들어놨습니다. */}
+      {/* {children} */}
       {content.map(({ title, description }, index) => (
         <div className="py-4 px-6 flex gap-x-4 relative">
           {index !== content.length - 1 && (
