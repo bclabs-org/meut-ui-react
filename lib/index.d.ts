@@ -11,4 +11,5 @@ import Dropdown from './Dropdown';
 import Chip from './Chip';
 import TextareaInput from './TextareaInput';
 import BadgeLabel from './Badge';
-export { Button, Card, TextInput, Modal, ProfilePhoto, Tabs, Alert, Checkbox, Dropdown, Chip, TextareaInput, BadgeLabel, };
+import Tooltip from './Tooltip';
+export { Button, Card, TextInput, Modal, ProfilePhoto, Tabs, Alert, Checkbox, Dropdown, Chip, TextareaInput, BadgeLabel, Tooltip, };
