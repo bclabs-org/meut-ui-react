@@ -77,7 +77,7 @@ const TextareaInput = ({
 }: TextareaInputProps) => {
   const getTextareaInputClass = () => {
     const defaultClass =
-      'block mt-1 w-full h-[105px] border border-gray-300 rounded-md text-base text-gray-900 font-medium';
+      'block w-full h-[105px] border border-gray-300 rounded-md text-sm text-gray-900 font-medium py-2 px-3';
 
     if (disabled) {
       return `${defaultClass}`;
@@ -141,8 +141,8 @@ const TextareaInput = ({
   };
 
   return (
-    <div className={`w-[468px] ${disabled ? `opacity-40 grayscale` : ``}`}>
-      <label htmlFor={name} className="block text-sm font-medium">
+    <div className={`${disabled ? 'opacity-40 grayscale' : ''}`}>
+      <label htmlFor={name} className="block text-sm font-medium text-neutral mb-1">
         {label}
       </label>
       <textarea
