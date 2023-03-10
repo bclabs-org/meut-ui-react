@@ -103,7 +103,7 @@ const TextInput: React.FC<TextInputProps> = ({
         )}
       </div>
       {(errorMessage || extraMessage || helperMessage) && (
-        <div className="text-sm mt-1 flex justify-between">
+        <div className={`text-sm mt-1 ${extraMessage && 'flex justify-between'}`}>
           {errorMessage && (
             <div className="w-full flex">
               <div>
