@@ -10,7 +10,8 @@ import Checkbox from './Checkbox';
 import Dropdown from './Dropdown';
 import Chip from './Chip';
 import TextareaInput from './TextareaInput';
-import BadgeLabel from './Badge'
+import BadgeLabel from './Badge';
+import Tooltip from './Tooltip';
 
 export {
   Button,
@@ -25,4 +26,5 @@ export {
   Chip,
   TextareaInput,
   BadgeLabel,
+  Tooltip,
 };
