@@ -1,8 +1,8 @@
-name: Build & Push
+name: Publish Packages
 on:
   push:
     branches:
-      - master
+      - develop
     paths: ['src/components/**/*']
 jobs:
   build-and-push:
@@ -22,3 +22,14 @@ jobs:
           git add .
           git commit -m 'chore: update bundle file'
           git push --set-upstream origin master
+  packages-publish:
+    needs: build-and-push
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.PACKAGE_TOKEN }}
+          registry-url: 'https://npm.pkg.github.com'
+      - name: Publish Packages
+        run: |
+            npm publish
