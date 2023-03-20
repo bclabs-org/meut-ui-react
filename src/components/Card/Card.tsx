@@ -7,7 +7,7 @@ type CardProps = {
   size?: string;
 };
 
-const Card: React.FC<CardProps> = ({ children, color, className, size='w-[342px]' }) => {
+const Card: React.FC<CardProps> = ({ children, color, className, size='w-[343px]' }) => {
   let cardColor = 'bg-tertiary';
   let cardHoverColor = 'hover:bg-white';
   let cardActiveColor = 'hover:active:bg-tertiary';
@@ -25,9 +25,10 @@ const Card: React.FC<CardProps> = ({ children, color, className, size='w-[342px]
       borderHoverColor = 'hover:border-pink-600';
       break;
     default:
-      cardColor = 'bg-tertiary';
-      cardHoverColor = 'hover:bg-white';
-      cardActiveColor = 'hover:active:bg-tertiary';
+      cardColor = 'bg-gradient-sell';
+      cardHoverColor = 'hover:bg-gradient-sell-hover';
+      cardHoverColor = 'hover:active:bg-gradient-sell';
+      borderHoverColor = 'hover:border-pink-600';
       break;
   }
 
