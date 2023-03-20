@@ -7,7 +7,7 @@ type CardProps = {
   size?: string;
 };
 
-const Card: React.FC<CardProps> = ({ children, color, className, size='w-[342px]' }) => {
+const Card: React.FC<CardProps> = ({ children, color, className, size='w-[343px]' }) => {
   let cardColor = 'bg-tertiary';
   let cardHoverColor = 'hover:bg-white';
   let cardActiveColor = 'hover:active:bg-tertiary';

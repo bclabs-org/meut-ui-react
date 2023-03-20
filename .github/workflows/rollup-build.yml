@@ -16,6 +16,7 @@ jobs:
           git config --global user.email "mia.kim@bclabs.co.kr"
       - name: Build And Push
         run: |
+          git pull
           yarn install
           yarn build
           git add .
