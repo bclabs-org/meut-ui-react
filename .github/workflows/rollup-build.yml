@@ -16,12 +16,11 @@ jobs:
           git config --global user.email "mia.kim@bclabs.co.kr"
       - name: Build And Push
         run: |
-          git pull
           yarn install
           yarn build
           git add .
           git commit -m 'chore: update bundle file'
-          git push --set-upstream origin master
+          git push --set-upstream origin develop
   packages-publish:
     needs: build-and-push
     runs-on: ubuntu-latest
