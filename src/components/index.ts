@@ -13,6 +13,7 @@ import TextareaInput from './TextareaInput';
 import BadgeLabel from './Badge';
 import Tooltip from './Tooltip';
 import Table from './Table';
+import TwoColumnTable from './TwoColumnTable';
 
 export {
   Button,
@@ -29,4 +30,5 @@ export {
   BadgeLabel,
   Tooltip,
   Table,
+  TwoColumnTable,
 };
