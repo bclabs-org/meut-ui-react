@@ -12,6 +12,7 @@ import Chip from './Chip';
 import TextareaInput from './TextareaInput';
 import BadgeLabel from './Badge';
 import Tooltip from './Tooltip';
+import Table from './Table';
 
 export {
   Button,
@@ -27,4 +28,5 @@ export {
   TextareaInput,
   BadgeLabel,
   Tooltip,
+  Table,
 };
