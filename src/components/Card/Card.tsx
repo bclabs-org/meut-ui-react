@@ -7,11 +7,11 @@ type CardProps = {
   size?: string;
 };
 
-const Card: React.FC<CardProps> = ({ children, color, className, size='w-[343px]' }) => {
+const Card: React.FC<CardProps> = ({ children, color, className, size = 'w-[343px]' }) => {
   let cardColor = 'bg-tertiary';
   let cardHoverColor = 'hover:bg-white';
   let cardActiveColor = 'hover:active:bg-tertiary';
-  let borderHoverColor = 'hover:border-primary';
+  let borderHoverColor = 'hover:ring-2 hover:ring-primary';
   switch (color) {
     case 'BuyRequest':
       cardColor = 'bg-gradient-buy';
@@ -22,7 +22,7 @@ const Card: React.FC<CardProps> = ({ children, color, className, size='w-[343px]
       cardColor = 'bg-gradient-sell';
       cardHoverColor = 'hover:bg-gradient-sell-hover';
       cardHoverColor = 'hover:active:bg-gradient-sell';
-      borderHoverColor = 'hover:border-pink-600';
+      borderHoverColor = 'hover:ring-2 hover:ring-warning';
       break;
     default:
       cardColor = 'bg-tertiary';
@@ -33,7 +33,7 @@ const Card: React.FC<CardProps> = ({ children, color, className, size='w-[343px]
 
   return (
     <div
-      className={`flex flex-col col-span-3 ${size} gap-y-5 cursor-pointer p-5 rounded-xl border border-gray-300 ${cardColor} hover:border-2 ${borderHoverColor} hover:m-[-1px] ${cardHoverColor} hover:active:border hover:active:border-gray-300 ${cardActiveColor} hover:active:m-0 ${className}`}
+      className={`flex flex-col col-span-3 ${size} gap-y-5 cursor-pointer p-5 rounded-xl ring-1 ring-gray-300 ${cardColor} hover:ring-2 hover:ring-primary ${borderHoverColor} ${cardHoverColor} hover:active:ring-1 hover:active:ring-gray-300 ${cardActiveColor} ${className}`}
     >
       {children}
     </div>
