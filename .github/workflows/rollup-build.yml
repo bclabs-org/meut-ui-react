@@ -29,7 +29,6 @@ jobs:
         with:
           token: ${{ secrets.PACKAGE_TOKEN }}
           registry-url: 'https://npm.pkg.github.com'
-          scope: "@bclabs-org"
       - name: Publish Packages
         run: |
           echo "registry=https://npm.pkg.github.com/@bclabs-org" >> .npmrc
