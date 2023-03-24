@@ -31,5 +31,6 @@ jobs:
           registry-url: 'https://npm.pkg.github.com'
           scope: "@bclabs-org"
       - name: Publish Packages
-      - run: echo "registry=https://npm.pkg.github.com/@bclabs-org" >> .npmrc
-      - run: npm publish
+        run: |
+          echo "registry=https://npm.pkg.github.com/@bclabs-org" >> .npmrc
+          npm publish
