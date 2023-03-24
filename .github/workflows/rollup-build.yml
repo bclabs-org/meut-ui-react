@@ -1,4 +1,4 @@
-name: Publish Packages
+name: Publish to GitHub Packages
 on:
   push:
     branches:
@@ -29,6 +29,7 @@ jobs:
         with:
           token: ${{ secrets.PACKAGE_TOKEN }}
           registry-url: 'https://npm.pkg.github.com'
+          scope: "@bclabs-org"
       - name: Publish Packages
-        run: |
-            npm publish
+      - run: echo "registry=https://npm.pkg.github.com/@bclabs-org" >> .npmrc
+      - run: npm publish
