@@ -1,0 +1,41 @@
+name: Publish alpha version to GitHub package
+on:
+  push:
+    branches:
+      - test-develop
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.DEPLOY_TOKEN }}
+      - name: git config
+        run: |
+          git config --global user.name "bclabs-mia"
+          git config --global user.email "mia.kim@bclabs.co.kr"
+      - name: Build And Push
+        run: |
+          yarn install
+          yarn build
+          git add .
+          git commit -m 'chore: update bundle file'
+          git push --set-upstream origin test-develop
+  packages-publish:
+    needs: build-and-push
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          token: ${{ secrets.PACKAGE_TOKEN }}
+          registry-url: 'https://npm.pkg.github.com'
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.PACKAGE_TOKEN }}
+      - name: npmrcgen
+        run: |
+          echo "//npm.pkg.github.com/:_authToken=$NODE_AUTH_TOKEN" > .npmrc
+          echo "registry=https://npm.pkg.github.com/@bclabs-org" >> .npmrc
+      - name: Publish Packages
+        run: |
+          npm publish --tag alpha
