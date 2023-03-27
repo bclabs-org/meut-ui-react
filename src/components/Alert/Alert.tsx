@@ -24,7 +24,7 @@ type AlertProps = {
 const Alert: React.FC<AlertProps> = ({
   text,
   subText,
-  color = 'attention',
+  color = 'information',
   isAlertOpen,
   setIsAlertOpen,
   closeBtn = false,
