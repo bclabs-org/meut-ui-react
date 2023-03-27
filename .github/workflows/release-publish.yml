@@ -1,8 +1,8 @@
-name: Publish to GitHub Packages
+name: Publish release version to GitHub package
 on:
   push:
     branches:
-      - test-develop
+      - master
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
