@@ -71,10 +71,6 @@ const Alert: React.FC<AlertProps> = ({
       if (isBackgroundShow) {
         alertBackground = 'bg-blue-50';
       }
-      alertIcon = 'text-blue-400';
-      alertCloseBtn = 'text-blue-700';
-      alertText = 'text-blue-800';
-      alertSubText = 'text-blue-800';
       break;
     default:
       throw Error('invalid color value');
