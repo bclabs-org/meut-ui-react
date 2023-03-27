@@ -1,6 +1,6 @@
 {
-  "name": "meut-ui-react",
-  "version": "0.0.1",
+  "name": "@bclabs-org/meut-ui-react",
+  "version": "1.0.0-alpha",
   "scripts": {
     "build": "rm -rf dist && rm -rf lib && rollup -c",
     "watch": "rollup -cw",
@@ -12,6 +12,13 @@
   "main": "dist/bundle.js",
   "types": "lib/index.d.ts",
   "type": "module",
+  "author": {
+    "name": "BC Labs Corp."
+  },
+  "repository": "https://github.com/bclabs-org/meut-ui-react",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "devDependencies": {
     "@babel/core": "^7.20.2",
     "@babel/plugin-transform-runtime": "^7.19.6",
