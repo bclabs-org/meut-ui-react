@@ -5,6 +5,8 @@ type ChipProps = {
     count?: number;
     handleClick?: () => void;
     className?: string;
+    size?: 'small' | 'medium' | 'large';
+    disabled?: boolean;
 };
 declare const Chip: React.FC<ChipProps>;
 export default Chip;
