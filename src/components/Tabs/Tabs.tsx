@@ -69,7 +69,7 @@ const Tabs: React.FC<TabsProps> = ({
           }`}
         >
           <p
-            className={`text-lg font-medium text-onTertiary ${
+            className={`text-base font-normal text-gray-700 text-onTertiary ${
               selectedTab === tab ? 'font-semibold text-gray-900' : 'hover:text-gray-800'
             }`}
           >
