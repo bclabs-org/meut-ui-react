@@ -6,6 +6,7 @@ type ButtonProps = {
     disabled?: boolean;
     color?: 'primary' | 'secondary' | 'tertiary';
     handleClick?: () => void;
+    isProcessing?: boolean;
     [key: string]: any;
 };
 declare const Button: React.FC<ButtonProps>;

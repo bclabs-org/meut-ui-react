@@ -12,14 +12,16 @@ const Template: ComponentStory<typeof Chip> = (args) => <Chip {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
+  size: 'medium',
   selected: false,
   label: 'All Strategies',
-  count: 18
+  count: 18,
 };
 
 export const selected = Template.bind({});
 selected.args = {
+  size: 'medium',
   selected: true,
   label: 'All Strategies',
-  count: 0
+  count: undefined,
 };
