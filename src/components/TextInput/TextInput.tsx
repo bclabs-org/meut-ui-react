@@ -69,10 +69,10 @@ const TextInput: React.FC<TextInputProps> = ({
           maxLength={maxLength}
           name={name}
           id={name}
-          className={`w-full h-12 p-3 rounded focus:ring-0 placeholder:text-neutral ${
+          className={`w-full h-12 p-3 rounded focus:ring-0 placeholder:text-neutral placeholder:font-medium ${
             errorMessage
               ? 'border-2 border-warning focus:border-warning'
-              : 'border border-gray-300 hover:outline hover:outline-[3px] hover:outline-secondary-hover hover:focus:outline-0 focus:border-2 focus:border-primary disabled:hover:outline-0'
+              : 'border border-gray-300 hover:outline hover:outline-[3px] hover:outline-secondary-hover focus:outline-0 focus:border-2 focus:border-primary disabled:hover:outline-0'
           }`}
           style={{ paddingRight: (miniButton || currency) && `${rightAddedWidth}px` }}
           disabled={disabled}
