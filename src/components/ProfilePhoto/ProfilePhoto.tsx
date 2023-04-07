@@ -4,8 +4,9 @@ import './style.css';
 type ProfilePhotoProps = {
   size: 'x-small' | 'small' | 'medium' | 'large' | 'x-large' | '2x-large';
   imageFile: string;
+  rounded?: boolean;
 };
-const ProfilePhoto: React.FC<ProfilePhotoProps> = ({ size, imageFile }: ProfilePhotoProps) => {
+const ProfilePhoto: React.FC<ProfilePhotoProps> = ({ size, imageFile, rounded }: ProfilePhotoProps) => {
   let profilePhotoSize;
   switch (size) {
     case 'x-small':
@@ -34,7 +35,7 @@ const ProfilePhoto: React.FC<ProfilePhotoProps> = ({ size, imageFile }: ProfileP
     <img
       src={imageFile}
       alt="profile"
-      className={`picture-style rounded-full ${profilePhotoSize}`}
+      className={`picture-style ${rounded ? "rounded-[8px]" : "rounded-full"} ${profilePhotoSize}`}
     />
   );
 };
