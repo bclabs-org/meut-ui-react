@@ -5,6 +5,9 @@ type TabsProps = {
   selectedTab: string;
   className?: string;
   setSelectedTab?: React.Dispatch<React.SetStateAction<string>>;
+  isBorderTop?: boolean;
+  backgroundColor?: string;
+  isBottomShadow?: boolean;
   onClick?: (param: string) => void;
 };
 
@@ -12,8 +15,11 @@ const Tabs: React.FC<TabsProps> = ({
   tabNames,
   selectedTab = '탭 이름1',
   setSelectedTab,
+  isBorderTop = false,
+  backgroundColor = 'bg-white',
+  isBottomShadow = false,
   className = '',
-    onClick
+  onClick,
 }: TabsProps) => {
   let gridCols;
   switch (tabNames.length) {
@@ -57,24 +63,16 @@ const Tabs: React.FC<TabsProps> = ({
   }
 
   return (
-    <div className={`grid ${gridCols} border-b border-gray-200 h-16 ${className}`}>
+    <div className={`grid ${gridCols} ${backgroundColor} ${isBorderTop ? 'border-t' : ''} ${isBottomShadow ? 'shadow-[0_1px_1px_0_rgba(0,0,0,0.06),0_1px_2px_0_rgba(0,0,0,0.1)]' : ''} h-16 ${className}`}>
       {tabNames.map((tab) => (
         <div
           key={tab}
           onClick={() => getHandClick()(tab)}
-          className={`h-16 flex justify-center items-center cursor-pointer py-2 ${
-            selectedTab === tab
-              ? 'border-b-2 border-primary hover:border-primary'
-              : 'hover:border-b-2 hover:border-emerald-200'
+          className={`h-16 flex text-base justify-center hover:border-b-2 hover:border-emerald-400 font-medium hover:font-semibold active:font-semibold items-center cursor-pointer py-2 ${
+            selectedTab === tab ? 'font-semibold text-black border-b-2 border-primary hover:border-primary' : 'text-gray-700 border-b border-gray-200'              
           }`}
         >
-          <p
-            className={`text-lg font-medium text-onTertiary ${
-              selectedTab === tab ? 'font-semibold text-gray-900' : 'hover:text-gray-800'
-            }`}
-          >
-            {tab}
-          </p>
+          {tab}
         </div>
       ))}
     </div>

@@ -15,3 +15,10 @@ Default.args = {
   size: 'large',
   imageFile: 'https://avatars.githubusercontent.com/u/67389821?v=4',
 };
+
+export const Rounded = Template.bind({});
+Rounded.args = {
+  size: 'medium',
+  imageFile: 'https://avatars.githubusercontent.com/u/67389821?v=4',
+  rounded: true,
+}
