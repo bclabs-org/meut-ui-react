@@ -121,7 +121,7 @@ const Alert: React.FC<AlertProps> = ({
           {subText && (
             <p
               className={`mt-2 break-words ${alertSubText} ${
-                subTextSmaller ? 'text-xs' : 'text-sm'
+                subTextSmaller ? 'text-xs leading-5' : 'text-sm'
               }`}
             >
               {subText}
