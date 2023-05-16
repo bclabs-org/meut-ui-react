@@ -45,9 +45,6 @@ module.exports = {
         'light-300': '0px 24px 24px rgba(0, 83, 125, 0.1)',
         'light-400': '0px 48px 48px rgba(0, 83, 125, 0.1)',
       },
-      fontSize: {
-        'xs': ['12px',{ lineHeight: '20px' }],
-      }
     },
   },
 }
