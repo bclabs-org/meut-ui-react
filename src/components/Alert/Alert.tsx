@@ -134,6 +134,7 @@ const Alert: React.FC<AlertProps> = ({
               type="button"
               className={`${alertBackground} ${alertIcon}`}
               onClick={() => setIsAlertOpen(false)}
+              aria-label="Close Alert"
             >
               <XMarkIcon className="h-5 w-5" aria-hidden="true" />
             </button>
