@@ -7,7 +7,7 @@ type TooltipProps = {
 
 const Tooltip: React.FC<TooltipProps> = ({ tooltipText, containerClassName }: TooltipProps) => (
   <div className={`absolute -bottom-1 -left-7 will-change-[filter] drop-shadow-lg ${containerClassName || ''}`}>
-    <div className="w-[343px] px-4 py-3 rounded-[8px] bg-gray-700 text-xs text-gray-200">
+    <div className="w-[343px] px-4 py-3 rounded-[8px] bg-gray-700 text-xs leading-5 text-gray-200">
       {tooltipText}
     </div>
     <div
