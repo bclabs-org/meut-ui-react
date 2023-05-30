@@ -12,6 +12,7 @@ import Chip from './Chip';
 import TextareaInput from './TextareaInput';
 import BadgeLabel from './Badge';
 import Tooltip from './Tooltip';
+import TooltipWithSteps from './TooltipWithSteps';
 import Table from './Table';
 import TwoColumnTable from './TwoColumnTable';
 
@@ -29,6 +30,7 @@ export {
   TextareaInput,
   BadgeLabel,
   Tooltip,
+  TooltipWithSteps,
   Table,
   TwoColumnTable,
 };

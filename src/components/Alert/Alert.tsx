@@ -121,7 +121,7 @@ const Alert: React.FC<AlertProps> = ({
           {subText && (
             <p
               className={`mt-2 break-words ${alertSubText} ${
-                subTextSmaller ? 'text-xs' : 'text-sm'
+                subTextSmaller ? 'text-xs leading-5' : 'text-sm'
               }`}
             >
               {subText}
@@ -133,7 +133,8 @@ const Alert: React.FC<AlertProps> = ({
             <button
               type="button"
               className={`${alertBackground} ${alertIcon}`}
-              onClick={() => setIsAlertOpen(false)}
+              onClick={():void => setIsAlertOpen(false)}
+              aria-label="Close Alert"
             >
               <XMarkIcon className="h-5 w-5" aria-hidden="true" />
             </button>
