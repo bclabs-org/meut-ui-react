@@ -18,7 +18,7 @@ const Tooltip: React.FC<TooltipProps> = ({ tooltipText, containerClassName }: To
             'after:border-t-[13px] after:border-t-gray-700'
         )
       }
-    >경
+    >
       {tooltipText}
     </div>
   </div>
