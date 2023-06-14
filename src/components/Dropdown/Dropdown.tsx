@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { Menu, Transition } from '@headlessui/react';
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/20/solid';
 
-type DropdownProps = {
+export type DropdownProps = {
   content: string[];
   label: string;
   disabled?: boolean;
@@ -10,9 +10,10 @@ type DropdownProps = {
   selected: string;
   setSelected: React.Dispatch<React.SetStateAction<string>>;
   handleChange?: () => any;
+  borderStyle?: string;
 };
 
-const Dropdown: React.FC<DropdownProps> = ({
+export const Dropdown: React.FC<DropdownProps> = ({
   content,
   label,
   disabled,
@@ -20,15 +21,17 @@ const Dropdown: React.FC<DropdownProps> = ({
   selected,
   setSelected,
   handleChange,
+  borderStyle,
 }) => (
   <>
-    <p className="font-medium text-onTertiary mb-1">{label}</p>
+    <p className="font-medium text-onTertiary">{label}</p>
     <Menu as="div" className={`relative w-full inline-block text-left ${disabled && 'opacity-40'}`}>
       {({ open }) => (
         <>
           <div>
             <Menu.Button
-              className={`inline-flex w-full h-12 justify-between items-center rounded bg-white px-3 py-2 font-medium
+              className={`inline-flex w-full h-12 justify-between items-center rounded px-3 py-2 font-medium
+                ${!open && borderStyle ? borderStyle : 'bg-white'}
                  ${
                    open
                      ? 'border-2 border-primary'
@@ -82,5 +85,3 @@ const Dropdown: React.FC<DropdownProps> = ({
     </Menu>
   </>
 );
-
-export default Dropdown;
