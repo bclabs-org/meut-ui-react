@@ -8,8 +8,7 @@ export type DropdownProps = {
   disabled?: boolean;
   placeholder: string;
   selected: string;
-  setSelected: React.Dispatch<React.SetStateAction<string>>;
-  handleChange?: () => any;
+  handleChange: Function;
   borderStyle?: string;
 };
 
@@ -19,7 +18,6 @@ export const Dropdown: React.FC<DropdownProps> = ({
   disabled,
   placeholder,
   selected,
-  setSelected,
   handleChange,
   borderStyle,
 }) => (
@@ -70,8 +68,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
                         : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900 focus:bg-gray-200'
                     }`}
                     onClick={() => {
-                      setSelected(item);
-                      if (handleChange) handleChange();
+                      handleChange(item);
                     }}
                   >
                     <p className="my-1">{item}</p>
