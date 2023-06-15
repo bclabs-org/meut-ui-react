@@ -58,18 +58,3 @@ Extra.args = {
   maxLength: 20,
   flag: true,
 };
-
-export const DropdownInput = Template.bind({});
-DropdownInput.args = {
-  type: 'text',
-  name: 'default',
-  placeholder: '텍스트를 입력해주세요',
-  maxLength: 20,
-  miniButton: 'button',
-  dropdownProps: {
-    content: ['BTC', 'ETH', 'USDT'],
-    label: '',
-    selected: 'BTC',
-    handleChange: () => console.log('handleChange'),
-  }
-};
