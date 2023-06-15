@@ -70,6 +70,7 @@ DropdownInput.args = {
     content: ['BTC', 'ETH', 'USDT'],
     label: '',
     selected: 'BTC',
-    handleChange: () => console.log('handleChange'),
+    handleChange: ():void => console.log('handleChange'),
+    placeholder: '텍스트를 입력해주세요',
   }
 };
