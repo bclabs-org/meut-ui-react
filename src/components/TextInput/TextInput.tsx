@@ -24,7 +24,7 @@ type TextInputProps = {
   handleMiniButtonClick?: () => void;
   [key: string]: any;
   currency?: string;
-  dropdownProps: DropdownProps;
+  dropdownProps?: DropdownProps;
 };
 
 const TextInput: React.FC<TextInputProps> = ({
@@ -89,8 +89,13 @@ const TextInput: React.FC<TextInputProps> = ({
           {...rest}
         />
         <div className="absolute inset-y-0 right-0 flex items-center">
-          {miniButton && (
+          {currency && (
             <div ref={rightAddedRef}>
+              <span className="text-sm font-semibold text-onTertiary">{currency}</span>
+            </div>
+          )}
+          {miniButton && (
+            <div ref={rightAddedRef} className="mx-4">
               <Button
                 type="button"
                 color="secondary"
@@ -101,15 +106,12 @@ const TextInput: React.FC<TextInputProps> = ({
               </Button>
             </div>
           )}
-          {currency && (
-            <div ref={rightAddedRef} className="ml-4">
-              <span className="text-sm font-semibold text-onTertiary">{currency}</span>
+          {dropdownProps && !!dropdownProps.content && (
+            <div className="flex items-center">
+              <div className="mr-2 border-l h-8 border-gray-200"></div>
+              <Dropdown borderStyle={`border-0`} {...dropdownProps}/>
             </div>
           )}
-          <div className="ml-4 flex items-center w-min-[100%]">
-            <div className="mr-2 border-l h-8 border-gray-200"></div>
-            <Dropdown borderStyle={`border-0`} {...dropdownProps}/>
-          </div>
         </div>
       </div>
       {(errorMessage || extraMessage || helperMessage) && (
