@@ -1,5 +1,7 @@
 import React, { ChangeEvent, useEffect, useRef, useState } from 'react';
 import Button from '../Button';
+import Dropdown from '../Dropdown';
+import { DropdownProps } from '../Dropdown/Dropdown';
 
 type TextInputProps = {
   type?: string;
@@ -22,6 +24,7 @@ type TextInputProps = {
   handleMiniButtonClick?: () => void;
   [key: string]: any;
   currency?: string;
+  dropdownProps?: DropdownProps;
 };
 
 const TextInput: React.FC<TextInputProps> = ({
@@ -44,6 +47,7 @@ const TextInput: React.FC<TextInputProps> = ({
   handleMiniButtonClick,
   handleClickOnExtraMessage,
   currency,
+  dropdownProps,
   ...rest
 }: TextInputProps) => {
   const rightAddedRef = useRef<HTMLDivElement>(null);
@@ -84,23 +88,31 @@ const TextInput: React.FC<TextInputProps> = ({
           autoComplete="off"
           {...rest}
         />
-        {miniButton && (
-          <div ref={rightAddedRef} className="absolute top-1.5 bottom-1.5 right-2.5">
-            <Button
-              type="button"
-              color="secondary"
-              size="small"
-              handleClick={handleMiniButtonClick}
-            >
-              {miniButton}
-            </Button>
-          </div>
-        )}
-        {currency && (
-          <div ref={rightAddedRef} className="absolute top-3.5 bottom-3.5 right-2.5">
-            <span className="text-sm font-semibold text-onTertiary">{currency}</span>
-          </div>
-        )}
+        <div className="absolute inset-y-0 right-0 flex items-center">
+          {currency && (
+            <div ref={rightAddedRef}>
+              <span className="text-sm font-semibold text-onTertiary">{currency}</span>
+            </div>
+          )}
+          {miniButton && (
+            <div ref={rightAddedRef} className="mx-4">
+              <Button
+                type="button"
+                color="secondary"
+                size="small"
+                handleClick={handleMiniButtonClick}
+              >
+                {miniButton}
+              </Button>
+            </div>
+          )}
+          {dropdownProps && !!dropdownProps.content && (
+            <div className="flex items-center">
+              <div className="mr-2 border-l h-8 border-gray-200"></div>
+              <Dropdown borderStyle={`border-0`} {...dropdownProps}/>
+            </div>
+          )}
+        </div>
       </div>
       {(errorMessage || extraMessage || helperMessage) && (
         <div className={`text-sm mt-1 ${extraMessage && 'flex justify-between'}`}>
