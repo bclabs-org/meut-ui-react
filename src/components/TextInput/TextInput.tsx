@@ -73,7 +73,7 @@ const TextInput: React.FC<TextInputProps> = ({
           maxLength={maxLength}
           name={name}
           id={name}
-          className={`w-full h-12 p-3 rounded focus:ring-0 placeholder:text-neutral placeholder:font-medium ${
+          className={`w-full h-12 p-3 rounded focus:ring-0 placeholder:text-neutral placeholder:font-medium [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none ${
             errorMessage
               ? 'border-2 border-warning focus:border-warning'
               : 'border border-gray-300 hover:outline hover:outline-[3px] hover:outline-secondary-hover focus:outline-0 focus:border-2 focus:border-primary disabled:hover:outline-0'
