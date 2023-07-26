@@ -3,7 +3,7 @@ import classNames from 'classnames';
 
 type ButtonProps = {
   children: React.ReactNode;
-  size: 'small' | 'large';
+  size: 'small' | 'medium' | 'large';
   full?: boolean;
   disabled?: boolean;
   color?: 'primary' | 'secondary' | 'tertiary';
@@ -26,6 +26,9 @@ const Button: React.FC<ButtonProps> = ({
   switch (size) {
     case 'small':
       btnSize = 'h-9 text-sm py-2 px-4';
+      break;
+    case 'medium':
+      btnSize = 'h-10 py-2 px-5';
       break;
     case 'large':
       btnSize = 'h-12 py-3 px-6';
