@@ -60,11 +60,11 @@ const Button: React.FC<ButtonProps> = ({
   return (
     <button
       {...rest}
-      disabled={disabled}
-      onClick={isProcessing ? undefined : handleClick}
-      className={`${styleClass} ${full ? 'w-full' : ''} ${
-        isProcessing ? 'opacity-40 cursor-not-allowed' : ''
-      } rounded font-semibold flex justify-center items-center disabled:opacity-40`}
+      disabled={disabled || isProcessing}
+      onClick={handleClick}
+      className={`${styleClass} ${
+        full ? 'w-full' : ''
+      } rounded font-semibold flex justify-center items-center disabled:opacity-40 disabled:cursor-not-allowed`}
     >
       {isProcessing ? (
         <>
