@@ -8,7 +8,7 @@ type TabsV2Props = {
   borderTop?: boolean;
   borderBottom?: boolean;
   bgColor?: boolean;
-  shadow?: boolean;
+  shadow?: 'default' | 'side';
 };
 
 const TabsV2: React.FC<TabsV2Props> = ({
@@ -18,18 +18,16 @@ const TabsV2: React.FC<TabsV2Props> = ({
   borderTop = false,
   borderBottom = false,
   bgColor = false,
-  shadow = false,
+  shadow,
 }) => (
   <div
-    className={classNames(
-      'grid',
-      `grid-cols-${tabData.length}`,
-      'h-16',
-      borderTop ? 'border-t' : '',
-      borderBottom ? 'border-b' : '',
-      bgColor ? 'bg-gray-50' : 'bg-white',
-      shadow ? 'shadow-[-2px_0_1px_-1px_rgba(0,0,0,0.1),3px_0_1px_-1px_rgba(0,0,0,0.1)]' : ''
-    )}
+    className={classNames('grid', `grid-cols-${tabData.length}`, 'h-16', 'bg-white', {
+      'border-t': borderTop,
+      'border-b': borderBottom,
+      'bg-gray-50': bgColor,
+      'shadow-[-2px_0_1px_-1px_rgba(0,0,0,0.1),2px_0_1px_-1px_rgba(0,0,0,0.1)]': shadow === 'side',
+      'shadow-[0_1px_1px_0_rgba(0,0,0,0.06),0_1px_2px_0_rgba(0,0,0,0.1)]': shadow === 'default',
+    })}
   >
     {tabData.map((tab) => (
       <button
