@@ -15,6 +15,7 @@ import Tooltip from './Tooltip';
 import TooltipWithSteps from './TooltipWithSteps';
 import Table from './Table';
 import TwoColumnTable from './TwoColumnTable';
+import TabsV2 from './TabsV2';
 
 export {
   Button,
@@ -33,4 +34,5 @@ export {
   TooltipWithSteps,
   Table,
   TwoColumnTable,
+  TabsV2,
 };
