@@ -27,23 +27,23 @@ Default.args = {
     bgColor: true,
 }
 
-export const Shadow = Template.bind({});
-Shadow.args = {
+export const WithShadow = Template.bind({});
+WithShadow.args = {
     tabData: SampleTabData,
     selectedTab: 'performance',
     shadow: true,
 }
 
-export const Border = Template.bind({});
-Border.args = {
+export const WithBorder = Template.bind({});
+WithBorder.args = {
     tabData: SampleTabData,
     selectedTab: 'performance',
     borderTop: true,
     borderBottom: true,
 }
 
-export  const BackgroundColor = Template.bind({});
-BackgroundColor.args = {
+export  const WithBackgroundColor = Template.bind({});
+WithBackgroundColor.args = {
     tabData: SampleTabData,
     selectedTab: 'performance',
     bgColor: true,
