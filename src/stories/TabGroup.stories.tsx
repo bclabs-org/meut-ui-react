@@ -64,8 +64,6 @@ const Template: ComponentStory<typeof TabGroup> = (args) => {
 export const Default = Template.bind({});
 Default.args = {
   activeTab: 'performance',
-  borderTop: true,
-  bgColor: true,
 };
 
 export const WithShadow = Template.bind({});
@@ -85,5 +83,4 @@ export const WithBackgroundColor = Template.bind({});
 WithBackgroundColor.args = {
   activeTab: 'performance',
   bgColor: true,
-  shadow: 'default',
 };
