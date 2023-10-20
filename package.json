@@ -7,7 +7,8 @@
     "lint": "eslint '**/*.{ts,tsx}'",
     "lint:fix": "eslint '**/*.{ts,tsx}' --fix",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "legacy_storybook": "NODE_OPTIONS=--openssl-legacy-provider npm run storybook"
   },
   "main": "dist/bundle.js",
   "types": "lib/index.d.ts",
