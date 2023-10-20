@@ -1,9 +1,8 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import TabGroup from 'src/components/TabGroup/TabGroup';
-import Tab from 'src/components/Tab/Tab';
-import Button from '../components/Button/Button';
+import TabGroup from '../components/TabGroup/TabGroup';
+import Tab from '../components/Tab/Tab';
 import Toggle from '../components/Toggle/Toggle';
 import Card from "../components/Card/Card";
 
