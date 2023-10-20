@@ -10,7 +10,7 @@ type TabsGroupProps = {
   borderBottom?: boolean;
   bgColor?: boolean;
   shadow?: 'default' | 'side';
-  children?: typeof Tab;
+  children?: React.ReactElement<typeof Tab> | React.ReactElement<typeof Tab>[];
 };
 
 const TabGroup: React.FC<TabsGroupProps> = ({

@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import { TabGroupContext } from '../TabGroup/TabGroupContext';
 
-interface TabProps {
+type TabProps = {
   label: string;
   children?: React.ReactNode;
 }
