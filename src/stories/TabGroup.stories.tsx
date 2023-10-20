@@ -6,7 +6,7 @@ import Tab from '../components/Tab/Tab';
 import Toggle from '../components/Toggle/Toggle';
 
 export default {
-  title: 'Components/TabsV2',
+  title: 'Components/TabGroup',
   component: TabGroup,
 } as ComponentMeta<typeof TabGroup>;
 
