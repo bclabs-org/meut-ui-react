@@ -4,7 +4,6 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import TabGroup from '../components/TabGroup/TabGroup';
 import Tab from '../components/Tab/Tab';
 import Toggle from '../components/Toggle/Toggle';
-import Card from "../components/Card/Card";
 
 export default {
   title: 'Components/TabsV2',
@@ -43,12 +42,13 @@ const Template: ComponentStory<typeof TabGroup> = (args) => {
         <Tab label={'risk'}>{mockT('risk')}</Tab>
         <Tab label={'analytics'}>{mockT('analytics')}</Tab>
       </TabGroup>
-      <Card className="mt-12 flex justify-between">
-        <div className="py-2 flex justify-between font-medium text-gray-700">
+      <div className="absolute divide-y bottom-4 px-4 bg-gray-50 border rounded-md mt-12 justify-between w-96">
+        <h2 className="py-2 text-sm text-gray-400">Tab Controller</h2>
+        <div className="py-4 flex gap-2 justify-between font-medium text-gray-700">
           <p>activeTab</p>
           <p className="text-emerald-500 font-semibold">{selectedTab}</p>
         </div>
-        <div className="flex items-center gap-2 justify-between">
+        <div className="py-4 flex items-center gap-2 justify-between">
           <span className="font-medium text-gray-700">{currentLanguage === 'ko' ? '번역 해제' : '한국어로 번역'}</span>
           <Toggle
             enabled={currentLanguage === 'ko'}
@@ -56,7 +56,7 @@ const Template: ComponentStory<typeof TabGroup> = (args) => {
             text={'한국어로 번역'}
           />
         </div>
-      </Card>
+      </div>
     </>
   );
 };
