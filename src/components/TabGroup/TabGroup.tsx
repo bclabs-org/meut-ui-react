@@ -1,6 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import { TabGroupContext } from './TabGroupContext';
+import Tab from "../Tab";
 
 type TabsGroupProps = {
   activeTab: string;
@@ -9,7 +10,7 @@ type TabsGroupProps = {
   borderBottom?: boolean;
   bgColor?: boolean;
   shadow?: 'default' | 'side';
-  children?: React.ReactNode;
+  children?: typeof Tab;
 };
 
 const TabGroup: React.FC<TabsGroupProps> = ({
