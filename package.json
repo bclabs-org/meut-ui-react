@@ -7,9 +7,7 @@
     "lint": "eslint '**/*.{ts,tsx}'",
     "lint:fix": "eslint '**/*.{ts,tsx}' --fix",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
-    "link-react": "npm link ../coinvestor_renewal-frontend/node_modules/react",
-    "unlink-react": "npm unlink ../coinvestor_renewal-frontend/node_modules/react"
+    "build-storybook": "build-storybook"
   },
   "main": "dist/bundle.js",
   "types": "lib/index.d.ts",
