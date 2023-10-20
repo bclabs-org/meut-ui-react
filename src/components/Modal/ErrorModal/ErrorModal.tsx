@@ -9,7 +9,7 @@ type ModalProps = {
   onOutsideClick?: boolean;
 };
 
-const Modal: React.FC<ModalProps> = ({
+const ErrorModal: React.FC<ModalProps> = ({
   children,
   isModalOpen,
   setIsModalOpen,
@@ -79,4 +79,4 @@ const Modal: React.FC<ModalProps> = ({
   );
 };
 
-export default Modal;
+export default ErrorModal;

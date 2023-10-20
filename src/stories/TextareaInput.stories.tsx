@@ -51,7 +51,7 @@ WithCounter.args = {
 export const WithSaveButton = Template.bind({});
 
 WithSaveButton.args = {
-  label: 'With Save Button',
+  label: 'With Save TextButton',
   name: 'withSaveButton',
   placeholder: '텍스트를 입력해주세요',
   value: 'Test text',
@@ -64,7 +64,7 @@ WithSaveButton.args = {
 export const WithImageUploadButton = Template.bind({});
 
 WithImageUploadButton.args = {
-  label: 'With Image Upload Button',
+  label: 'With Image Upload TextButton',
   name: 'withImageUploadButton',
   placeholder: '텍스트를 입력해주세요',
   value: 'Test text',

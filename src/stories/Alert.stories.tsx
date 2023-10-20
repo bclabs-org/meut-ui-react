@@ -13,13 +13,13 @@ const Template: ComponentStory<typeof Alert> = (args) => <Alert {...args} />;
 export const Default = Template.bind({});
 Default.args = {
   color: 'error',
-  text: 'Error Alert',
+  text: 'ErrorModal Alert',
 };
 
 export const WithSubText = Template.bind({});
 WithSubText.args = {
   color: 'error',
-  text: 'Error Alert',
+  text: 'ErrorModal Alert',
   subText:
     'subText It has survived not only five centuries subText It has survived not only five centuries subText It has survived not only five centuries',
 };
@@ -27,13 +27,13 @@ WithSubText.args = {
 export const WithCloseBtn = Template.bind({});
 WithCloseBtn.args = {
   color: 'error',
-  text: 'Error Alert',
+  text: 'ErrorModal Alert',
   closeBtn: true,
 };
 
 export const WithAnimation = Template.bind({});
 WithAnimation.args = {
   color: 'error',
-  text: 'Error Alert',
+  text: 'ErrorModal Alert',
   closeBtn: true,
 };

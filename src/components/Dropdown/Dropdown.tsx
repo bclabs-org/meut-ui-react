@@ -8,7 +8,7 @@ export type DropdownProps = {
   disabled?: boolean;
   placeholder: string;
   selected: string;
-  handleChange: Function;
+  onChange: Function;
   borderStyle?: string;
 };
 
@@ -18,7 +18,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
   disabled,
   placeholder,
   selected,
-  handleChange,
+  onChange,
   borderStyle,
 }) => (
   <>
@@ -68,7 +68,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
                         : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900 focus:bg-gray-200'
                     }`}
                     onClick={() => {
-                      handleChange(item);
+                      onChange(item);
                     }}
                   >
                     <p className="my-1">{item}</p>

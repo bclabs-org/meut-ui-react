@@ -3,7 +3,7 @@ type ChipProps = {
     label: string;
     selected: boolean;
     count?: number;
-    handleClick?: () => void;
+    onClick?: () => void;
     className?: string;
     size?: 'small' | 'medium' | 'large';
     disabled?: boolean;

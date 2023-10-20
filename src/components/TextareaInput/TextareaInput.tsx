@@ -74,7 +74,7 @@ const TextareaInput = ({
           </div>
           <div className="flex items-center gap-x-2">
             <ByteCounter />
-            <Button size={'small'} color={'tertiary'} handleClick={handleSaveButtonClick}>
+            <Button size={'small'} color={'tertiary'} onClick={handleSaveButtonClick}>
               Save
             </Button>
           </div>
@@ -86,7 +86,7 @@ const TextareaInput = ({
       return (
         <div className="flex justify-between items-center mt-2">
           <ByteCounter />
-          <Button size={'small'} color={'tertiary'} handleClick={handleSaveButtonClick}>
+          <Button size={'small'} color={'tertiary'} onClick={handleSaveButtonClick}>
             Save
           </Button>
         </div>

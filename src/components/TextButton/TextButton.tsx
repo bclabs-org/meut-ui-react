@@ -3,7 +3,6 @@ import classNames from 'classnames';
 
 type ButtonProps = {
   children: React.ReactNode;
-  size: 'small' | 'medium' | 'large';
   full?: boolean;
   disabled?: boolean;
   color?: 'primary' | 'secondary' | 'tertiary' | 'primary-error' | 'secondary-error';
@@ -12,58 +11,41 @@ type ButtonProps = {
   [key: string]: any;
 };
 
-const Button: React.FC<ButtonProps> = ({
+const TextButton: React.FC<ButtonProps> = ({
   children,
   color = 'primary',
-  size,
   full = false,
   disabled,
   onClick,
   isProcessing,
   ...rest
 }: ButtonProps) => {
-  let btnSize;
-  switch (size) {
-    case 'small':
-      btnSize = 'h-9 text-sm py-2 px-4';
-      break;
-    case 'medium':
-      btnSize = 'h-10 py-2 px-5';
-      break;
-    case 'large':
-      btnSize = 'h-12 py-3 px-6';
-      break;
-    default:
-      throw Error('invalid size value');
-  }
-
   let btnColor;
   switch (color) {
     case 'primary':
       btnColor =
-        'bg-primary text-onPrimary hover:bg-primary-hover active:bg-primary-focus disabled:hover:bg-primary';
+        'text-onPrimary hover:bg-primary-hover active:bg-primary-focus disabled:hover:bg-primary';
       break;
     case 'secondary':
       btnColor =
-        'bg-secondary text-onSecondary hover:bg-secondary-hover active:bg-secondary-focus disabled:hover:bg-secondary';
+        'text-onSecondary hover:bg-secondary-hover active:bg-secondary-focus disabled:hover:bg-secondary';
       break;
     case 'tertiary':
       btnColor =
-        'bg-tertiary text-onTertiary hover:bg-tertiary-hover active:bg-tertiary-focus disabled:hover:bg-tertiary';
+        'text-onTertiary hover:bg-tertiary-hover active:bg-tertiary-focus disabled:hover:bg-tertiary';
       break;
     case 'primary-error':
       btnColor =
-        'bg-primary-error text-onPrimaryError hover:bg-primary-error-hover active:bg-primary-error-focus disabled:hover:bg-error';
+        'text-onPrimaryError hover:bg-primary-error-hover active:bg-primary-error-focus disabled:hover:bg-error';
       break;
     case 'secondary-error':
-      btnColor =
-        'bg-secondary-error text-onSecondaryError hover:bg-secondary-error-hover active:bg-secondary-error-focus disabled:hover:bg-error';
+      btnColor = 'text-secondary-hover hover:text-secondary-error-hover  disabled:hover:bg-error';
       break;
     default:
       throw Error('invalid color value');
   }
 
-  const styleClass = classNames(btnSize, btnColor);
+  const styleClass = classNames(btnColor);
 
   return (
     <button
@@ -105,4 +87,4 @@ const Button: React.FC<ButtonProps> = ({
   );
 };
 
-export default Button;
+export default TextButton;

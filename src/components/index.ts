@@ -1,36 +1,40 @@
 import './index.css';
+import Alert from './Alert';
+import BadgeLabel from './Badge';
 import Button from './Button';
 import Card from './Card';
-import TextInput from './TextInput';
+import Checkbox from './Checkbox';
+import Chip from './Chip';
+import CompleteModal from './Modal/CompleteModal';
+import Dropdown from './Dropdown';
+import ErrorModal from './Modal/ErrorModal';
 import Modal from './Modal';
 import ProfilePhoto from './ProfilePhoto';
+import Table from './Table';
 import Tabs from './Tabs';
-import Alert from './Alert';
-import Checkbox from './Checkbox';
-import Dropdown from './Dropdown';
-import Chip from './Chip';
 import TextareaInput from './TextareaInput';
-import BadgeLabel from './Badge';
+import TextButton from './TextButton';
+import TextInput from './TextInput';
 import Tooltip from './Tooltip';
 import TooltipWithSteps from './TooltipWithSteps';
-import Table from './Table';
-import TwoColumnTable from './TwoColumnTable';
 
 export {
+  Alert,
+  BadgeLabel,
   Button,
   Card,
-  TextInput,
+  Checkbox,
+  Chip,
+  CompleteModal,
+  Dropdown,
+  ErrorModal,
   Modal,
   ProfilePhoto,
+  Table,
   Tabs,
-  Alert,
-  Checkbox,
-  Dropdown,
-  Chip,
+  TextButton,
+  TextInput,
   TextareaInput,
-  BadgeLabel,
   Tooltip,
   TooltipWithSteps,
-  Table,
-  TwoColumnTable,
 };
