@@ -1,16 +1,16 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import TabsV2 from '../components/TabsV2/TabsV2';
-import TabV2 from '../components/TabV2/TabV2';
+import TabGroup from 'src/components/TabGroup/TabGroup';
+import Tab from 'src/components/Tab/Tab';
 import Button from '../components/Button/Button';
 import Toggle from '../components/Toggle/Toggle';
 import Card from "../components/Card/Card";
 
 export default {
   title: 'Components/TabsV2',
-  component: TabsV2,
-} as ComponentMeta<typeof TabsV2>;
+  component: TabGroup,
+} as ComponentMeta<typeof TabGroup>;
 
 const translationData = {
   ko: {
@@ -25,7 +25,7 @@ const translationData = {
   },
 };
 
-const Template: ComponentStory<typeof TabsV2> = (args) => {
+const Template: ComponentStory<typeof TabGroup> = (args) => {
   const [selectedTab, setSelectedTab] = React.useState(args.activeTab);
   const [currentLanguage, setCurrentLanguage] = React.useState<'en' | 'ko'>('en');
 
@@ -39,11 +39,11 @@ const Template: ComponentStory<typeof TabsV2> = (args) => {
 
   return (
     <>
-      <TabsV2 {...args} activeTab={selectedTab} onChange={handleClick}>
-        <TabV2 label={'performance'}>{mockT('performance')}</TabV2>
-        <TabV2 label={'risk'}>{mockT('risk')}</TabV2>
-        <TabV2 label={'analytics'}>{mockT('analytics')}</TabV2>
-      </TabsV2>
+      <TabGroup {...args} activeTab={selectedTab} onChange={handleClick}>
+        <Tab label={'performance'}>{mockT('performance')}</Tab>
+        <Tab label={'risk'}>{mockT('risk')}</Tab>
+        <Tab label={'analytics'}>{mockT('analytics')}</Tab>
+      </TabGroup>
       <Card className="mt-12 flex justify-between">
         <div className="py-2 flex justify-between font-medium text-gray-700">
           <p>activeTab</p>

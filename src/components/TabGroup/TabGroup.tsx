@@ -1,8 +1,8 @@
 import React from 'react';
 import classNames from 'classnames';
-import { TabsV2Context } from './TabsV2Context';
+import { TabGroupContext } from './TabGroupContext';
 
-type TabsV2Props = {
+type TabsGroupProps = {
   activeTab: string;
   onChange: (tab: string) => void;
   borderTop?: boolean;
@@ -12,7 +12,7 @@ type TabsV2Props = {
   children?: React.ReactNode;
 };
 
-const TabsV2: React.FC<TabsV2Props> = ({
+const TabGroup: React.FC<TabsGroupProps> = ({
   activeTab,
   onChange,
   borderTop = false,
@@ -24,7 +24,7 @@ const TabsV2: React.FC<TabsV2Props> = ({
   const childrenCount = React.Children.count(children);
 
   return (
-    <TabsV2Context.Provider value={{ activeTab, onChange }}>
+    <TabGroupContext.Provider value={{ activeTab, onChange }}>
       <div
         className={classNames('grid', `grid-cols-${childrenCount}`, 'h-16', {
           'border-t': borderTop,
@@ -38,8 +38,8 @@ const TabsV2: React.FC<TabsV2Props> = ({
       >
         {children}
       </div>
-    </TabsV2Context.Provider>
+    </TabGroupContext.Provider>
   );
 };
 
-export default TabsV2;
+export default TabGroup;

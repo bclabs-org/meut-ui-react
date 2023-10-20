@@ -1,14 +1,14 @@
 import React from 'react';
 import classNames from 'classnames';
-import { TabsV2Context } from '../TabsV2/TabsV2Context';
+import { TabGroupContext } from '../TabGroup/TabGroupContext';
 
 interface TabProps {
   label: string;
   children?: React.ReactNode;
 }
 
-const TabV2 = ({ label, children }: TabProps) => {
-  const { activeTab, onChange } = React.useContext(TabsV2Context);
+const Tab = ({ label, children }: TabProps) => {
+  const { activeTab, onChange } = React.useContext(TabGroupContext);
 
   return (
     <button
@@ -27,4 +27,4 @@ const TabV2 = ({ label, children }: TabProps) => {
   );
 };
 
-export default TabV2;
+export default Tab;

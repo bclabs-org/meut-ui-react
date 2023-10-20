@@ -15,8 +15,8 @@ import Tooltip from './Tooltip';
 import TooltipWithSteps from './TooltipWithSteps';
 import Table from './Table';
 import TwoColumnTable from './TwoColumnTable';
-import TabsV2 from './TabsV2';
-import TabV2 from "./TabV2";
+import TabGroup from './TabGroup';
+import Tab from "./Tab";
 export {
   Button,
   Card,
@@ -34,6 +34,6 @@ export {
   TooltipWithSteps,
   Table,
   TwoColumnTable,
-  TabsV2,
-  TabV2
+  TabGroup,
+  Tab
 };
