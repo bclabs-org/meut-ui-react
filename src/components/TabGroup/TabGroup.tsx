@@ -21,12 +21,10 @@ const TabGroup: React.FC<TabsGroupProps> = ({
   shadow,
   children,
 }) => {
-  const childrenCount = React.Children.count(children);
-
   return (
     <TabGroupContext.Provider value={{ activeTab, onChange }}>
       <div
-        className={classNames('grid', `grid-cols-${childrenCount}`, 'h-16', {
+        className={classNames('flex', 'h-16', {
           'border-t': borderTop,
           'border-b': borderBottom,
           'bg-gray-50': bgColor,
