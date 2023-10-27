@@ -8,7 +8,7 @@ type TabsGroupProps = {
   borderTop?: boolean;
   borderBottom?: boolean;
   bgColor?: boolean;
-  shadow?: 'default' | 'side';
+  shadow?: boolean;
   children?: React.ReactNode;
 };
 
@@ -18,7 +18,7 @@ const TabGroup: React.FC<TabsGroupProps> = ({
   borderTop = false,
   borderBottom = false,
   bgColor = false,
-  shadow,
+  shadow = false,
   children,
 }) => {
   return (
@@ -29,9 +29,7 @@ const TabGroup: React.FC<TabsGroupProps> = ({
           'border-b': borderBottom,
           'bg-gray-50': bgColor,
           'bg-white': !bgColor,
-          'shadow-[-2px_0_1px_-1px_rgba(0,0,0,0.1),2px_0_1px_-1px_rgba(0,0,0,0.1)]':
-            shadow === 'side',
-          'shadow-[0_1px_1px_0_rgba(0,0,0,0.06),0_1px_2px_0_rgba(0,0,0,0.1)]': shadow === 'default',
+          'shadow-[0_1px_1px_0_rgba(0,0,0,0.06),0_1px_2px_0_rgba(0,0,0,0.1)]': shadow,
         })}
       >
         {children}
