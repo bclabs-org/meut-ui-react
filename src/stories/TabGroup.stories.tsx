@@ -66,21 +66,9 @@ Default.args = {
   activeTab: 'performance',
 };
 
-export const WithShadow = Template.bind({});
-WithShadow.args = {
+export const WithNoBackgroundColor = Template.bind({});
+WithNoBackgroundColor.args = {
   activeTab: 'performance',
-  shadow: true,
+  bgColor: false,
 };
 
-export const WithBorder = Template.bind({});
-WithBorder.args = {
-  activeTab: 'performance',
-  borderTop: true,
-  borderBottom: true,
-};
-
-export const WithBackgroundColor = Template.bind({});
-WithBackgroundColor.args = {
-  activeTab: 'performance',
-  bgColor: true,
-};
