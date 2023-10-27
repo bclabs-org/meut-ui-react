@@ -69,7 +69,7 @@ Default.args = {
 export const WithShadow = Template.bind({});
 WithShadow.args = {
   activeTab: 'performance',
-  shadow: 'default',
+  shadow: true,
 };
 
 export const WithBorder = Template.bind({});
