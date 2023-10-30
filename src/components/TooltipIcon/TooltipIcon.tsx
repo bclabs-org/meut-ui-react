@@ -16,7 +16,7 @@ export interface TooltipIconProps {
   disabled?: boolean;
 }
 
-const TooltipIcon = ({
+const TooltipIcon: React.FC<TooltipIconProps> = ({
   className,
   tooltipClassName = '',
   iconSize = 'medium',
