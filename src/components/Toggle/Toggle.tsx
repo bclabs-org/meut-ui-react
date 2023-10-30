@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { Switch } from '@headlessui/react';
+
 import classNames from 'classnames';
 
 type ToggleProps = {

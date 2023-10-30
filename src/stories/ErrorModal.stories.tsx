@@ -1,5 +1,7 @@
 import React from 'react';
+
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+
 import { ErrorModal } from '../components/Modal';
 
 export default {

@@ -1,5 +1,7 @@
 import React from 'react';
+
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+
 import TextareaInput from '../components/TextareaInput/TextareaInput';
 
 export default {

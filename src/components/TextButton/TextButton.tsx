@@ -1,7 +1,9 @@
 import React from 'react';
-import classNames from 'classnames';
+
 import { ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid';
+
+import classNames from 'classnames';
 
 type ButtonProps = {
   text: string;

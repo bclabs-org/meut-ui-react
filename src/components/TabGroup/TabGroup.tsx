@@ -1,5 +1,7 @@
 import React from 'react';
+
 import classNames from 'classnames';
+
 import TabGroupContext from './TabGroupContext';
 
 type TabsGroupProps = {

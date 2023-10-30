@@ -1,5 +1,7 @@
 import React from 'react';
+
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+
 import { CompleteModal } from '../components/Modal';
 
 export default {

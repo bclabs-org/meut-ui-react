@@ -1,8 +1,9 @@
 import React from 'react';
+
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import TabGroup from '../components/TabGroup/TabGroup';
 import Tab from '../components/Tab/Tab';
+import TabGroup from '../components/TabGroup/TabGroup';
 import Toggle from '../components/Toggle/Toggle';
 
 export default {

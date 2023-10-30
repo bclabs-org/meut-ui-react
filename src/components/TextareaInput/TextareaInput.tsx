@@ -1,5 +1,7 @@
 import React from 'react';
+
 import { CameraIcon, GifIcon } from '@heroicons/react/24/solid';
+
 import Button from '../Button';
 
 type TextareaInputProps = {

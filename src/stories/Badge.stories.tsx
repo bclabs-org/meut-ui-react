@@ -1,5 +1,7 @@
 import React from 'react';
+
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+
 import Badge from '../components/Badge';
 
 export default {

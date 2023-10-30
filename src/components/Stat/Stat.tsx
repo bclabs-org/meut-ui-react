@@ -2,6 +2,7 @@ import React from 'react';
 import { NumericFormat } from 'react-number-format';
 
 import classNames from 'classnames';
+
 import TooltipIcon from '../TooltipIcon';
 
 type StatProps = {
