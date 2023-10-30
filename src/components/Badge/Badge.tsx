@@ -10,7 +10,7 @@ type BadgeProps = {
   customClassName?: string;
 };
 
-const Badge = ({
+const Badge: React.FC<BadgeProps> = ({
   text = '',
   color = 'white',
   type = 'default',
