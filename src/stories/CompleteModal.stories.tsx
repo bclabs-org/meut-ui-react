@@ -15,6 +15,4 @@ Default.args = {
   message:
     'Your transaction has been completed.Your transaction has been completed.Your transaction has been completed.Your transaction has been completed.',
   buttonText: 'Close',
-  isModalOpen: true,
-  setIsModalOpen: (): void => {},
 };
