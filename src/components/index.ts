@@ -1,6 +1,6 @@
 import './index.css';
 import Alert from './Alert';
-import BadgeLabel from './Badge';
+import Badge from './Badge';
 import Button from './Button';
 import Card from './Card';
 import Checkbox from './Checkbox';
@@ -12,18 +12,18 @@ import Modal from './Modal/Modal';
 import Stat from './Stat';
 import Table from './Table';
 import Tabs from './Tabs';
-import Tab from "./Tab";
+import Tab from './Tab';
 import TabGroup from './TabGroup';
 import TextareaInput from './TextareaInput';
 import TextButton from './TextButton';
 import TextInput from './TextInput';
+import Toggle from './Toggle';
 import Tooltip from './Tooltip';
 import TooltipWithSteps from './TooltipWithSteps';
 
-
 export {
   Alert,
-  BadgeLabel,
+  Badge,
   Button,
   Card,
   Checkbox,
@@ -38,8 +38,9 @@ export {
   TextButton,
   TextInput,
   TextareaInput,
+  Toggle,
   Tooltip,
   TooltipWithSteps,
   TabGroup,
-  Tab
+  Tab,
 };
