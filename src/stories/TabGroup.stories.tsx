@@ -27,9 +27,7 @@ const Template: ComponentStory<typeof TabGroup> = (args) => {
   const [selectedTab, setSelectedTab] = React.useState(args.activeTab);
   const [currentLanguage, setCurrentLanguage] = React.useState<'en' | 'ko'>('en');
 
-  const mockT = (key: string): string => {
-    return translationData[currentLanguage][key];
-  };
+  const mockT = (key: string): string => translationData[currentLanguage][key];
 
   const handleClick = (tabName: string): void => {
     setSelectedTab(tabName);
