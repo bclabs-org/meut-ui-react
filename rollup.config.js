@@ -1,5 +1,7 @@
 import { babel } from '@rollup/plugin-babel';
 import { dirname, resolve } from 'path';
+import image from '@rollup/plugin-image';
+
 import { fileURLToPath } from 'url';
 import nodeResolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
@@ -45,6 +47,7 @@ export default {
     commonjs({ include: 'node_modules/**' }),
     nodeResolve({ extensions }),
     terser(),
+    image(),
   ],
   external: ['react', 'react-dom', 'typescript'],
 };
