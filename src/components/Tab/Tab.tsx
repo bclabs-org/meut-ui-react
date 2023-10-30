@@ -7,7 +7,7 @@ type TabProps = {
   children?: React.ReactNode;
 };
 
-const Tab = ({ label, children }: TabProps) => {
+const Tab: React.FC<TabProps> = ({ label, children }: TabProps) => {
   const { activeTab, onChange } = React.useContext(TabGroupContext);
 
   return (
