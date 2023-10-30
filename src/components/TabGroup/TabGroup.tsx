@@ -20,8 +20,7 @@ const TabGroup: React.FC<TabsGroupProps> = ({
   bgColor = false,
   shadow,
   children,
-}) => {
-  return (
+}) => (
     <TabGroupContext.Provider value={{ activeTab, onChange }}>
       <div
         className={classNames('flex', 'h-16', {
@@ -38,6 +37,5 @@ const TabGroup: React.FC<TabsGroupProps> = ({
       </div>
     </TabGroupContext.Provider>
   );
-};
 
 export default TabGroup;
