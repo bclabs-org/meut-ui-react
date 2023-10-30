@@ -60,7 +60,7 @@ const TextareaInput = ({
     </p>
   );
 
-  const TextareaFooter = (): React.ReactNode => {
+  const TextareaFooter = () => {
     if (enableByteCount && enableSaveButton && enableImageUpload) {
       return (
         <div className="flex justify-between items-center mt-2">
