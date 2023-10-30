@@ -1,4 +1,5 @@
 import React from 'react';
+
 type ButtonProps = {
     text: string;
     disabled?: boolean;
