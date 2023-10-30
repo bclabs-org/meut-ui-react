@@ -95,6 +95,7 @@ const Stat = ({
             displayType="text"
             suffix={suffix}
             prefix={getPrefixFromType(type) || prefix}
+            thousandSeparator={true}
           />
         )}
       </p>
@@ -107,7 +108,6 @@ const Stat = ({
               tooltipText={tooltipText}
               disabled={tooltipDisabled}
               className="ml-1"
-              width={408}
             />
           )}
         </div>
