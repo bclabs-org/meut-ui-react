@@ -51,7 +51,8 @@ export default {
     image(),
     eslint({
       fix: true,
-      include: ['src/**/*.ts', 'src/**/*.tsx', 'lib/**'],
+      include: ['src/**/*.ts', 'src/**/*.tsx'],
+      ignore: ['lib/**'],
     }),
   ],
   external: ['react', 'react-dom', 'typescript'],
