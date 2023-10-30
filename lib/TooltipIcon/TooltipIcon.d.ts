@@ -6,7 +6,6 @@ export interface TooltipIconProps {
   iconSize?: 'small' | 'medium';
   tooltipText?: string;
   disabled?: boolean;
-  width?: number | 'auto';
 }
 declare const TooltipIcon: ({
   className,
@@ -14,6 +13,5 @@ declare const TooltipIcon: ({
   iconSize,
   tooltipText,
   disabled,
-  width,
 }: TooltipIconProps) => React.FC<TooltipIconProps>;
 export default TooltipIcon;
