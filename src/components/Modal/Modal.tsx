@@ -5,8 +5,9 @@ type ModalProps = {
   children: React.ReactNode;
   isModalOpen: boolean;
   setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  widthSize?: 'medium' | 'medium-large' | 'large';
+  widthSize?: 'small' | 'medium';
   onOutsideClick?: boolean;
+  isCoverHeader?: boolean;
 };
 
 const Modal: React.FC<ModalProps> = ({
@@ -15,17 +16,15 @@ const Modal: React.FC<ModalProps> = ({
   setIsModalOpen,
   widthSize = 'medium',
   onOutsideClick = true,
+  isCoverHeader = false,
 }) => {
   let width: string;
 
   switch (widthSize) {
-    case 'medium':
+    case 'small':
       width = 'w-[468px]';
       break;
-    case 'medium-large':
-      width = 'w-[593px]';
-      break;
-    case 'large':
+    case 'medium':
       width = 'w-[718px]';
       break;
     default:
@@ -36,7 +35,7 @@ const Modal: React.FC<ModalProps> = ({
     <Transition.Root show={isModalOpen} as={Fragment}>
       <Dialog
         as="div"
-        className="relative z-10"
+        className={`relative ${isCoverHeader ? 'z-30' : 'z-10'}`}
         onClose={() => null}
         onClick={(e) => {
           e.stopPropagation();
@@ -52,10 +51,13 @@ const Modal: React.FC<ModalProps> = ({
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-overlay transition-opacity" />
+          <div
+            className={`fixed inset-0 ${
+              isCoverHeader ? 'z-30' : 'z-10'
+            } bg-overlay transition-opacity`}
+          />
         </Transition.Child>
-
-        <div className="fixed inset-0 z-10 overflow-y-auto">
+        <div className={`fixed inset-0 ${isCoverHeader ? 'z-30' : 'z-10'} overflow-y-auto`}>
           <div className="flex min-h-full justify-center text-center items-center py-32">
             <Transition.Child
               as={Fragment}
