@@ -1,13 +1,14 @@
-import { babel } from '@rollup/plugin-babel';
 import { dirname, resolve } from 'path';
+import { fileURLToPath } from 'url';
+import { babel } from '@rollup/plugin-babel';
 import image from '@rollup/plugin-image';
 
-import { fileURLToPath } from 'url';
 import nodeResolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import postcss from 'rollup-plugin-postcss';
 import typescript from 'rollup-plugin-typescript2';
 import terser from '@rollup/plugin-terser';
+import eslint from '@rollup/plugin-eslint';
 
 const extensions = ['js', 'jsx', 'ts', 'tsx', 'mjs'];
 
@@ -48,6 +49,10 @@ export default {
     nodeResolve({ extensions }),
     terser(),
     image(),
+    eslint({
+      fix: true,
+      include: ['src/**/*.ts', 'src/**/*.tsx', 'lib/**'],
+    }),
   ],
   external: ['react', 'react-dom', 'typescript'],
 };
