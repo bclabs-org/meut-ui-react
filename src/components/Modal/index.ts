@@ -1,3 +1,5 @@
 import Modal from './Modal';
+import CompleteModal from './CompleteModal';
+import ErrorModal from './ErrorModal';
 
-export default Modal;
+export { Modal, CompleteModal, ErrorModal };
