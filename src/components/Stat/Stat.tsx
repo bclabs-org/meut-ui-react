@@ -19,7 +19,7 @@ type StatProps = {
   prefix?: string;
 };
 
-const Stat = ({
+const Stat: React.FC<StatProps> = ({
   type = 'default',
   size,
   label,
