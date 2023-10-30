@@ -7,7 +7,7 @@ interface TabsGroupContextProps {
 
 const TabGroupContext = createContext<TabsGroupContextProps>({
   activeTab: '',
-  onChange: () => {},
+  onChange: () => null,
 });
 
-export { TabGroupContext };
+export default TabGroupContext;
