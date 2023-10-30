@@ -3,6 +3,93 @@
     "eslint-config-bclabs/typescript"
   ],
   "rules": {
-    "@typescript-eslint/explicit-function-return-type": "warn"
+    "@typescript-eslint/explicit-function-return-type": "warn",
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "type",
+          "unknown"
+        ],
+        "pathGroups": [
+          {
+            "pattern": "react*",
+            "group": "builtin",
+            "position": "before"
+          },
+          {
+            "pattern": "next/*",
+            "group": "builtin",
+            "position": "before"
+          },
+          {
+            "pattern": "@tanstack/*",
+            "group": "external",
+            "position": "before"
+          },
+          {
+            "pattern": "axios",
+            "group": "external",
+            "position": "before"
+          },
+          {
+            "pattern": "*",
+            "group": "external",
+            "position": "after"
+          },
+          {
+            "pattern": "next-i18next",
+            "group": "external",
+            "position": "after"
+          },
+          {
+            "pattern": "@/next-i18next.config",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "@/styles/*",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "@/components/*",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "@/libs/recoil/*",
+            "group": "sibling",
+            "position": "after"
+          },
+          {
+            "pattern": "@/libs/utils/*",
+            "group": "sibling",
+            "position": "after"
+          },
+          {
+            "pattern": "@/libs/hooks/*",
+            "group": "sibling",
+            "position": "after"
+          },
+          {
+            "pattern": "@/libs/types/*",
+            "group": "sibling",
+            "position": "after"
+          }
+        ],
+        "alphabetize": {
+          "order": "asc"
+        },
+        "newlines-between": "always",
+        "pathGroupsExcludedImportTypes": ["builtin"],
+        "distinctGroup": true
+      }
+    ]
   }
 }
