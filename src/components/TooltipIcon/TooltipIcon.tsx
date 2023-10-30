@@ -14,7 +14,6 @@ export interface TooltipIconProps {
   iconSize?: 'small' | 'medium';
   tooltipText?: string;
   disabled?: boolean;
-  width?: number | 'auto';
 }
 
 const TooltipIcon = ({
@@ -23,7 +22,6 @@ const TooltipIcon = ({
   iconSize = 'medium',
   tooltipText,
   disabled = false,
-  width = 'auto',
 }: TooltipIconProps) => {
   const [position, setPosition] = useState<{ x: number; y: number } | null>(null);
 
