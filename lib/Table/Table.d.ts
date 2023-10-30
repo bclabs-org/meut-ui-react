@@ -7,11 +7,16 @@ type TableProps = {
   isBgGray?: boolean;
 };
 declare const Table: {
-  ({ children, customClassName }: TableProps): JSX.Element;
-  Head: ({ children, isBgGray, additionalClassName }: TableProps) => JSX.Element;
-  Body: ({ children, additionalClassName }: TableProps) => JSX.Element;
-  tr: ({ children, isBgGray, customClassName }: TableProps) => JSX.Element;
-  th: ({ children, customClassName, additionalClassName }: TableProps) => JSX.Element;
-  td: ({ children, isBgGray, customClassName, additionalClassName }: TableProps) => JSX.Element;
+  ({ children, customClassName }: TableProps): React.FC<TableProps>;
+  Head: ({ children, isBgGray, additionalClassName }: TableProps) => React.FC<TableProps>;
+  Body: ({ children, additionalClassName }: TableProps) => React.FC<TableProps>;
+  tr: ({ children, isBgGray, customClassName }: TableProps) => React.FC<TableProps>;
+  th: ({ children, customClassName, additionalClassName }: TableProps) => React.FC<TableProps>;
+  td: ({
+    children,
+    isBgGray,
+    customClassName,
+    additionalClassName,
+  }: TableProps) => React.FC<TableProps>;
 };
 export default Table;
