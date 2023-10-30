@@ -8,7 +8,6 @@ import commonjs from '@rollup/plugin-commonjs';
 import postcss from 'rollup-plugin-postcss';
 import typescript from 'rollup-plugin-typescript2';
 import terser from '@rollup/plugin-terser';
-import eslint from '@rollup/plugin-eslint';
 
 const extensions = ['js', 'jsx', 'ts', 'tsx', 'mjs'];
 
@@ -28,7 +27,11 @@ export default {
     sourcemap: true,
   },
   plugins: [
-    typescript({ useTsconfigDeclarationDir: true }),
+    nodeResolve({ extensions }),
+    typescript({
+      useTsconfigDeclarationDir: true,
+      include: ['*.d.ts', '**/*.d.ts', '*.ts'],
+    }),
     postcss({
       config: {
         path: './postcss.config.cjs',
@@ -46,14 +49,8 @@ export default {
       extensions,
     }),
     commonjs({ include: 'node_modules/**' }),
-    nodeResolve({ extensions }),
     terser(),
     image(),
-    eslint({
-      fix: true,
-      include: ['src/**/*.ts', 'src/**/*.tsx'],
-      ignore: ['lib/**'],
-    }),
   ],
   external: ['react', 'react-dom', 'typescript'],
 };
