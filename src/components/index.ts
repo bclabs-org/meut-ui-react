@@ -12,11 +12,14 @@ import Modal from './Modal/Modal';
 import Stat from './Stat';
 import Table from './Table';
 import Tabs from './Tabs';
+import Tab from "./Tab";
+import TabGroup from './TabGroup';
 import TextareaInput from './TextareaInput';
 import TextButton from './TextButton';
 import TextInput from './TextInput';
 import Tooltip from './Tooltip';
 import TooltipWithSteps from './TooltipWithSteps';
+
 
 export {
   Alert,
@@ -37,4 +40,6 @@ export {
   TextareaInput,
   Tooltip,
   TooltipWithSteps,
+  TabGroup,
+  Tab
 };
