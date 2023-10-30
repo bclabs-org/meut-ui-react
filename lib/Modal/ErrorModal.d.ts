@@ -1,4 +1,5 @@
 import React from 'react';
+
 type ModalProps = {
     title: string;
     message: string;
