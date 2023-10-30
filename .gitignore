@@ -24,8 +24,8 @@ yarn-debug.log*
 yarn-error.log*
 
 .env
-lib
-dist
+/lib
+/dist
 
 .idea/
 
