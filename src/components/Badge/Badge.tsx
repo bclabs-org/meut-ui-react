@@ -3,7 +3,7 @@ import classNames from 'classnames';
 
 export type BadgeColor = 'yellow' | 'pink' | 'indigo' | 'gray' | 'emerald' | 'white';
 
-type BadgePorps = {
+type BadgeProps = {
   text?: string;
   color: BadgeColor;
   type?: 'default' | 'increase';
@@ -15,7 +15,7 @@ const Badge = ({
   color = 'white',
   type = 'default',
   customClassName = '',
-}: BadgePorps) => {
+}: BadgeProps) => {
   let textColor;
   let bgColor;
   let borderColor;
