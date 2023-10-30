@@ -1,87 +1,123 @@
 import React from 'react';
 import classNames from 'classnames';
+import { ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline';
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid';
 
 type ButtonProps = {
-  children: React.ReactNode;
-  full?: boolean;
+  text: string;
   disabled?: boolean;
-  color?: 'primary' | 'secondary' | 'tertiary' | 'primary-error' | 'secondary-error';
+  color?:
+    | 'default'
+    | 'emerald-500'
+    | 'emerald-600'
+    | 'emerald-700'
+    | 'emerald-900'
+    | 'pink-600'
+    | 'pink-700'
+    | 'pink-900'
+    | 'blue-700'
+    | 'blue-800'
+    | 'blue-900'
+    | 'gray-700'
+    | 'gray-800'
+    | 'gray-900';
+
   onClick?: () => void;
-  isProcessing?: boolean;
-  [key: string]: any;
+  underline?: boolean;
+  size?: 'small' | 'large';
+  icon?: 'right-arrow' | 'left-arrow' | 'top-right-square';
 };
 
 const TextButton: React.FC<ButtonProps> = ({
-  children,
-  color = 'primary',
-  full = false,
+  text,
+  color = 'default',
+  size = 'small',
   disabled,
   onClick,
-  isProcessing,
-  ...rest
+  underline,
+  icon,
 }: ButtonProps) => {
+  const isIconRight = icon === 'right-arrow';
+  const isIconLeft = icon === 'left-arrow';
+  const isIconTopRightSquare = icon === 'top-right-square';
+
   let btnColor;
   switch (color) {
-    case 'primary':
-      btnColor =
-        'text-onPrimary hover:bg-primary-hover active:bg-primary-focus disabled:hover:bg-primary';
+    case 'emerald-500':
+      btnColor = 'text-emerald-500';
       break;
-    case 'secondary':
-      btnColor =
-        'text-onSecondary hover:bg-secondary-hover active:bg-secondary-focus disabled:hover:bg-secondary';
+    case 'emerald-600':
+      btnColor = 'text-emerald-600';
       break;
-    case 'tertiary':
-      btnColor =
-        'text-onTertiary hover:bg-tertiary-hover active:bg-tertiary-focus disabled:hover:bg-tertiary';
+    case 'emerald-700':
+      btnColor = 'text-emerald-700';
       break;
-    case 'primary-error':
-      btnColor =
-        'text-onPrimaryError hover:bg-primary-error-hover active:bg-primary-error-focus disabled:hover:bg-error';
+    case 'emerald-900':
+      btnColor = 'text-emerald-900';
       break;
-    case 'secondary-error':
-      btnColor = 'text-secondary-hover hover:text-secondary-error-hover  disabled:hover:bg-error';
+    case 'pink-600':
+      btnColor = 'text-pink-600';
+      break;
+    case 'pink-700':
+      btnColor = 'text-pink-700';
+      break;
+    case 'pink-900':
+      btnColor = 'text-pink-900';
+      break;
+    case 'blue-700':
+      btnColor = 'text-blue-700';
+      break;
+    case 'blue-800':
+      btnColor = 'text-blue-800';
+      break;
+    case 'blue-900':
+      btnColor = 'text-blue-900';
+      break;
+    case 'gray-700':
+      btnColor = 'text-gray-700';
+      break;
+    case 'gray-800':
+      btnColor = 'text-gray-800';
+      break;
+    case 'gray-900':
+      btnColor = 'text-gray-900';
+      break;
+    case 'default':
+      btnColor = 'text-gray-700';
       break;
     default:
       throw Error('invalid color value');
   }
 
-  const styleClass = classNames(btnColor);
+  let fontSize;
+  switch (size) {
+    case 'small':
+      fontSize = 'text-sm';
+      break;
+    case 'large':
+      fontSize = 'text-base';
+      break;
+    default:
+      throw Error('invalid size value');
+  }
+
+  const fontClass = classNames(btnColor, fontSize, underline ? 'underline' : '');
 
   return (
     <button
-      {...rest}
+      onClick={onClick}
       disabled={disabled}
-      onClick={isProcessing ? undefined : onClick}
-      className={`${styleClass} ${full ? 'w-full' : ''} ${
-        isProcessing ? 'opacity-40 cursor-not-allowed' : ''
-      } rounded font-semibold flex justify-center items-center disabled:opacity-40`}
+      className={`flex justify-center items-center h-6 ${
+        size === 'large' ? 'gap-2' : 'gap-1'
+      } ${fontClass}  disabled:opacity-40`}
     >
-      {isProcessing ? (
-        <>
-          <svg
-            className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-          >
-            <circle
-              className="opacity-25"
-              cx="12"
-              cy="12"
-              r="10"
-              stroke="currentColor"
-              strokeWidth="4"
-            />
-            <path
-              className="opacity-75"
-              fill="currentColor"
-              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-            />
-          </svg>
-          <span>Processing...</span>
-        </>
-      ) : (
-        children
+      {isIconLeft && <ChevronLeftIcon className={`w-6 h-6`} />}
+      <p className={`leading-5 text-center font-medium`}>{text}</p>
+      {isIconRight && <ChevronRightIcon className={`w-6 h-6 `} />}
+      {isIconTopRightSquare && (
+        <div>
+          <ArrowTopRightOnSquareIcon className={`relative -top-0.5 w-6 h-6`} />
+        </div>
       )}
     </button>
   );
