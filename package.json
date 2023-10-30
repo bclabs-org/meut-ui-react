@@ -8,7 +8,8 @@
     "lint:fix": "eslint '**/*.{ts,tsx}' --fix",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "legacy_storybook": "NODE_OPTIONS=--openssl-legacy-provider npm run storybook"
+    "legacy_storybook": "NODE_OPTIONS=--openssl-legacy-provider npm run storybook",
+    "legacy_storybook_build": "NODE_OPTIONS=--openssl-legacy-provider npm run storybook"
   },
   "main": "dist/bundle.js",
   "types": "lib/index.d.ts",
@@ -67,6 +68,8 @@
   "dependencies": {
     "@headlessui/react": "^1.7.13",
     "@heroicons/react": "^2.0.13",
-    "@tailwindcss/forms": "^0.5.3"
+    "@rollup/plugin-image": "^3.0.3",
+    "@tailwindcss/forms": "^0.5.3",
+    "react-number-format": "5.1.2"
   }
 }
