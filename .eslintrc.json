@@ -1,5 +1,8 @@
 {
   "extends": [
     "eslint-config-bclabs/typescript"
-  ]
+  ],
+  "rules": {
+    "@typescript-eslint/explicit-function-return-type": "warn"
+  }
 }
