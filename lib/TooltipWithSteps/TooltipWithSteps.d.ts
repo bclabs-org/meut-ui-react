@@ -1,4 +1,5 @@
 import React from 'react';
+
 type Content = {
     title: string;
     description: string;
