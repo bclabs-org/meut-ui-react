@@ -8,8 +8,8 @@ import Chip from './Chip';
 import CompleteModal from './Modal/CompleteModal';
 import Dropdown from './Dropdown';
 import ErrorModal from './Modal/ErrorModal';
-import Modal from './Modal';
-import ProfilePhoto from './ProfilePhoto';
+import Modal from './Modal/Modal';
+import Stat from './Stat';
 import Table from './Table';
 import Tabs from './Tabs';
 import TextareaInput from './TextareaInput';
@@ -29,7 +29,7 @@ export {
   Dropdown,
   ErrorModal,
   Modal,
-  ProfilePhoto,
+  Stat,
   Table,
   Tabs,
   TextButton,
