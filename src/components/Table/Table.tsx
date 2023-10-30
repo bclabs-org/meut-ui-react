@@ -11,19 +11,27 @@ const Table = ({ children, customClassName = '' }: TableProps) => (
   <table className={`min-w-full divide-y divide-gray-300 ${customClassName}`}>{children}</table>
 );
 
-const Head = ({ children, isBgGray, additionalClassName = '' }: TableProps) => (
+const Head: React.FC<TableProps> = ({
+  children,
+  isBgGray,
+  additionalClassName = '',
+}: TableProps) => (
   <thead className={`${isBgGray && 'bg-gray-50'} ${additionalClassName}`}>{children}</thead>
 );
 
-const Body = ({ children, additionalClassName = '' }: TableProps) => (
+const Body: React.FC<TableProps> = ({ children, additionalClassName = '' }: TableProps) => (
   <tbody className={`divide-y divide-gray-200 bg-white ${additionalClassName}`}>{children}</tbody>
 );
 
-const tr = ({ children, isBgGray, customClassName = '' }: TableProps) => (
+const tr: React.FC<TableProps> = ({ children, isBgGray, customClassName = '' }: TableProps) => (
   <tr className={`${isBgGray && 'bg-gray-50'} ${customClassName}`}>{children}</tr>
 );
 
-const th = ({ children, customClassName = '', additionalClassName = '' }: TableProps) => (
+const th: React.FC<TableProps> = ({
+  children,
+  customClassName = '',
+  additionalClassName = '',
+}: TableProps) => (
   <th
     className={` ${
       customClassName || `px-4 py-3 text-left text-sm font-semibold ${additionalClassName}`
@@ -33,7 +41,12 @@ const th = ({ children, customClassName = '', additionalClassName = '' }: TableP
   </th>
 );
 
-const td = ({ children, isBgGray, customClassName = '', additionalClassName = '' }: TableProps) => (
+const td: React.FC<TableProps> = ({
+  children,
+  isBgGray,
+  customClassName = '',
+  additionalClassName = '',
+}: TableProps) => (
   <td
     className={`${isBgGray && 'bg-gray-50'} ${
       customClassName ||
@@ -44,10 +57,10 @@ const td = ({ children, isBgGray, customClassName = '', additionalClassName = ''
   </td>
 );
 
-Table.Head = Head;
-Table.Body = Body;
-Table.tr = tr;
-Table.th = th;
-Table.td = td;
+Table.Head = Head as React.FC<TableProps>;
+Table.Body = Body as React.FC<TableProps>;
+Table.tr = tr as React.FC<TableProps>;
+Table.th = th as React.FC<TableProps>;
+Table.td = td as React.FC<TableProps>;
 
-export default Table;
+export default Table as React.FC<TableProps>;
