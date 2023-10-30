@@ -21,7 +21,7 @@ type TextareaInputProps = {
   [key: string]: any;
 };
 
-const TextareaInput = ({
+const TextareaInput: React.FC<TextareaInputProps> = ({
   label,
   name,
   value,
