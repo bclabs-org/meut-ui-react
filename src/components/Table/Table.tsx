@@ -2,29 +2,44 @@ import React from 'react';
 
 type TableProps = {
   children: React.ReactNode;
-  className?: string;
+  customClassName?: string;
+  additionalClassName?: string;
+  isBgGray?: boolean;
 };
 
-const Table = ({ children, className = '' }: TableProps) => (
-  <table className={`min-w-full divide-y divide-gray-300 ${className}`}>{children}</table>
+const Table = ({ children, customClassName = '' }: TableProps) => (
+  <table className={`min-w-full divide-y divide-gray-300 ${customClassName}`}>{children}</table>
 );
 
-const Head = ({ children, className = '' }: TableProps) => (
-  <thead className={`bg-gray-50 ${className}`}>{children}</thead>
+const Head = ({ children, isBgGray, additionalClassName = '' }: TableProps) => (
+  <thead className={`${isBgGray && 'bg-gray-50'} ${additionalClassName}`}>{children}</thead>
 );
 
-const Body = ({ children, className = '' }: TableProps) => (
-  <tbody className={`divide-y divide-gray-200 bg-white ${className}`}>{children}</tbody>
+const Body = ({ children, additionalClassName = '' }: TableProps) => (
+  <tbody className={`divide-y divide-gray-200 bg-white ${additionalClassName}`}>{children}</tbody>
 );
 
-const tr = ({ children, className = '' }: TableProps) => <tr className={className}>{children}</tr>;
-
-const th = ({ children, className = '' }: TableProps) => (
-  <th className={`px-4 py-3 text-left text-sm font-semibold ${className}`}>{children}</th>
+const tr = ({ children, isBgGray, customClassName = '' }: TableProps) => (
+  <tr className={`${isBgGray && 'bg-gray-50'} ${customClassName}`}>{children}</tr>
 );
 
-const td = ({ children, className = '' }: TableProps) => (
-  <td className={`whitespace-nowrap p-4 text-sm font-medium text-neutral ${className}`}>
+const th = ({ children, customClassName = '', additionalClassName = '' }: TableProps) => (
+  <th
+    className={` ${
+      customClassName || `px-4 py-3 text-left text-sm font-semibold ${additionalClassName}`
+    }`}
+  >
+    {children}
+  </th>
+);
+
+const td = ({ children, isBgGray, customClassName = '', additionalClassName = '' }: TableProps) => (
+  <td
+    className={`${isBgGray && 'bg-gray-50'} ${
+      customClassName ||
+      `whitespace-nowrap p-4 text-sm font-medium text-neutral ${additionalClassName}`
+    }`}
+  >
     {children}
   </td>
 );
