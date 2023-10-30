@@ -27,11 +27,7 @@ export default {
     sourcemap: true,
   },
   plugins: [
-    nodeResolve({ extensions }),
-    typescript({
-      useTsconfigDeclarationDir: true,
-      include: ['*.d.ts', '**/*.d.ts', '*.ts'],
-    }),
+    typescript({ useTsconfigDeclarationDir: true }),
     postcss({
       config: {
         path: './postcss.config.cjs',
@@ -49,6 +45,7 @@ export default {
       extensions,
     }),
     commonjs({ include: 'node_modules/**' }),
+    nodeResolve({ extensions }),
     terser(),
     image(),
   ],
