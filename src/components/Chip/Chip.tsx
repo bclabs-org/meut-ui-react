@@ -4,7 +4,7 @@ type ChipProps = {
   label: string;
   selected: boolean;
   count?: number;
-  handleClick?: () => void;
+  onClick?: () => void;
   className?: string;
   size?: 'small' | 'medium' | 'large';
   disabled?: boolean;
@@ -14,7 +14,7 @@ const Chip: React.FC<ChipProps> = ({
   label,
   selected,
   count,
-  handleClick,
+  onClick,
   className,
   size = 'medium',
   disabled = false,
@@ -38,7 +38,7 @@ const Chip: React.FC<ChipProps> = ({
 
   return (
     <button
-      onClick={handleClick}
+      onClick={onClick}
       className={`${disabled ? 'opacity-40 cursor-default' : 'cursor-pointer'} ${chipSize} ${
         selected
           ? 'bg-primary text-onPrimary'
