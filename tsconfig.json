@@ -3,7 +3,7 @@
     "esModuleInterop": true,
     "declaration": true,
     "declarationDir": "./lib",
-    "target": "ES2015",
+    "target": "es5",
     "baseUrl": "dist",
     "strict": true,
     "jsx": "react",
@@ -19,7 +19,6 @@
     "**/*.tsx", "**/*.ts", "@types", "index.ts", "dist"
   ],
   "exclude": [
-    "./lib",
     "./node_modules",
     "./src/**/*.test.tsx",
     "./src/**/*.stories.tsx",
