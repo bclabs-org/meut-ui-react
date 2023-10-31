@@ -12,19 +12,17 @@
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "noImplicitAny": false,
-    "typeRoots": ["@types"]
-  },
-    "rules": {
-        "import/order": {
-          "newlines-between": "always"
-        }
+    "typeRoots": ["@types"],
+    "esModuleInterop": true
   },
   "include": [
-    "**/*.tsx", "**/*.ts", "@types", "index.ts", "dist", "*/d.ts"
+    "**/*.tsx", "**/*.ts", "@types", "index.ts", "dist"
   ],
   "exclude": [
+    "./lib",
     "./node_modules",
     "./src/**/*.test.tsx",
-    "./src/**/*.stories.tsx"
+    "./src/**/*.stories.tsx",
   ]
 }
+
