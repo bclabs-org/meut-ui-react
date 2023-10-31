@@ -1,5 +1,4 @@
 import React, { ReactElement } from 'react';
-
 import {
   XCircleIcon,
   XMarkIcon,
@@ -12,6 +11,7 @@ type AlertProps = {
   text: string;
   subText?: string;
   color?: 'error' | 'attention' | 'completion' | 'information';
+  isAlertOpen: boolean;
   setIsAlertOpen: React.Dispatch<React.SetStateAction<boolean>>;
   closeBtn?: boolean;
   className?: string;
@@ -25,6 +25,7 @@ const Alert: React.FC<AlertProps> = ({
   text,
   subText,
   color = 'error',
+  isAlertOpen,
   setIsAlertOpen,
   closeBtn = false,
   className,
@@ -132,7 +133,7 @@ const Alert: React.FC<AlertProps> = ({
             <button
               type="button"
               className={`${alertBackground} ${alertIcon}`}
-              onClick={(): void => setIsAlertOpen(false)}
+              onClick={():void => setIsAlertOpen(false)}
               aria-label="Close Alert"
             >
               <XMarkIcon className="h-5 w-5" aria-hidden="true" />

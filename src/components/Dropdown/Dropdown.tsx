@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-
 import { Menu, Transition } from '@headlessui/react';
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/20/solid';
 
@@ -9,7 +8,7 @@ export type DropdownProps = {
   disabled?: boolean;
   placeholder: string;
   selected: string;
-  onChange: Function;
+  handleChange: Function;
   borderStyle?: string;
 };
 
@@ -19,7 +18,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
   disabled,
   placeholder,
   selected,
-  onChange,
+  handleChange,
   borderStyle,
 }) => (
   <>
@@ -69,7 +68,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
                         : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900 focus:bg-gray-200'
                     }`}
                     onClick={() => {
-                      onChange(item);
+                      handleChange(item);
                     }}
                   >
                     <p className="my-1">{item}</p>

@@ -1,21 +1,5 @@
 {
   "extends": [
     "eslint-config-bclabs/typescript"
-  ],
-  "rules": {
-    "@typescript-eslint/explicit-function-return-type": "warn",
-    "import/order": [
-      "error",
-      {
-        "groups": [
-          "builtin",
-          "external",
-          "internal",
-          "parent",
-          "sibling",
-          "type",
-          "unknown"
-        ]}
-        ]
-  }
+  ]
 }

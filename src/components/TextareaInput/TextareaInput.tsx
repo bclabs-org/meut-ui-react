@@ -1,7 +1,5 @@
 import React from 'react';
-
 import { CameraIcon, GifIcon } from '@heroicons/react/24/solid';
-
 import Button from '../Button';
 
 type TextareaInputProps = {
@@ -23,7 +21,7 @@ type TextareaInputProps = {
   [key: string]: any;
 };
 
-const TextareaInput: React.FC<TextareaInputProps> = ({
+const TextareaInput = ({
   label,
   name,
   value,
@@ -62,7 +60,7 @@ const TextareaInput: React.FC<TextareaInputProps> = ({
     </p>
   );
 
-  const TextareaFooter = () => {
+  const TextareaFooter = (): React.ReactNode => {
     if (enableByteCount && enableSaveButton && enableImageUpload) {
       return (
         <div className="flex justify-between items-center mt-2">
@@ -76,7 +74,7 @@ const TextareaInput: React.FC<TextareaInputProps> = ({
           </div>
           <div className="flex items-center gap-x-2">
             <ByteCounter />
-            <Button size={'small'} color={'tertiary'} onClick={handleSaveButtonClick}>
+            <Button size={'small'} color={'tertiary'} handleClick={handleSaveButtonClick}>
               Save
             </Button>
           </div>
@@ -88,7 +86,7 @@ const TextareaInput: React.FC<TextareaInputProps> = ({
       return (
         <div className="flex justify-between items-center mt-2">
           <ByteCounter />
-          <Button size={'small'} color={'tertiary'} onClick={handleSaveButtonClick}>
+          <Button size={'small'} color={'tertiary'} handleClick={handleSaveButtonClick}>
             Save
           </Button>
         </div>

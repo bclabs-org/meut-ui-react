@@ -1,12 +1,12 @@
 import React from 'react';
-
-export type DropdownProps = {
+type DropdownProps = {
     content: string[];
     label: string;
     disabled?: boolean;
     placeholder: string;
     selected: string;
-    onChange: Function;
-    borderStyle?: string;
+    setSelected: React.Dispatch<React.SetStateAction<string>>;
+    handleChange?: () => any;
 };
-export declare const Dropdown: React.FC<DropdownProps>;
+declare const Dropdown: React.FC<DropdownProps>;
+export default Dropdown;

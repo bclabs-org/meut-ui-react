@@ -1,5 +1,4 @@
 import React from 'react';
-
 type TabsProps = {
     tabNames: string[];
     selectedTab: string;
