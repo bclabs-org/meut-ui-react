@@ -1,14 +1,22 @@
 import React from 'react';
+
 type TableProps = {
-    children: React.ReactNode;
-    className?: string;
+  children: React.ReactNode;
+  customClassName?: string;
+  additionalClassName?: string;
+  isBgGray?: boolean;
 };
 declare const Table: {
-    ({ children, className }: TableProps): JSX.Element;
-    Head: ({ children, className }: TableProps) => JSX.Element;
-    Body: ({ children, className }: TableProps) => JSX.Element;
-    tr: ({ children, className }: TableProps) => JSX.Element;
-    th: ({ children, className }: TableProps) => JSX.Element;
-    td: ({ children, className }: TableProps) => JSX.Element;
+  ({ children, customClassName }: TableProps): React.FC<TableProps>;
+  Head: ({ children, isBgGray, additionalClassName }: TableProps) => React.FC<TableProps>;
+  Body: ({ children, additionalClassName }: TableProps) => React.FC<TableProps>;
+  tr: ({ children, isBgGray, customClassName }: TableProps) => React.FC<TableProps>;
+  th: ({ children, customClassName, additionalClassName }: TableProps) => React.FC<TableProps>;
+  td: ({
+    children,
+    isBgGray,
+    customClassName,
+    additionalClassName,
+  }: TableProps) => React.FC<TableProps>;
 };
 export default Table;

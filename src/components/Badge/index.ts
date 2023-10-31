@@ -1,4 +1,3 @@
-import BadgeLabel from './BadgeLabel';
+import Badge from './Badge';
 
-// TODO: Badge_TOP3 만들면 export { BadgeLabel, BadgeTop3 } 로 export
-export default BadgeLabel;
+export default Badge;

@@ -1,6 +1,8 @@
 import React from 'react';
+
 import classNames from 'classnames';
-import { TabGroupContext } from './TabGroupContext';
+
+import TabGroupContext from './TabGroupContext';
 
 type TabsGroupProps = {
   activeTab: string;
@@ -20,24 +22,22 @@ const TabGroup: React.FC<TabsGroupProps> = ({
   bgColor = false,
   shadow,
   children,
-}) => {
-  return (
-    <TabGroupContext.Provider value={{ activeTab, onChange }}>
-      <div
-        className={classNames('flex', 'h-16', {
-          'border-t': borderTop,
-          'border-b': borderBottom,
-          'bg-gray-50': bgColor,
-          'bg-white': !bgColor,
-          'shadow-[-2px_0_1px_-1px_rgba(0,0,0,0.1),2px_0_1px_-1px_rgba(0,0,0,0.1)]':
-            shadow === 'side',
-          'shadow-[0_1px_1px_0_rgba(0,0,0,0.06),0_1px_2px_0_rgba(0,0,0,0.1)]': shadow === 'default',
-        })}
-      >
-        {children}
-      </div>
-    </TabGroupContext.Provider>
-  );
-};
+}) => (
+  <TabGroupContext.Provider value={{ activeTab, onChange }}>
+    <div
+      className={classNames('flex', 'h-16', {
+        'border-t': borderTop,
+        'border-b': borderBottom,
+        'bg-gray-50': bgColor,
+        'bg-white': !bgColor,
+        'shadow-[-2px_0_1px_-1px_rgba(0,0,0,0.1),2px_0_1px_-1px_rgba(0,0,0,0.1)]':
+          shadow === 'side',
+        'shadow-[0_1px_1px_0_rgba(0,0,0,0.06),0_1px_2px_0_rgba(0,0,0,0.1)]': shadow === 'default',
+      })}
+    >
+      {children}
+    </div>
+  </TabGroupContext.Provider>
+);
 
 export default TabGroup;

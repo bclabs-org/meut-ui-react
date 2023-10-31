@@ -1,13 +1,15 @@
 import React from 'react';
+
 import classNames from 'classnames';
-import { TabGroupContext } from '../TabGroup/TabGroupContext';
+
+import TabGroupContext from '../TabGroup/TabGroupContext';
 
 type TabProps = {
   label: string;
   children?: React.ReactNode;
-}
+};
 
-const Tab = ({ label, children }: TabProps) => {
+const Tab: React.FC<TabProps> = ({ label, children }: TabProps) => {
   const { activeTab, onChange } = React.useContext(TabGroupContext);
 
   return (

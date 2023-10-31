@@ -1,12 +1,8 @@
 import React from 'react';
-import './style.css';
-type Content = {
-    title: string;
-    description: string;
+
+type TooltipProps = {
+    tooltipText: string;
+    containerClassName?: string;
 };
-type TextInputProps = {
-    content: Content[];
-    children?: React.ReactNode;
-};
-declare const Tooltip: React.FC<TextInputProps>;
+declare const Tooltip: React.FC<TooltipProps>;
 export default Tooltip;

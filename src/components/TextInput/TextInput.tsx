@@ -1,4 +1,5 @@
 import React, { ChangeEvent, useEffect, useRef, useState } from 'react';
+
 import Button from '../Button';
 import Dropdown from '../Dropdown';
 import { DropdownProps } from '../Dropdown/Dropdown';
@@ -100,7 +101,7 @@ const TextInput: React.FC<TextInputProps> = ({
                 type="button"
                 color="secondary"
                 size="small"
-                handleClick={handleMiniButtonClick}
+                onClick={handleMiniButtonClick}
                 disabled={disabled}
               >
                 {miniButton}
