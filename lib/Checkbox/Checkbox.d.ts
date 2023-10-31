@@ -1,5 +1,4 @@
 import React from 'react';
-
 type CheckboxProps = {
     label?: string;
     isDisabled?: boolean;

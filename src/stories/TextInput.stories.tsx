@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import TextInput from '../components/TextInput/index';
@@ -71,7 +70,7 @@ DropdownInput.args = {
     content: ['BTC', 'ETH', 'USDT'],
     label: '',
     selected: 'BTC',
-    onChange: (): void => console.log('handleChange'),
+    handleChange: ():void => console.log('handleChange'),
     placeholder: '텍스트를 입력해주세요',
-  },
+  }
 };

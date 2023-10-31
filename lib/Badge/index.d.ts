@@ -1,3 +1,2 @@
-import Badge from './Badge';
-
-export default Badge;
+import BadgeLabel from './BadgeLabel';
+export default BadgeLabel;

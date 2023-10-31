@@ -1,10 +1,9 @@
 import React from 'react';
-
 type ChipProps = {
     label: string;
     selected: boolean;
     count?: number;
-    onClick?: () => void;
+    handleClick?: () => void;
     className?: string;
     size?: 'small' | 'medium' | 'large';
     disabled?: boolean;
