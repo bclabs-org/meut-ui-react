@@ -3,8 +3,8 @@
     "esModuleInterop": true,
     "declaration": true,
     "declarationDir": "./lib",
-    "target": "ES2015",
-    "baseUrl": "./",
+    "target": "es5",
+    "baseUrl": "dist",
     "strict": true,
     "jsx": "react",
     "module": "ES2015",
@@ -12,19 +12,15 @@
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "noImplicitAny": false,
-    "typeRoots": ["@types"]
-  },
-    "rules": {
-        "import/order": {
-          "newlines-between": "always"
-        }
+    "typeRoots": ["@types"],
   },
   "include": [
-    "**/*.tsx", "**/*.ts", "@types", "index.ts", "dist", "*/d.ts"
+    "**/*.tsx", "**/*.ts", "@types", "index.ts", "dist"
   ],
   "exclude": [
     "./node_modules",
     "./src/**/*.test.tsx",
-    "./src/**/*.stories.tsx"
+    "./src/**/*.stories.tsx",
   ]
 }
+
