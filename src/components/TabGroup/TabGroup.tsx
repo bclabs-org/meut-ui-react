@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import { TabGroupContext } from './TabGroupContext';
+import TabGroupContext from './TabGroupContext';
 
 type TabsGroupProps = {
   activeTab: string;
@@ -14,8 +14,7 @@ const TabGroup: React.FC<TabsGroupProps> = ({
   onChange,
   bgColor = true,
   children,
-}) => {
-  return (
+}) => (
     <TabGroupContext.Provider value={{ activeTab, onChange }}>
       <div
         className={classNames('flex', 'h-16', {
@@ -27,6 +26,5 @@ const TabGroup: React.FC<TabsGroupProps> = ({
       </div>
     </TabGroupContext.Provider>
   );
-};
 
 export default TabGroup;
