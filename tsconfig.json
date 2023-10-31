@@ -13,7 +13,6 @@
     "allowSyntheticDefaultImports": true,
     "noImplicitAny": false,
     "typeRoots": ["@types"],
-    "esModuleInterop": true
   },
   "include": [
     "**/*.tsx", "**/*.ts", "@types", "index.ts", "dist"
