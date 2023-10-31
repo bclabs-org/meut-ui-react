@@ -4,7 +4,7 @@
     "declaration": true,
     "declarationDir": "./lib",
     "target": "ES2015",
-    "baseUrl": "./",
+    "baseUrl": "dist",
     "strict": true,
     "jsx": "react",
     "module": "ES2015",
