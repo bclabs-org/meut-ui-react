@@ -1,45 +1,49 @@
 import React, { Fragment } from 'react';
+
 import { Dialog, Transition } from '@headlessui/react';
 
 type ModalProps = {
   children: React.ReactNode;
   isModalOpen: boolean;
   setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  widthSize?: string;
+  widthSize?: 'small' | 'medium';
   onOutsideClick?: boolean;
+  isCoverHeader?: boolean;
 };
 
 const Modal: React.FC<ModalProps> = ({
   children,
   isModalOpen,
   setIsModalOpen,
-  widthSize = "medium",
+  widthSize = 'medium',
   onOutsideClick = true,
+  isCoverHeader = false,
 }) => {
-  let width:string;
+  let width: string;
 
-  switch(widthSize) {
-    case "medium" :
-      width = "w-[468px]"
-          break;
-    case "large":
-      width = "w-[718px]"
-          break;
+  switch (widthSize) {
+    case 'small':
+      width = 'w-[468px]';
+      break;
+    case 'medium':
+      width = 'w-[718px]';
+      break;
     default:
-      throw Error("invalid width size pros");
+      throw Error('invalid width size pros');
   }
 
-  return (<Transition.Root show={isModalOpen} as={Fragment}>
-    <Dialog
+  return (
+    <Transition.Root show={isModalOpen} as={Fragment}>
+      <Dialog
         as="div"
-        className="relative z-10"
+        className={`relative ${isCoverHeader ? 'z-30' : 'z-10'}`}
         onClose={() => null}
         onClick={(e) => {
           e.stopPropagation();
           setIsModalOpen(!onOutsideClick);
         }}
-    >
-      <Transition.Child
+      >
+        <Transition.Child
           as={Fragment}
           enter="ease-out duration-300"
           enterFrom="opacity-0"
@@ -47,13 +51,16 @@ const Modal: React.FC<ModalProps> = ({
           leave="ease-in duration-200"
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
-      >
-        <div className="fixed inset-0 bg-overlay transition-opacity"/>
-      </Transition.Child>
-
-      <div className="fixed inset-0 z-10 overflow-y-auto">
-        <div className="flex min-h-full justify-center text-center items-center py-32">
-          <Transition.Child
+        >
+          <div
+            className={`fixed inset-0 ${
+              isCoverHeader ? 'z-30' : 'z-10'
+            } bg-overlay transition-opacity`}
+          />
+        </Transition.Child>
+        <div className={`fixed inset-0 ${isCoverHeader ? 'z-30' : 'z-10'} overflow-y-auto`}>
+          <div className="flex min-h-full justify-center text-center items-center py-32">
+            <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"
               enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
@@ -61,16 +68,18 @@ const Modal: React.FC<ModalProps> = ({
               leave="ease-in duration-200"
               leaveFrom="opacity-100 translate-y-0 sm:scale-100"
               leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-          >
-            <Dialog.Panel
-                className={`${width} relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all`}>
-              <div className="py-8 px-10">{children}</div>
-            </Dialog.Panel>
-          </Transition.Child>
+            >
+              <Dialog.Panel
+                className={`${width} relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all`}
+              >
+                <div className="py-8 px-10">{children}</div>
+              </Dialog.Panel>
+            </Transition.Child>
+          </div>
         </div>
-      </div>
-    </Dialog>
-  </Transition.Root>)
-}
+      </Dialog>
+    </Transition.Root>
+  );
+};
 
 export default Modal;

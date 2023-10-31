@@ -1,4 +1,7 @@
 import React, { ChangeEvent } from 'react';
+
+import { DropdownProps } from '../Dropdown/Dropdown';
+
 type TextInputProps = {
     type?: string;
     name?: string;
@@ -20,6 +23,7 @@ type TextInputProps = {
     handleMiniButtonClick?: () => void;
     [key: string]: any;
     currency?: string;
+    dropdownProps?: DropdownProps;
 };
 declare const TextInput: React.FC<TextInputProps>;
 export default TextInput;

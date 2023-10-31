@@ -1,4 +1,5 @@
 import React, { ChangeEvent, useEffect, useRef, useState } from 'react';
+
 import Button from '../Button';
 import Dropdown from '../Dropdown';
 import { DropdownProps } from '../Dropdown/Dropdown';
@@ -100,7 +101,8 @@ const TextInput: React.FC<TextInputProps> = ({
                 type="button"
                 color="secondary"
                 size="small"
-                handleClick={handleMiniButtonClick}
+                onClick={handleMiniButtonClick}
+                disabled={disabled}
               >
                 {miniButton}
               </Button>
@@ -109,7 +111,7 @@ const TextInput: React.FC<TextInputProps> = ({
           {dropdownProps && !!dropdownProps.content && (
             <div className="flex items-center">
               <div className="mr-2 border-l h-8 border-gray-200"></div>
-              <Dropdown borderStyle={`border-0`} {...dropdownProps}/>
+              <Dropdown disabled={disabled} borderStyle={`border-0`} {...dropdownProps}/>
             </div>
           )}
         </div>
