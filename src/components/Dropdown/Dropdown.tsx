@@ -29,14 +29,16 @@ export const Dropdown: React.FC<DropdownProps> = ({
 }) => (
   <>
     <p className="font-medium text-onTertiary">{label}</p>
-    <Menu as="div" className={`relative w-full text-left ${disabled && 'opacity-40'} ${fontSize}`}>
+    <Menu
+      as="div"
+      className={`relative w-full text-left ${disabled && 'opacity-40'} ${fontSize} font-medium`}
+    >
       {({ open }) => (
         <>
           <div>
             <Menu.Button
               className={classNames(
-                'dropdown bg-white flex items-center transition-all',
-                'font-medium',
+                'bg-white flex items-center transition-all',
                 buttonStyle === 'default' || buttonStyle === 'mixed'
                   ? 'w-full justify-between border border-gray-300 rounded p-3 hover:ring-[3px] ring-emerald-100 active:ring-emerald-500'
                   : '',
@@ -78,7 +80,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
               {content.map((item) => (
                 <Menu.Item key={item}>
                   <div
-                    className={`block cursor-pointer px-3 py-2.5 font-medium ${
+                    className={`block cursor-pointer px-3 py-2.5 ${
                       item === selected
                         ? 'text-gray-900 bg-gray-200'
                         : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900 focus:bg-gray-200'
