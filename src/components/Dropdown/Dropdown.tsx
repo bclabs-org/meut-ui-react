@@ -1,55 +1,68 @@
 import React, { Fragment } from 'react';
 
-import { Menu, Transition } from '@headlessui/react';
-import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/20/solid';
+import { Listbox, Transition } from '@headlessui/react';
+import { ChevronDownIcon } from '@heroicons/react/20/solid';
+import classNames from 'classnames';
 
 export type DropdownProps = {
-  content: string[];
-  label: string;
+  contents: { value: string; label: string }[];
+  label?: string;
   disabled?: boolean;
-  placeholder: string;
+  placeholder?: string;
   selected: string;
-  onChange: Function;
-  borderStyle?: string;
+  onChange: (value: string) => void;
+  buttonStyle?: 'default' | 'borderless' | 'mixed';
+  fontSize?: 'text-xs' | 'text-sm' | 'text-base';
+  menuWidth?: 'full' | 'medium' | 'small';
 };
 
 export const Dropdown: React.FC<DropdownProps> = ({
-  content,
+  contents,
   label,
   disabled,
   placeholder,
   selected,
   onChange,
-  borderStyle,
+  buttonStyle = 'default',
+  fontSize = 'text-base',
+  menuWidth = 'full',
 }) => (
   <>
-    <p className="font-medium text-onTertiary">{label}</p>
-    <Menu as="div" className={`relative w-full inline-block text-left ${disabled && 'opacity-40'}`}>
+    <Listbox
+      as="div"
+      className={classNames(
+        'relative text-left font-medium font-sans z-10',
+        fontSize,
+        disabled ? 'opacity-40' : ''
+      )}
+      onChange={onChange}
+      disabled={disabled}
+      value={selected}
+    >
       {({ open }) => (
         <>
-          <div>
-            <Menu.Button
-              className={`inline-flex w-full h-12 justify-between items-center rounded px-3 py-2 font-medium
-                ${!open && borderStyle ? borderStyle : 'bg-white'}
-                 ${
-                   open
-                     ? 'border-2 border-primary'
-                     : 'border border-gray-300 hover:outline hover:outline-[3px] hover:outline-secondary-hover active:outline-0 active:border-2 active:border-primary ' +
-                       'disabled:cursor-default disabled:outline-0 disabled:border disabled:border-gray-300'
-                 } 
-                `}
-              disabled={disabled}
-            >
-              <span className={`py-1 ${!selected && 'text-neutral'}`}>
-                {selected || placeholder}
-              </span>
-              {open ? (
-                <ChevronUpIcon className="h-5 w-5" aria-hidden="true" />
-              ) : (
-                <ChevronDownIcon className="h-5 w-5" aria-hidden="true" />
-              )}
-            </Menu.Button>
-          </div>
+          <Listbox.Label className="block font-medium text-onTertiary mb-1">{label}</Listbox.Label>
+          <Listbox.Button
+            className={classNames(
+              'flex items-center transition-all',
+              buttonStyle === 'default' || buttonStyle === 'mixed'
+                ? 'w-full justify-between border border-gray-300 rounded p-3 hover:ring-[3px] ring-emerald-100 active:ring-emerald-500'
+                : '',
+              (buttonStyle === 'default' || buttonStyle === 'mixed') && open
+                ? 'ring-2 ring-emerald-500 hover:ring-[2px] active:ring-emerald-100'
+                : '',
+              buttonStyle === 'borderless' ? 'border-0 p-1' : '',
+              buttonStyle === 'mixed' ? 'border-0' : ''
+            )}
+          >
+            <span className={`pr-2 ${!selected && 'text-neutral'}`}>
+              {contents?.find((item) => item.value === selected)?.label || placeholder}
+            </span>
+            <ChevronDownIcon
+              className={classNames('h-5 w-5', open ? 'rotate-180' : '')}
+              aria-hidden="true"
+            />
+          </Listbox.Button>
           <Transition
             as={Fragment}
             enter="transition ease-out duration-100"
@@ -59,27 +72,32 @@ export const Dropdown: React.FC<DropdownProps> = ({
             leaveFrom="transform opacity-100 scale-100"
             leaveTo="transform opacity-0 scale-95"
           >
-            <Menu.Items className="absolute z-20 w-full mt-2 overflow-hidden rounded bg-white shadow-lg ring-1 ring-black ring-opacity-5">
-              {content.map((item) => (
-                <Menu.Item key={item}>
-                  <div
-                    className={`block cursor-pointer px-3 py-2.5 font-medium ${
-                      item === selected
-                        ? 'text-gray-900 bg-gray-200'
-                        : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900 focus:bg-gray-200'
-                    }`}
-                    onClick={() => {
-                      onChange(item);
-                    }}
-                  >
-                    <p className="my-1">{item}</p>
-                  </div>
-                </Menu.Item>
+            <Listbox.Options
+              className={classNames(
+                'absolute mt-2 py-1 rounded bg-white ring-1 ring-black ring-opacity-5 shadow-lg',
+                menuWidth === 'full' ? `w-full [&>li]:px-3 [&>li]:py-[14px]` : '',
+                menuWidth === 'medium' ? 'w-[309px] [&>li]:p-3' : '',
+                menuWidth === 'small' ? 'w-[218px] [&>li]:px-2 [&>li]:py-3' : ''
+              )}
+            >
+              {contents.map((item, index) => (
+                <Listbox.Option
+                  key={`${item.value}_${index}`}
+                  value={item.value}
+                  className={classNames(
+                    'block cursor-pointer',
+                    selected === item.value
+                      ? 'text-gray-900 bg-gray-200'
+                      : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900 focus:bg-gray-200'
+                  )}
+                >
+                  {item.label}
+                </Listbox.Option>
               ))}
-            </Menu.Items>
+            </Listbox.Options>
           </Transition>
         </>
       )}
-    </Menu>
+    </Listbox>
   </>
 );
