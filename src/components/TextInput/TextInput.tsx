@@ -108,7 +108,7 @@ const TextInput: React.FC<TextInputProps> = ({
               </Button>
             </div>
           )}
-          {dropdownProps && !!dropdownProps.content && (
+          {dropdownProps && !!dropdownProps.contents && (
             <div className="flex items-center">
               <div className="mr-2 border-l h-8 border-gray-200"></div>
               <Dropdown disabled={disabled} buttonStyle="mixed" {...dropdownProps} />
