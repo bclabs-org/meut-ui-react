@@ -41,7 +41,11 @@ export const Dropdown: React.FC<DropdownProps> = ({
     >
       {({ open }) => (
         <>
-          <Listbox.Label className="block font-medium text-onTertiary mb-1">{label}</Listbox.Label>
+          {label && (
+            <Listbox.Label className="block font-medium text-onTertiary mb-1">
+              {label}
+            </Listbox.Label>
+          )}
           <Listbox.Button
             className={classNames(
               'flex items-center transition-all',
