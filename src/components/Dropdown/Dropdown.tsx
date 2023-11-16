@@ -6,9 +6,9 @@ import classNames from 'classnames';
 
 export type DropdownProps = {
   content: string[];
-  label: string;
+  label?: string;
   disabled?: boolean;
-  placeholder: string;
+  placeholder?: string;
   selected: string;
   onChange: Function;
   buttonStyle?: 'default' | 'borderless' | 'mixed';
