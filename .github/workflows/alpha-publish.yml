@@ -3,7 +3,7 @@ on:
   push:
     branches:
       - develop
-    paths: ['package.json']
+#    paths: ['package.json']
 jobs:
   packages-publish:
     runs-on: ubuntu-latest
