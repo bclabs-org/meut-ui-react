@@ -58,7 +58,11 @@ const Modal: React.FC<ModalProps> = ({
             } bg-overlay transition-opacity`}
           />
         </Transition.Child>
-        <div className={`fixed inset-0 ${isCoverHeader ? 'z-30' : 'z-10'} overflow-y-auto`}>
+        <div
+          className={`fixed inset-0 ${
+            isCoverHeader ? 'z-30' : 'z-10'
+          } overflow-y-auto w-screen mx-auto`}
+        >
           <div className="flex min-h-screen justify-center text-center items-center py-32">
             <Transition.Child
               as={Fragment}
