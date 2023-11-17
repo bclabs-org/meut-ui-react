@@ -1,0 +1,16 @@
+# ignore directories
+.github/
+.storybook/
+src/
+storybook-static/
+
+# ignore files
+.eslintrc.json
+.prettierrc.json
+babel.config.js
+postcss.config.cjs
+tailwind.config.cjs
+tsconfig.json
+rollup.config.js
+package-lock.json
+yarn-lock.json
