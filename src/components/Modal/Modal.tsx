@@ -37,11 +37,7 @@ const Modal: React.FC<ModalProps> = ({
       <Dialog
         as="div"
         className={`relative ${isCoverHeader ? 'z-30' : 'z-10'}`}
-        onClose={() => null}
-        onClick={(e) => {
-          e.stopPropagation();
-          setIsModalOpen(!onOutsideClick);
-        }}
+        onClose={() => setIsModalOpen(!onOutsideClick)}
       >
         <Transition.Child
           as={Fragment}
