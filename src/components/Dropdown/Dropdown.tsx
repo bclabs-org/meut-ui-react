@@ -31,7 +31,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
     <Listbox
       as="div"
       className={classNames(
-        'relative text-left font-medium font-sans z-10',
+        'relative text-left font-medium font-sans',
         fontSize,
         disabled ? 'opacity-40' : ''
       )}
@@ -78,7 +78,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
           >
             <Listbox.Options
               className={classNames(
-                'absolute mt-2 py-1 rounded bg-white ring-1 ring-black ring-opacity-5 shadow-lg',
+                'absolute mt-2 py-1 rounded bg-white ring-1 ring-black ring-opacity-5 shadow-lg z-10',
                 menuWidth === 'full' ? `w-full [&>li]:px-3 [&>li]:py-[14px]` : '',
                 menuWidth === 'medium' ? 'w-[309px] [&>li]:p-3' : '',
                 menuWidth === 'small' ? 'w-[218px] [&>li]:px-2 [&>li]:py-3' : ''
