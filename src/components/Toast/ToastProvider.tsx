@@ -6,9 +6,9 @@ import ToastDispatchContext from './ToastDispatchContext';
 import ToastReducer from './ToastReducer';
 import initialState from './values';
 
-interface ToastProviderProps {
+type ToastProviderProps = {
   children?: React.ReactNode;
-}
+};
 
 const ToastProvider = ({ children }: ToastProviderProps) => {
   const [state, dispatch] = useReducer(ToastReducer, initialState);

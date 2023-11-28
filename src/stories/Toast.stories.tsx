@@ -3,20 +3,20 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import ToastProvider from '../components/Toast/ToastProvider';
 import useToast from '../components/Toast/useToast';
-import Toast from '../components/Toast';
+
 import Button from '../components/Button';
 import { ToastState } from '../components/Toast/types';
 
 export default {
   title: 'Components/Toast',
-  component: Toast,
-} as ComponentMeta<typeof Toast>;
+  component: ToastProvider,
+} as ComponentMeta<typeof ToastProvider>;
 
 const Template = ({ toastState }: { toastState: ToastState }) => {
   const toast = useToast();
 
   const handleToast = () => {
-    toast('This is a toast message', 'error', 'This is a sub message');
+    toast(toastState.message, toastState.color, toastState.subMessage);
   };
 
   return (
@@ -34,7 +34,7 @@ const ProviderTemplate = (args) => (
   </ToastProvider>
 );
 
-export const Default: ComponentStory<typeof Toast> = ProviderTemplate.bind({});
+export const Default: ComponentStory<any> = ProviderTemplate.bind({});
 Default.args = {
   toastState: {
     message: 'This is a toast message',
