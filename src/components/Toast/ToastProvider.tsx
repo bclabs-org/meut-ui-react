@@ -1,23 +1,23 @@
-import React, { useReducer } from 'react';
+import React, { useSyncExternalStore } from 'react';
 
+import { Portal } from '@headlessui/react';
 import Toast from './Toast';
-import ToastDispatchContext from './ToastDispatchContext';
 
-import ToastReducer from './ToastReducer';
-import initialState from './values';
+import { toastStore } from './ToastStore';
 
-type ToastProviderProps = {
-  children?: React.ReactNode;
-};
-
-const ToastProvider = ({ children }: ToastProviderProps) => {
-  const [state, dispatch] = useReducer(ToastReducer, initialState);
+const ToastProvider = () => {
+  const toasts = useSyncExternalStore(
+    toastStore.subscribe,
+    toastStore.getSnapshot,
+    toastStore.getServerSnapshot
+  );
 
   return (
-    <ToastDispatchContext.Provider value={{ dispatch }}>
-      {state.isAlertOpen && <Toast toastState={state} toastDispatch={dispatch} />}
-      {children}
-    </ToastDispatchContext.Provider>
+    <Portal>
+      {toasts.map((toast, index) => (
+        <Toast key={toast.message} toastState={toast} index={index} />
+      ))}
+    </Portal>
   );
 };
 
