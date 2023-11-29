@@ -43,7 +43,7 @@ const Toast: React.FC<ToastProps> = ({ toastState, index, onHeightReady, top }: 
     if (isMounted) {
       timerRef.current = setTimeout(() => {
         setIsCloseAnimationPlay(true);
-      }, 20000);
+      }, toastState.duration);
     }
   }, [isMounted]);
 
