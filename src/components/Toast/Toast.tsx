@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import Alert from '../Alert';
 import { ToastState } from './types';
 import { toastStore } from './ToastStore';
+import './toast.css';
 
 type ToastProps = {
   toastState: ToastState;
@@ -57,8 +58,8 @@ const Toast: React.FC<ToastProps> = ({ toastState, index, onHeightReady, top }: 
   return (
     <div
       className={classNames(
-        'fixed transition-all duration-300 z-50 left-1/2 -translate-x-1/2',
-        'ease-[cubic-bezier(0.18,0.89,0.32,1.28)]',
+        'toast-transition',
+        'fixed z-50 left-1/2 -translate-x-1/2',
         !isMounted ? `opacity-0` : '',
         isMounted && !isCloseAnimationPlay ? `opacity-100` : '',
         isMounted && isCloseAnimationPlay ? `opacity-0` : ''
