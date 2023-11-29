@@ -1,4 +1,3 @@
-/* add important to override the default animation */
 .toast-transition {
     transition-property: all;
     transition-timing-function: cubic-bezier(0.18,0.89,0.32,1.28);
