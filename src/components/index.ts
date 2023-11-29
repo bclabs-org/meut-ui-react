@@ -20,7 +20,7 @@ import TextareaInput from './TextareaInput';
 import Toggle from './Toggle';
 import Tooltip from './Tooltip';
 import TooltipWithSteps from './TooltipWithSteps';
-import { ToastProvider, useToast } from './Toast';
+import { ToastProvider, toast } from './Toast';
 
 export {
   Alert,
@@ -45,5 +45,5 @@ export {
   TabGroup,
   Tab,
   ToastProvider,
-  useToast,
+  toast,
 };
