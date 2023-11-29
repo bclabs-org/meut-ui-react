@@ -58,7 +58,7 @@ const Toast = ({ toastState, index, onHeightReady, top }: ToastProps) => {
     <div
       className={classNames(
         'fixed transition-all duration-300 z-50 left-1/2 -translate-x-1/2',
-        'ease-[cubic-bezier(.58,-0.01,.35,1.55)]',
+        'ease-[cubic-bezier(0.18,0.89,0.32,1.28)]',
         !isMounted ? `opacity-0` : '',
         isMounted && !isCloseAnimationPlay ? `opacity-100` : '',
         isMounted && isCloseAnimationPlay ? `opacity-0` : ''
