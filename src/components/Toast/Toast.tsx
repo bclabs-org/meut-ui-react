@@ -11,7 +11,7 @@ type ToastProps = {
   top: number;
 };
 
-const Toast = ({ toastState, index, onHeightReady, top }: ToastProps) => {
+const Toast: React.FC<ToastProps> = ({ toastState, index, onHeightReady, top }: ToastProps) => {
   const [isMounted, setIsMounted] = React.useState(false);
   const [isCloseAnimationPlay, setIsCloseAnimationPlay] = React.useState(false);
   const timerRef = React.useRef<number | ReturnType<typeof setTimeout>>();
@@ -34,7 +34,7 @@ const Toast = ({ toastState, index, onHeightReady, top }: ToastProps) => {
   useEffect(() => {
     setIsMounted(true);
 
-    return () => {
+    return (): void => {
       setIsMounted(false);
     };
   }, []);
@@ -52,7 +52,7 @@ const Toast = ({ toastState, index, onHeightReady, top }: ToastProps) => {
       const { height } = toastRef.current.getBoundingClientRect();
       onHeightReady(index, height);
     }
-  }, [index]);
+  }, [index, onHeightReady]);
 
   return (
     <div
@@ -64,7 +64,7 @@ const Toast = ({ toastState, index, onHeightReady, top }: ToastProps) => {
         isMounted && isCloseAnimationPlay ? `opacity-0` : ''
       )}
       style={{ top: `${getTopPos()}px` }}
-      onTransitionEnd={() => {
+      onTransitionEnd={(): void => {
         if (isCloseAnimationPlay) {
           setIsCloseAnimationPlay(false);
           toastStore.removeToast(toastState.message || '');
@@ -77,7 +77,7 @@ const Toast = ({ toastState, index, onHeightReady, top }: ToastProps) => {
         text={toastState.message || ''}
         subText={toastState.subMessage}
         color={toastState.type as 'error'}
-        setIsAlertOpen={() => setIsCloseAnimationPlay(true)}
+        setIsAlertOpen={(): void => setIsCloseAnimationPlay(true)}
         closeBtn
       />
     </div>
