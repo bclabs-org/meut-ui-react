@@ -1,6 +1,5 @@
 import { ToastColor, ToastState } from './types';
 
-let nextId = 0;
 let toasts: ToastState[] = [];
 let listeners: Function[] = [];
 
@@ -10,9 +9,8 @@ const toastStore = {
     if (isMessageExists) {
       return;
     }
-    toasts = [...toasts, { id: nextId, message, type, subMessage, duration }];
+    toasts = [...toasts, { message, type, subMessage, duration }];
     listeners.forEach((listener) => listener(toasts));
-    nextId += 1;
   },
   subscribe(listener: Function): () => void {
     listeners = [...listeners, listener];
