@@ -5,12 +5,12 @@ let toasts: ToastState[] = [];
 let listeners: Function[] = [];
 
 const toastStore = {
-  addToast(message: string, type: ToastColor, subMessage: string): void {
+  addToast(message: string, type: ToastColor, subMessage: string, duration: number): void {
     const isMessageExists = toasts.some((t) => t.message === message);
     if (isMessageExists) {
       return;
     }
-    toasts = [...toasts, { id: nextId, message, type, subMessage }];
+    toasts = [...toasts, { id: nextId, message, type, subMessage, duration }];
     listeners.forEach((listener) => listener(toasts));
     nextId += 1;
   },
@@ -32,16 +32,17 @@ const toastStore = {
   },
 };
 
-const toast = (message: string, type: ToastColor, subMessage = '', delay = 2000): void => {
-  toastStore.addToast(message, type, subMessage);
+const toast = (message: string, type: ToastColor, subMessage = '', duration = 2000): void => {
+  toastStore.addToast(message, type, subMessage, duration);
 };
 
-toast.error = (message: string, subMessage?: string): void => toast(message, 'error', subMessage);
-toast.attention = (message: string, subMessage?: string): void =>
-  toast(message, 'attention', subMessage);
-toast.completion = (message: string, subMessage?: string): void =>
-  toast(message, 'completion', subMessage);
-toast.info = (message: string, subMessage?: string): void =>
-  toast(message, 'information', subMessage);
+toast.error = (message: string, subMessage?: string, duration?: number): void =>
+  toast(message, 'error', subMessage, duration);
+toast.attention = (message: string, subMessage?: string, duration?: number): void =>
+  toast(message, 'attention', subMessage, duration);
+toast.completion = (message: string, subMessage?: string, duration?: number): void =>
+  toast(message, 'completion', subMessage, duration);
+toast.info = (message: string, subMessage?: string, duration?: number): void =>
+  toast(message, 'information', subMessage, duration);
 
 export { toastStore, toast };
