@@ -20,11 +20,13 @@ import TextareaInput from './TextareaInput';
 import Toggle from './Toggle';
 import Tooltip from './Tooltip';
 import TooltipWithSteps from './TooltipWithSteps';
+import ButtonsGroup from './ButtonsGroup';
 
 export {
   Alert,
   Badge,
   Button,
+  ButtonsGroup,
   Card,
   Checkbox,
   Chip,
