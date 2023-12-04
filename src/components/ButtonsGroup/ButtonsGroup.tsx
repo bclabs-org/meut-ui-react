@@ -26,10 +26,12 @@ const ButtonsGroupItem = ({ value, label, children }: ButtonsGroupItemProps) => 
       onClick={() => onChange(value)}
       className={classNames(
         'relative -ml-px py-2 inline-flex items-center flex-1 justify-center',
-        'border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-secondary',
+        'border text-sm font-medium',
         'first:rounded-l-md',
         'last:rounded-r-md',
-        selected === value && 'btn-group-selected'
+        selected === value
+          ? 'z-10 border-primary outline-none text-primary-hover bg-secondary'
+          : 'border-gray-300 bg-white text-gray-700 hover:bg-secondary'
       )}
     >
       {children || label}
