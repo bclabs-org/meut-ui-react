@@ -29,7 +29,7 @@ const ButtonsGroupItem = ({ value, label, children }: ButtonsGroupItemProps) => 
         'border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-secondary',
         'first:rounded-l-md',
         'last:rounded-r-md',
-        selected === value && 'btn-group-focus'
+        selected === value && 'btn-group-selected'
       )}
     >
       {children || label}
