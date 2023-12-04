@@ -2,6 +2,7 @@ import './index.css';
 import Alert from './Alert';
 import Badge from './Badge';
 import Button from './Button';
+import ButtonsGroup from './ButtonsGroup';
 import Card from './Card';
 import Checkbox from './Checkbox';
 import Chip from './Chip';
@@ -26,6 +27,7 @@ export {
   Alert,
   Badge,
   Button,
+  ButtonsGroup,
   Card,
   Checkbox,
   Chip,
