@@ -1,6 +1,5 @@
 import React from 'react';
 import classNames from 'classnames';
-import './buttonsGroup.css';
 
 type ButtonsGroupContextProps = {
   onChange: (value: string) => void;
