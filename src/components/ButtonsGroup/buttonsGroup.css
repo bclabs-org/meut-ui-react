@@ -1,0 +1,7 @@
+.btn-group {
+    @apply relative -ml-px inline-flex items-center border border-gray-300 bg-white py-2 text-sm font-medium text-gray-700 hover:bg-secondary;
+}
+
+.btn-group-focus {
+    @apply z-10 border-primary outline-none text-primary-hover bg-secondary;
+}
