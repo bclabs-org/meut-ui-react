@@ -2,6 +2,7 @@ import './index.css';
 import Alert from './Alert';
 import Badge from './Badge';
 import Button from './Button';
+import ButtonsGroup from './ButtonsGroup';
 import Card from './Card';
 import Checkbox from './Checkbox';
 import Chip from './Chip';
@@ -20,7 +21,7 @@ import TextareaInput from './TextareaInput';
 import Toggle from './Toggle';
 import Tooltip from './Tooltip';
 import TooltipWithSteps from './TooltipWithSteps';
-import ButtonsGroup from './ButtonsGroup';
+import { ToastProvider, toast } from './Toast';
 
 export {
   Alert,
@@ -45,4 +46,6 @@ export {
   TooltipWithSteps,
   TabGroup,
   Tab,
+  ToastProvider,
+  toast,
 };
