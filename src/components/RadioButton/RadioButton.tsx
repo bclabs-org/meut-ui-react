@@ -9,7 +9,8 @@ type RadioButtonProps = {
 };
 
 const RadioButton: React.FC<RadioButtonProps> = ({ label, id, disabled }: RadioButtonProps) => {
-  const { labelDirection, onChange, defaultCheckedId } = React.useContext(RadioButtonGroupContext);
+  const { legend, labelDirection, onChange, defaultCheckedId } =
+    React.useContext(RadioButtonGroupContext);
 
   return (
     <div
@@ -21,7 +22,7 @@ const RadioButton: React.FC<RadioButtonProps> = ({ label, id, disabled }: RadioB
     >
       <input
         id={id}
-        name="notification-method"
+        name={`radio-button-${legend}`}
         type="radio"
         defaultChecked={id === defaultCheckedId}
         className={classNames(
