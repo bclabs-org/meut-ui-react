@@ -10,7 +10,7 @@ export default {
 
 const Template: ComponentStory<typeof RadioButtonGroup> = (args) => {
   const [selected, setSelected] = React.useState('1');
-  const handleChange = (value: string) => {
+  const handleChange = (value: string): void => {
     setSelected(value);
   };
 
@@ -18,6 +18,7 @@ const Template: ComponentStory<typeof RadioButtonGroup> = (args) => {
     <>
       <p className="font-medium text-gray-500">Current Select Id: {selected}</p>
       <RadioButtonGroup
+        {...args}
         onChange={handleChange}
         defaultCheckedId={selected}
         legend="numbers"
