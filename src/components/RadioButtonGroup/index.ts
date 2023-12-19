@@ -1,3 +1,3 @@
-import RadioButtonGroup from 'src/components/RadioButtonGroup/RadioButtonGroup';
+import RadioButtonGroup from './RadioButtonGroup';
 
 export default RadioButtonGroup;

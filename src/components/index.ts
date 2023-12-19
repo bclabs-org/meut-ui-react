@@ -10,6 +10,8 @@ import Dropdown from './Dropdown';
 import CompleteModal from './Modal/CompleteModal';
 import ErrorModal from './Modal/ErrorModal';
 import Modal from './Modal/Modal';
+import RadioButton from './RadioButton';
+import RadioButtonGroup from './RadioButtonGroup';
 import Stat from './Stat';
 import Tab from './Tab';
 import TabGroup from './TabGroup';
@@ -35,6 +37,8 @@ export {
   Dropdown,
   ErrorModal,
   Modal,
+  RadioButton,
+  RadioButtonGroup,
   Stat,
   Table,
   Tabs,
