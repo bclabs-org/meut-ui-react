@@ -21,7 +21,7 @@ const RadioButton: React.FC<RadioButtonProps> = ({ label, id, disabled }: RadioB
       )}
     >
       <input
-        id={id}
+        id={`radio-${id}-${legend}`}
         name={`radio-button-${legend}`}
         type="radio"
         defaultChecked={id === defaultCheckedId}
@@ -35,7 +35,7 @@ const RadioButton: React.FC<RadioButtonProps> = ({ label, id, disabled }: RadioB
         disabled={disabled}
       />
       <label
-        htmlFor={id}
+        htmlFor={`radio-${id}-${legend}`}
         className={classNames(
           'block text-sm font-medium leading-5 text-gray-700',
           labelDirection === 'col' ? 'mt-2' : 'ml-3'
