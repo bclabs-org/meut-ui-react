@@ -62,7 +62,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
                 'hover:ring-[7px] hover:ring-emerald-100 hover:bg-emerald-100',
                 'active:ring-[7px] active:ring-offset-0 active:ring-emerald-200 active:outline-8 active:bg-emerald-200',
                 'focus:ring-[7px] focus:ring-offset-0 focus:ring-emerald-200 focus:outline-8 focus:bg-emerald-200',
-                'disabled:ring-0 disabled:bg-transparent disabled:opacity-40'
+                'disabled:ring-0 disabled:opacity-40'
               )}
               onChange={onChange}
               ref={(el): void => {
