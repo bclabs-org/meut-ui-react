@@ -17,7 +17,7 @@ const RadioButton: React.FC<RadioButtonProps> = ({ label, id, disabled }: RadioB
       key={id}
       className={classNames(
         'flex ',
-        labelDirection === 'col' ? 'flex-col items-center' : 'flex-row'
+        labelDirection === 'col' ? 'flex-col items-center' : 'flex-row items-center'
       )}
     >
       <input
