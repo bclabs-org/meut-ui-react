@@ -14,7 +14,10 @@ const RadioButton: React.FC<RadioButtonProps> = ({ label, id, disabled }: RadioB
   return (
     <div
       key={id}
-      className={`flex items-center ${labelDirection === 'column' ? 'flex-col' : 'flex-row'}`}
+      className={classNames(
+        'flex ',
+        labelDirection === 'col' ? 'flex-col items-center' : 'flex-row'
+      )}
     >
       <input
         id={id}
@@ -34,7 +37,7 @@ const RadioButton: React.FC<RadioButtonProps> = ({ label, id, disabled }: RadioB
         htmlFor={id}
         className={classNames(
           'block text-sm font-medium leading-5 text-gray-700',
-          labelDirection === 'column' ? 'mt-2' : 'ml-3'
+          labelDirection === 'col' ? 'mt-2' : 'ml-3'
         )}
       >
         {label}
