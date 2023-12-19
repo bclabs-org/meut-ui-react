@@ -8,7 +8,7 @@ type RadioButtonProps = {
   disabled?: boolean;
 };
 
-const RadioButton = ({ label, id, disabled }: RadioButtonProps) => {
+const RadioButton: React.FC<RadioButtonProps> = ({ label, id, disabled }: RadioButtonProps) => {
   const { labelDirection, onChange, defaultCheckedId } = React.useContext(RadioButtonGroupContext);
 
   return (
