@@ -25,7 +25,7 @@ const RadioButtonGroup: React.FC<RadioButtonGroupProps> = ({
     <legend className="sr-only">{legend}</legend>
     <div
       className={classNames(
-        groupDirection === 'row' ? 'flex items-center space-x-4' : 'flex-col space-y-4'
+        groupDirection === 'row' ? 'flex items-center space-x-4' : 'w-fit space-y-4'
       )}
     >
       <RadioButtonGroupContext.Provider value={{ labelDirection, onChange, defaultCheckedId }}>
