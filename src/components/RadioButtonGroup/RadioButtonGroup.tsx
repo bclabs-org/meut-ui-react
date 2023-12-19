@@ -2,25 +2,25 @@ import React from 'react';
 import classNames from 'classnames';
 import RadioButtonGroupContext from './RadioButtonGroupContext';
 
-type RadioButtonProps = {
+type RadioButtonGroupProps = {
   legend: string;
   defaultCheckedId: string;
-  groupDirection?: 'row' | 'column';
-  labelDirection?: 'row' | 'column';
+  groupDirection?: 'row' | 'col';
+  labelDirection?: 'row' | 'col';
   className?: string;
   children?: React.ReactNode;
   onChange: (value: string) => void;
 };
 
-const RadioButtonGroup = ({
+const RadioButtonGroup: React.FC<RadioButtonGroupProps> = ({
   legend,
   defaultCheckedId,
-  groupDirection = 'column',
+  groupDirection = 'col',
   labelDirection = 'row',
   className,
   children,
   onChange,
-}: RadioButtonProps) => (
+}: RadioButtonGroupProps) => (
   <fieldset className={className}>
     <legend className="sr-only">{legend}</legend>
     <div
