@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { CheckCircleIcon } from '@heroicons/react/20/solid';
+import classNames from 'classnames';
 
 type CheckboxProps = {
   label?: string;
@@ -8,6 +9,7 @@ type CheckboxProps = {
   isComplete?: boolean;
   disabled?: boolean;
   checked?: boolean;
+  indeterminate?: boolean;
   onChange?: () => void;
 };
 
@@ -17,6 +19,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
   disabled = false,
   isComplete,
   checked = false,
+  indeterminate = false,
   onChange,
 }: CheckboxProps) => (
   <>
@@ -54,11 +57,25 @@ const Checkbox: React.FC<CheckboxProps> = ({
               type="checkbox"
               disabled={disabled}
               checked={checked}
-              className="h-4 w-4 border-gray-300 text-primary focus:ring-0 checkbox"
+              className={classNames(
+                'h-4 w-4 border-2 border-gray-300 text-primary rounded-[1px]',
+                'hover:ring-[7px] hover:ring-emerald-100 hover:bg-emerald-100',
+                'active:ring-[7px] active:ring-offset-0 active:ring-emerald-200 active:outline-8 active:bg-emerald-200',
+                'focus:ring-[7px] focus:ring-offset-0 focus:ring-emerald-200 focus:outline-8 focus:bg-emerald-200',
+                'disabled:ring-0 disabled:bg-transparent disabled:opacity-40'
+              )}
               onChange={onChange}
+              ref={(el): void => {
+                const checkbox = el;
+                if (checkbox) checkbox.indeterminate = indeterminate;
+              }}
             />
           </div>
-          <div className="ml-2 text-sm font-medium text-onTertiary">
+          <div
+            className={`ml-2 text-sm font-medium text-onTertiary ${
+              disabled ? 'opacity-40' : 'opacity-100'
+            }`}
+          >
             <label htmlFor="comments">{label}</label>
           </div>
         </div>
