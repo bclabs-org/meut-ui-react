@@ -9,19 +9,20 @@ type RadioButtonProps = {
 };
 
 const RadioButton: React.FC<RadioButtonProps> = ({ label, id, disabled }: RadioButtonProps) => {
-  const { labelDirection, onChange, defaultCheckedId } = React.useContext(RadioButtonGroupContext);
+  const { legend, labelDirection, onChange, defaultCheckedId } =
+    React.useContext(RadioButtonGroupContext);
 
   return (
     <div
       key={id}
       className={classNames(
         'flex ',
-        labelDirection === 'col' ? 'flex-col items-center' : 'flex-row'
+        labelDirection === 'col' ? 'flex-col items-center' : 'flex-row items-center'
       )}
     >
       <input
-        id={id}
-        name="notification-method"
+        id={`radio-${id}-${legend}`}
+        name={`radio-button-${legend}`}
         type="radio"
         defaultChecked={id === defaultCheckedId}
         className={classNames(
@@ -34,7 +35,7 @@ const RadioButton: React.FC<RadioButtonProps> = ({ label, id, disabled }: RadioB
         disabled={disabled}
       />
       <label
-        htmlFor={id}
+        htmlFor={`radio-${id}-${legend}`}
         className={classNames(
           'block text-sm font-medium leading-5 text-gray-700',
           labelDirection === 'col' ? 'mt-2' : 'ml-3'

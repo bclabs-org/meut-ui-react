@@ -12,6 +12,10 @@ type RadioButtonGroupProps = {
   onChange: (value: string) => void;
 };
 
+/**
+ * RadioButtonGroup
+ * @caution - legend 값은 컴포넌트마다 고유한 값이어야 합니다. legend 가 같다면 체크상태를 공유하게 됩니다.
+ */
 const RadioButtonGroup: React.FC<RadioButtonGroupProps> = ({
   legend,
   defaultCheckedId,
@@ -28,7 +32,9 @@ const RadioButtonGroup: React.FC<RadioButtonGroupProps> = ({
         groupDirection === 'row' ? 'flex items-center space-x-4' : 'w-fit space-y-4'
       )}
     >
-      <RadioButtonGroupContext.Provider value={{ labelDirection, onChange, defaultCheckedId }}>
+      <RadioButtonGroupContext.Provider
+        value={{ legend, labelDirection, onChange, defaultCheckedId }}
+      >
         {children}
       </RadioButtonGroupContext.Provider>
     </div>
