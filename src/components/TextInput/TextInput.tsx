@@ -85,6 +85,11 @@ const TextInput: React.FC<TextInputProps> = ({
           onChange={onChange}
           onBlur={onBlur}
           onFocus={onFocus}
+          onWheel={(e) => {
+            if (type === 'number') {
+              e.currentTarget.blur();
+            }
+          }}
           value={value}
           autoComplete="off"
           {...rest}

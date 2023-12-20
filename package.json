@@ -1,6 +1,6 @@
 {
   "name": "@bclabs-org/meut-ui-react",
-  "version": "1.6.2",
+  "version": "1.6.3",
   "scripts": {
     "build": "rm -rf dist && rm -rf lib && rollup -c",
     "watch": "rollup -cw",
