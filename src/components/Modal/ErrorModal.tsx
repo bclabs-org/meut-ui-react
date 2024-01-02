@@ -10,6 +10,7 @@ type ModalProps = {
   leftButtonText: string;
   rightButtonText: string;
   leftButtonOnClick: () => void;
+  rightButtonOnClick?: () => void;
   setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
@@ -18,6 +19,7 @@ const ErrorModal: React.FC<ModalProps> = ({
   message,
   leftButtonText,
   rightButtonText,
+  rightButtonOnClick,
   setIsModalOpen,
   leftButtonOnClick,
 }) => (
@@ -41,7 +43,12 @@ const ErrorModal: React.FC<ModalProps> = ({
         full={true}
         size={`large`}
         color={`primary-error`}
-        onClick={(): void => setIsModalOpen(false)}
+        onClick={(): void => {
+          if (rightButtonOnClick) {
+            rightButtonOnClick();
+          }
+          setIsModalOpen(false);
+        }}
       >
         <p className={`whitespace-nowrap`}>{rightButtonText}</p>
       </Button>
