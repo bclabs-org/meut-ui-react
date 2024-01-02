@@ -15,7 +15,6 @@ export const Default = Template.bind({});
 Default.args = {
   title: 'Network error',
   message: 'An unknown network error has occured. Please try again later.',
-  isModalOpen: true,
   leftButtonText: 'My purchases',
   rightButtonText: 'Continue browsing',
 };
