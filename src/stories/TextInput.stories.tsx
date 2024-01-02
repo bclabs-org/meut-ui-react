@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import TextInput from '../components/TextInput/index';
@@ -67,10 +68,16 @@ DropdownInput.args = {
   maxLength: 20,
   miniButton: 'button',
   dropdownProps: {
-    content: ['BTC', 'ETH', 'USDT'],
+    contents: [
+      { value: 'BTC', label: 'BTC' },
+      { value: 'ETH', label: 'ETH' },
+      { value: 'USDT', label: 'USDT' },
+    ],
     label: '',
     selected: 'BTC',
-    handleChange: ():void => console.log('handleChange'),
+    onChange: (item: string) => {
+      console.log(item);
+    },
     placeholder: '텍스트를 입력해주세요',
-  }
+  },
 };
