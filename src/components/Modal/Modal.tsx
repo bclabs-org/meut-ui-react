@@ -6,7 +6,7 @@ type ModalProps = {
   children: React.ReactNode;
   isModalOpen: boolean;
   setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  widthSize?: 'small' | 'medium';
+  widthSize?: 'small' | 'medium' | 'large';
   onOutsideClick?: boolean;
   onClose?: Function;
   isCoverHeader?: boolean;
@@ -29,6 +29,9 @@ const Modal: React.FC<ModalProps> = ({
       break;
     case 'medium':
       width = 'w-[718px]';
+      break;
+    case 'large':
+      width = 'w-[936px]';
       break;
     default:
       throw Error('invalid width size pros');
