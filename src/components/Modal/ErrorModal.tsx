@@ -12,6 +12,7 @@ type ModalProps = {
   leftButtonOnClick: () => void;
   rightButtonOnClick?: () => void;
   setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  children?: React.ReactNode;
 };
 
 const ErrorModal: React.FC<ModalProps> = ({
@@ -22,6 +23,7 @@ const ErrorModal: React.FC<ModalProps> = ({
   rightButtonOnClick,
   setIsModalOpen,
   leftButtonOnClick,
+  children,
 }) => (
   <div className="flex flex-col gap-6">
     <div className="flex flex-col gap-5 items-center ">
@@ -33,6 +35,7 @@ const ErrorModal: React.FC<ModalProps> = ({
       <div className={`flex flex-col items-center justify-center gap-2`}>
         <p className={`text-base text-gray-900 font-semibold`}>{title}</p>
         <p className={`text-sm font-normal text-center`}>{message}</p>
+        {children}
       </div>
     </div>
     <div className={`flex items-center justify-center w-full gap-3`}>
