@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 
 import { Dialog, Transition } from '@headlessui/react';
+import getPadding from './util';
 
 type ModalProps = {
   children: React.ReactNode;
@@ -10,6 +11,7 @@ type ModalProps = {
   onOutsideClick?: boolean;
   onClose?: Function;
   isCoverHeader?: boolean;
+  customPadding?: string;
 };
 
 const Modal: React.FC<ModalProps> = ({
@@ -20,6 +22,7 @@ const Modal: React.FC<ModalProps> = ({
   onOutsideClick = true,
   onClose,
   isCoverHeader = false,
+  customPadding,
 }) => {
   let width: string;
 
@@ -36,6 +39,8 @@ const Modal: React.FC<ModalProps> = ({
     default:
       throw Error('invalid width size pros');
   }
+
+  const padding = getPadding(customPadding);
 
   return (
     <Transition.Root show={isModalOpen} as={Fragment}>
@@ -77,7 +82,7 @@ const Modal: React.FC<ModalProps> = ({
               <Dialog.Panel
                 className={`${width} relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all h-fit`}
               >
-                <div className="py-8 px-10">{children}</div>
+                <div className={padding}>{children}</div>
               </Dialog.Panel>
             </Transition.Child>
           </div>
