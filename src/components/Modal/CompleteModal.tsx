@@ -8,10 +8,10 @@ type ModalProps = {
   title: string;
   message: string;
   buttonText: string;
-  setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  onButtonClick?: () => void;
 };
 
-const CompleteModal: React.FC<ModalProps> = ({ title, message, buttonText, setIsModalOpen }) => (
+const CompleteModal: React.FC<ModalProps> = ({ title, message, buttonText, onButtonClick }) => (
   <div className="flex flex-col gap-6">
     <div className="flex flex-col gap-5 items-center ">
       <div>
@@ -25,12 +25,7 @@ const CompleteModal: React.FC<ModalProps> = ({ title, message, buttonText, setIs
       </div>
     </div>
     <div className={`w-full`}>
-      <Button
-        full={true}
-        size={`large`}
-        color={`primary`}
-        onClick={(): void => setIsModalOpen(false)}
-      >
+      <Button full={true} size={`large`} color={`primary`} onClick={onButtonClick}>
         {buttonText}
       </Button>
     </div>
