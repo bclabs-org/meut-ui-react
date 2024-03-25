@@ -7,7 +7,7 @@ type ModalProps = {
   children: React.ReactNode;
   isModalOpen: boolean;
   setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  widthSize?: 'small' | 'medium' | 'large';
+  widthSize?: 'x-small' | 'small' | 'medium' | 'large';
   onOutsideClick?: boolean;
   onClose?: Function;
   isCoverHeader?: boolean;
@@ -27,6 +27,9 @@ const Modal: React.FC<ModalProps> = ({
   let width: string;
 
   switch (widthSize) {
+    case 'x-small':
+      width = 'w-full max-w-[332px]';
+      break;
     case 'small':
       width = 'w-[468px]';
       break;
@@ -69,7 +72,7 @@ const Modal: React.FC<ModalProps> = ({
             isCoverHeader ? 'z-30' : 'z-10'
           } overflow-y-auto w-screen mx-auto`}
         >
-          <div className="flex min-h-screen justify-center text-center items-center py-32">
+          <div className="flex min-h-screen justify-center text-center items-center">
             <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"
