@@ -5,4 +5,5 @@ export type ToastState = {
   subMessage?: string;
   type: ToastColor;
   duration?: number;
+  closeBtn?: boolean;
 };
