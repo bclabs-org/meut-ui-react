@@ -35,7 +35,6 @@ const Alert: React.FC<AlertProps> = ({
 }: AlertProps) => {
   let alertBackground;
   let alertIcon;
-  let alertCloseBtn;
   let alertText;
   let alertSubText;
   switch (color) {
@@ -44,7 +43,6 @@ const Alert: React.FC<AlertProps> = ({
         alertBackground = 'bg-pink-50';
       }
       alertIcon = 'text-warning';
-      alertCloseBtn = 'text-warning';
       alertText = 'text-pink-800';
       alertSubText = 'text-pink-700';
       break;
@@ -53,7 +51,6 @@ const Alert: React.FC<AlertProps> = ({
         alertBackground = 'bg-amber-50';
       }
       alertIcon = 'text-amber-400';
-      alertCloseBtn = 'text-amber-600';
       alertText = 'text-amber-800';
       alertSubText = 'text-amber-700';
       break;
@@ -62,7 +59,6 @@ const Alert: React.FC<AlertProps> = ({
         alertBackground = 'bg-secondary';
       }
       alertIcon = 'text-emerald-400';
-      alertCloseBtn = 'text-primary';
       alertText = 'text-emerald-800';
       alertSubText = 'text-emerald-700';
       break;
@@ -71,7 +67,6 @@ const Alert: React.FC<AlertProps> = ({
         alertBackground = 'bg-blue-50';
       }
       alertIcon = 'text-blue-400';
-      alertCloseBtn = 'text-blue-700';
       alertText = 'text-blue-800';
       alertSubText = 'text-blue-800';
       break;
