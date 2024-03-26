@@ -4,12 +4,18 @@ let toasts: ToastState[] = [];
 let listeners: Function[] = [];
 
 const toastStore = {
-  addToast(message: string, type: ToastColor, subMessage: string, duration: number): void {
+  addToast(
+    message: string,
+    type: ToastColor,
+    subMessage: string,
+    duration: number,
+    closeBtn = true
+  ): void {
     const isMessageExists = toasts.some((t) => t.message === message);
     if (isMessageExists) {
       return;
     }
-    toasts = [...toasts, { message, type, subMessage, duration }];
+    toasts = [...toasts, { message, type, subMessage, duration, closeBtn }];
     listeners.forEach((listener) => listener(toasts));
   },
   subscribe(listener: Function): () => void {
@@ -30,17 +36,31 @@ const toastStore = {
   },
 };
 
-const toast = (message: string, type: ToastColor, subMessage = '', duration = 2000): void => {
-  toastStore.addToast(message, type, subMessage, duration);
+const toast = (
+  message: string,
+  type: ToastColor,
+  subMessage = '',
+  duration = 2000,
+  closeBtn = true
+): void => {
+  toastStore.addToast(message, type, subMessage, duration, closeBtn);
 };
 
-toast.error = (message: string, subMessage?: string, duration?: number): void =>
-  toast(message, 'error', subMessage, duration);
-toast.attention = (message: string, subMessage?: string, duration?: number): void =>
-  toast(message, 'attention', subMessage, duration);
-toast.completion = (message: string, subMessage?: string, duration?: number): void =>
-  toast(message, 'completion', subMessage, duration);
-toast.info = (message: string, subMessage?: string, duration?: number): void =>
-  toast(message, 'information', subMessage, duration);
+toast.error = (message: string, subMessage?: string, duration?: number, closeBtn = true): void =>
+  toast(message, 'error', subMessage, duration, closeBtn);
+toast.attention = (
+  message: string,
+  subMessage?: string,
+  duration?: number,
+  closeBtn = true
+): void => toast(message, 'attention', subMessage, duration, closeBtn);
+toast.completion = (
+  message: string,
+  subMessage?: string,
+  duration?: number,
+  closeBtn = true
+): void => toast(message, 'completion', subMessage, duration, closeBtn);
+toast.info = (message: string, subMessage?: string, duration?: number, closeBtn = true): void =>
+  toast(message, 'information', subMessage, duration, closeBtn);
 
 export { toastStore, toast };
