@@ -23,9 +23,10 @@ type ToastOptionProps = {
     displayText: string;
     onClick: () => void;
     codeText?: string;
+    closeBtn?: boolean;
 };
 
-const ToastOption: React.FC<ToastOptionProps> = ({ toastType, displayText, onClick, codeText }) => (
+const ToastOption: React.FC<ToastOptionProps> = ({ toastType, displayText, onClick, codeText,  }) => (
         <div className="py-2 flex flex-col gap-y-2">
             <code className="w-fit rounded bg-gray-100 text-xs p-1">
                 {codeText || `toast.${toastType}('message', 'subMessage')`}
@@ -91,6 +92,12 @@ const Template: ComponentStory<typeof React.Component<DefaultArgs>> = (args) => 
                         displayText="Popup attention"
                         onClick={() => toast.attention('attention msg', '', 1000)}
                         codeText="toast.attention('attention msg', '', 1000)"
+                    />
+                    <ToastOption
+                        toastType="attention"
+                        displayText="Popup attention - no close button"
+                        onClick={() => toast.attention('attention msg - no close button', '', 1000, false)}
+                        codeText="toast.attention('attention msg - no close button', '', 1000)"
                     />
                     <ToastOption
                         toastType="error"
