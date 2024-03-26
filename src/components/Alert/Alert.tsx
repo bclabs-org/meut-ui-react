@@ -50,12 +50,12 @@ const Alert: React.FC<AlertProps> = ({
       break;
     case 'attention':
       if (isBackgroundShow) {
-        alertBackground = 'bg-yellow-50';
+        alertBackground = 'bg-amber-50';
       }
-      alertIcon = 'text-yellow-400';
-      alertCloseBtn = 'text-yellow-600';
-      alertText = 'text-yellow-800';
-      alertSubText = 'text-yellow-700';
+      alertIcon = 'text-amber-400';
+      alertCloseBtn = 'text-amber-600';
+      alertText = 'text-amber-800';
+      alertSubText = 'text-amber-700';
       break;
     case 'completion':
       if (isBackgroundShow) {
