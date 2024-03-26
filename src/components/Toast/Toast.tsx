@@ -79,7 +79,7 @@ const Toast: React.FC<ToastProps> = ({ toastState, index, onHeightReady, top }: 
         subText={toastState.subMessage}
         color={toastState.type as 'error'}
         setIsAlertOpen={(): void => setIsCloseAnimationPlay(true)}
-        closeBtn
+        closeBtn={toastState.closeBtn}
       />
     </div>
   );
