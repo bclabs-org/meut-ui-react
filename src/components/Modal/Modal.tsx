@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 
 import { Dialog, Transition } from '@headlessui/react';
+import classNames from 'classnames';
 import getPadding from './util';
 
 type ModalProps = {
@@ -12,6 +13,7 @@ type ModalProps = {
   onClose?: Function;
   isCoverHeader?: boolean;
   customPadding?: string;
+  customDialogWrapper?: string;
 };
 
 const Modal: React.FC<ModalProps> = ({
@@ -23,6 +25,7 @@ const Modal: React.FC<ModalProps> = ({
   onClose,
   isCoverHeader = false,
   customPadding,
+  customDialogWrapper,
 }) => {
   let width: string;
 
@@ -83,7 +86,11 @@ const Modal: React.FC<ModalProps> = ({
               leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
             >
               <Dialog.Panel
-                className={`${width} relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all h-fit`}
+                className={classNames(
+                  `relative transform overflow-hidden`,
+                  customDialogWrapper ||
+                    `${width} rounded-lg bg-white text-left shadow-xl transition-all h-fit`
+                )}
               >
                 <div className={padding}>{children}</div>
               </Dialog.Panel>
