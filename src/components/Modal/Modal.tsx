@@ -6,7 +6,7 @@ import getPadding from './util';
 type ModalProps = {
   children: React.ReactNode;
   isModalOpen: boolean;
-  setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsModalOpen: (isOpen: boolean) => void | React.Dispatch<React.SetStateAction<boolean>>;
   widthSize?: 'x-small' | 'small' | 'medium' | 'large';
   onOutsideClick?: boolean;
   onClose?: Function;
