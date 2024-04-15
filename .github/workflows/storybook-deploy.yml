@@ -14,7 +14,7 @@ jobs:
       - name: Install and Build Storybook
         run: |
           yarn install
-          yarn build-storybook
+          yarn legacy_storybook_build
       - name: Publish storybook to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
