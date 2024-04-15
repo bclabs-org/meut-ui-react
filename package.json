@@ -1,6 +1,6 @@
 {
   "name": "@bclabs-org/meut-ui-react",
-  "version": "1.7.4",
+  "version": "1.7.5",
   "scripts": {
     "build": "rm -rf dist && rm -rf lib && rollup -c",
     "watch": "rollup -cw",
@@ -9,7 +9,7 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "legacy_storybook": "NODE_OPTIONS=--openssl-legacy-provider npm run storybook",
-    "legacy_storybook_build": "NODE_OPTIONS=--openssl-legacy-provider npm run storybook"
+    "legacy_storybook_build": "NODE_OPTIONS=--openssl-legacy-provider npm build-storybook"
   },
   "main": "dist/bundle.js",
   "types": "lib/index.d.ts",
