@@ -1,5 +1,4 @@
 import React, { ReactElement } from 'react';
-
 import {
   XCircleIcon,
   XMarkIcon,
@@ -12,6 +11,7 @@ type AlertProps = {
   text: string;
   subText?: string;
   color?: 'error' | 'attention' | 'completion' | 'information';
+  isAlertOpen: boolean;
   setIsAlertOpen: React.Dispatch<React.SetStateAction<boolean>>;
   closeBtn?: boolean;
   className?: string;
@@ -25,6 +25,7 @@ const Alert: React.FC<AlertProps> = ({
   text,
   subText,
   color = 'error',
+  isAlertOpen,
   setIsAlertOpen,
   closeBtn = false,
   className,
@@ -35,6 +36,7 @@ const Alert: React.FC<AlertProps> = ({
 }: AlertProps) => {
   let alertBackground;
   let alertIcon;
+  let alertCloseBtn;
   let alertText;
   let alertSubText;
   switch (color) {
@@ -43,22 +45,25 @@ const Alert: React.FC<AlertProps> = ({
         alertBackground = 'bg-pink-50';
       }
       alertIcon = 'text-warning';
+      alertCloseBtn = 'text-warning';
       alertText = 'text-pink-800';
       alertSubText = 'text-pink-700';
       break;
     case 'attention':
       if (isBackgroundShow) {
-        alertBackground = 'bg-amber-50';
+        alertBackground = 'bg-yellow-50';
       }
-      alertIcon = 'text-amber-400';
-      alertText = 'text-amber-800';
-      alertSubText = 'text-amber-700';
+      alertIcon = 'text-yellow-400';
+      alertCloseBtn = 'text-yellow-600';
+      alertText = 'text-yellow-800';
+      alertSubText = 'text-yellow-700';
       break;
     case 'completion':
       if (isBackgroundShow) {
         alertBackground = 'bg-secondary';
       }
       alertIcon = 'text-emerald-400';
+      alertCloseBtn = 'text-primary';
       alertText = 'text-emerald-800';
       alertSubText = 'text-emerald-700';
       break;
@@ -67,6 +72,7 @@ const Alert: React.FC<AlertProps> = ({
         alertBackground = 'bg-blue-50';
       }
       alertIcon = 'text-blue-400';
+      alertCloseBtn = 'text-blue-700';
       alertText = 'text-blue-800';
       alertSubText = 'text-blue-800';
       break;
@@ -127,7 +133,7 @@ const Alert: React.FC<AlertProps> = ({
             <button
               type="button"
               className={`${alertBackground} ${alertIcon}`}
-              onClick={(): void => setIsAlertOpen(false)}
+              onClick={():void => setIsAlertOpen(false)}
               aria-label="Close Alert"
             >
               <XMarkIcon className="h-5 w-5" aria-hidden="true" />

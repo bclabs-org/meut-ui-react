@@ -1,8 +1,6 @@
+import { babel } from '@rollup/plugin-babel';
 import { dirname, resolve } from 'path';
 import { fileURLToPath } from 'url';
-import { babel } from '@rollup/plugin-babel';
-import image from '@rollup/plugin-image';
-
 import nodeResolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import postcss from 'rollup-plugin-postcss';
@@ -47,7 +45,6 @@ export default {
     commonjs({ include: 'node_modules/**' }),
     nodeResolve({ extensions }),
     terser(),
-    image(),
   ],
   external: ['react', 'react-dom', 'typescript'],
 };
