@@ -1,0 +1,5 @@
+.triangle {
+    clip-path: polygon(100% 0, 0 0, 50% 100%);
+    width: 24px;
+    height: 24px;
+}
