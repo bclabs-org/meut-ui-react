@@ -1,15 +1,13 @@
 {
   "name": "@bclabs-org/meut-ui-react",
-  "version": "1.7.4",
+  "version": "1.1.6",
   "scripts": {
     "build": "rm -rf dist && rm -rf lib && rollup -c",
     "watch": "rollup -cw",
     "lint": "eslint '**/*.{ts,tsx}'",
     "lint:fix": "eslint '**/*.{ts,tsx}' --fix",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
-    "legacy_storybook": "NODE_OPTIONS=--openssl-legacy-provider npm run storybook",
-    "legacy_storybook_build": "NODE_OPTIONS=--openssl-legacy-provider npm run storybook"
+    "build-storybook": "build-storybook"
   },
   "main": "dist/bundle.js",
   "types": "lib/index.d.ts",
@@ -29,7 +27,6 @@
     "@babel/preset-typescript": "^7.18.6",
     "@rollup/plugin-babel": "^6.0.3",
     "@rollup/plugin-commonjs": "^23.0.3",
-    "@rollup/plugin-eslint": "^9.0.5",
     "@rollup/plugin-node-resolve": "^15.0.1",
     "@rollup/plugin-terser": "^0.1.0",
     "@storybook/addon-actions": "^6.5.14",
@@ -69,8 +66,6 @@
   "dependencies": {
     "@headlessui/react": "^1.7.13",
     "@heroicons/react": "^2.0.13",
-    "@rollup/plugin-image": "^3.0.3",
-    "@tailwindcss/forms": "^0.5.3",
-    "react-number-format": "5.1.2"
+    "@tailwindcss/forms": "^0.5.3"
   }
 }

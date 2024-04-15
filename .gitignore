@@ -27,6 +27,3 @@ yarn-error.log*
 .idea/
 
 *.xml
-
-/dist
-/lib

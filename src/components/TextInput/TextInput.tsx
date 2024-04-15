@@ -1,5 +1,4 @@
 import React, { ChangeEvent, useEffect, useRef, useState } from 'react';
-
 import Button from '../Button';
 import Dropdown from '../Dropdown';
 import { DropdownProps } from '../Dropdown/Dropdown';
@@ -85,11 +84,6 @@ const TextInput: React.FC<TextInputProps> = ({
           onChange={onChange}
           onBlur={onBlur}
           onFocus={onFocus}
-          onWheel={(e) => {
-            if (type === 'number') {
-              e.currentTarget.blur();
-            }
-          }}
           value={value}
           autoComplete="off"
           {...rest}
@@ -106,17 +100,16 @@ const TextInput: React.FC<TextInputProps> = ({
                 type="button"
                 color="secondary"
                 size="small"
-                onClick={handleMiniButtonClick}
-                disabled={disabled}
+                handleClick={handleMiniButtonClick}
               >
                 {miniButton}
               </Button>
             </div>
           )}
-          {dropdownProps && !!dropdownProps.contents && (
+          {dropdownProps && !!dropdownProps.content && (
             <div className="flex items-center">
               <div className="mr-2 border-l h-8 border-gray-200"></div>
-              <Dropdown disabled={disabled} buttonStyle="mixed" {...dropdownProps} />
+              <Dropdown borderStyle={`border-0`} {...dropdownProps}/>
             </div>
           )}
         </div>
