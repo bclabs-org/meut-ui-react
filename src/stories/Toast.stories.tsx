@@ -102,8 +102,8 @@ const Template: ComponentStory<typeof React.Component<DefaultArgs>> = (args) => 
                     <ToastOption
                         toastType="error"
                         displayText="Popup error"
-                        onClick={() => toast.error('error msg', '', 6000)}
-                        codeText="toast.error('error msg', '', 6000)"
+                        onClick={() => toast.error('error msg', '', 6500)}
+                        codeText="toast.error('error msg', '', 6500)"
                     />
                     <ToastOption
                         toastType=""
