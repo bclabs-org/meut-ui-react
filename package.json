@@ -9,7 +9,7 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "legacy_storybook": "NODE_OPTIONS=--openssl-legacy-provider npm run storybook",
-    "legacy_storybook_build": "NODE_OPTIONS=--openssl-legacy-provider npm build-storybook"
+    "legacy_storybook_build": "NODE_OPTIONS=--openssl-legacy-provider npm run build-storybook"
   },
   "main": "dist/bundle.js",
   "types": "lib/index.d.ts",
